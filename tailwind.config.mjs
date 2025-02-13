@@ -4,12 +4,18 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pageSection/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        colors: {
+          heading: "#222222",
+          subheading: "#403D39",
+          text: "#555555",
+          bannerBgColor: "#F3F2EB",
+          button: "#BDBD34",
+        },
       },
     },
   },

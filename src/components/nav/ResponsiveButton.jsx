@@ -1,0 +1,32 @@
+"use client";
+import React from "react";
+
+import { Button, Icon } from "@/index";
+import { FaBars, RxCross2 } from "@/utils/icons";
+import { useGlobalContext } from "@/contextStore/GlobalContext";
+
+const ResponsiveButton = () => {
+  const { openNav, setOpenNav } = useGlobalContext();
+
+  return (
+    <React.Fragment>
+      {!openNav ? (
+        <Button
+          onClick={() => setOpenNav(true)}
+          className="lg:hidden flex-center p-2 rounded-md z-20"
+        >
+          <Icon icon={FaBars} size={25} className="text-white" />
+        </Button>
+      ) : (
+        <Button
+          onClick={() => setOpenNav(false)}
+          className="lg:hidden flex-center p-2 rounded-md z-20"
+        >
+          <Icon icon={RxCross2} size={25} className="text-white" />
+        </Button>
+      )}
+    </React.Fragment>
+  );
+};
+
+export default ResponsiveButton;

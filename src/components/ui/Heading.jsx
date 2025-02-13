@@ -1,47 +1,23 @@
 import React from "react";
 
 const H1 = ({ className = "", children }) => {
-  return (
-    <h1 className={`text-3xl sm:text-4xl md:text-5xl font-bold ${className}`}>
-      {children}
-    </h1>
-  );
+  return <h1 className={` ${className}`}>{children}</h1>;
 };
 
 const H2 = ({ className = "", children }) => {
-  return (
-    <h2
-      className={`text-2xl sm:text-3xl md:text-4xl font-semibold ${className}`}
-    >
-      {children}
-    </h2>
-  );
+  return <h2 className={` ${className}`}>{children}</h2>;
 };
 
 const H3 = ({ className = "", children }) => {
-  return (
-    <h3
-      className={`text-xl sm:text-2xl md:text-3xl font-semibold ${className}`}
-    >
-      {children}
-    </h3>
-  );
+  return <h3 className={`  ${className}`}>{children}</h3>;
 };
 
 const H4 = ({ className = "", children }) => {
-  return (
-    <h4 className={`text-lg sm:text-xl md:text-2xl font-medium ${className}`}>
-      {children}
-    </h4>
-  );
+  return <h4 className={` ${className}`}>{children}</h4>;
 };
 
 const H5 = ({ className = "", children }) => {
-  return (
-    <h5 className={`text-base sm:text-lg md:text-xl font-medium ${className}`}>
-      {children}
-    </h5>
-  );
+  return <h5 className={`${className}`}>{children}</h5>;
 };
 
 const H6 = ({ className = "", children }) => {
