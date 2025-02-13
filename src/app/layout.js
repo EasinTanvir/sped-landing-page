@@ -1,4 +1,4 @@
-import { Montserrat } from "next/font/google";
+import { Montserrat, Lobster } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/nav/Navbar";
@@ -9,6 +9,11 @@ const montserrat = Montserrat({
   style: ["normal", "italic"],
   subsets: ["latin"],
 });
+export const lobster = Lobster({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin", "cyrillic", "cyrillic-ext", "latin-ext"],
+});
 
 export const metadata = {
   title: "SwiftDrop",
@@ -18,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable}  `}>
+      <body className={`${montserrat.className} `}>
         <ContextWrapper>
           <Navbar />
           <main> {children}</main>

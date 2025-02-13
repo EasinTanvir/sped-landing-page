@@ -1,7 +1,10 @@
-"use client";
-
 import React from "react";
+import Link from "next/link";
+
 import { useGlobalContext } from "@/contextStore/GlobalContext";
+import { Button, H1, Icon } from "@/index";
+import { RiTruckFill, FaAngleRight } from "@/utils/icons";
+import { navLinks } from "@/utils";
 
 const MobileNav = () => {
   const { openNav } = useGlobalContext();
@@ -22,15 +25,36 @@ const NavSideBar = ({ openNav }) => {
   return (
     <div
       className={`fixed top-0 left-0 h-screen bg-white z-20 transition-all duration-300 ease-in-out
-        ${openNav ? "w-72 translate-x-0" : "w-0 -translate-x-full"}
+        ${openNav ? "sm:w-72 w-[70%] translate-x-0" : "w-0 -translate-x-full"}
       `}
     >
       <div
-        className={`p-4 transition-opacity duration-300 ${
+        className={`p-4  transition-opacity duration-300 ${
           openNav ? "opacity-100" : "opacity-0"
         }`}
       >
-        MobileNav
+        <div className="flex items-center gap-2">
+          <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
+          <H1 className="text-sm text-colors-heading md:text-2xl font-semibold">
+            SwiftDrop
+          </H1>
+        </div>
+
+        <ul className="flex flex-col  w-full mt-10 ">
+          {navLinks.map((link, index) => (
+            <li
+              className={`flex justify-between items-center border-b py-2 min-w-full `}
+              key={index}
+            >
+              <Link className="text-colors-text font-medium  " href={link.path}>
+                {link.name}
+              </Link>
+              <Button className="p-2 rounded-lg">
+                <Icon className="text-white" icon={FaAngleRight} size={17} />
+              </Button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

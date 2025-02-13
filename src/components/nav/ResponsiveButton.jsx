@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 import { Button, Icon } from "@/index";
@@ -15,14 +14,14 @@ const ResponsiveButton = () => {
           onClick={() => setOpenNav(true)}
           className="lg:hidden flex-center p-2 rounded-md z-20"
         >
-          <Icon icon={FaBars} size={25} className="text-white" />
+          <Icon icon={FaBars} size={20} className="text-white" />
         </Button>
       ) : (
         <Button
           onClick={() => setOpenNav(false)}
           className="lg:hidden flex-center p-2 rounded-md z-20"
         >
-          <Icon icon={RxCross2} size={25} className="text-white" />
+          <Icon icon={RxCross2} size={20} className="text-white" />
         </Button>
       )}
     </React.Fragment>
