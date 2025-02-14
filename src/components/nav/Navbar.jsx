@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 import { Icon, H1, Container } from "../..";
 import ResponsiveButton from "./ResponsiveButton";
@@ -15,13 +16,23 @@ const Navbar = () => {
       <Container className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
-          <H1
-            className={`text-colors-heading md:text-2xl text-xl font-semibold`}
-          >
+          <H1 className="text-colors-heading md:text-2xl text-xl font-bold">
             SwiftDrop
           </H1>
         </div>
-        <ul className="lg:flex hidden items-center gap-12">
+
+        <motion.ul
+          className="lg:flex hidden items-center gap-12"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 },
+            },
+          }}
+        >
           {navLinks.map((link, index) => (
             <NavLinks
               key={index}
@@ -30,7 +41,8 @@ const Navbar = () => {
               path={link.path}
             />
           ))}
-        </ul>
+        </motion.ul>
+
         <ResponsiveButton />
         <MobileNav />
       </Container>

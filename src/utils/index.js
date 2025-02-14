@@ -14,6 +14,11 @@ const navLinks = [
     path: "/contact",
     icon: RiPhoneFill,
   },
+  {
+    name: "About Us",
+    path: "/about",
+    icon: FaUtensils,
+  },
 ];
 
 const bannerFoodItems = [
