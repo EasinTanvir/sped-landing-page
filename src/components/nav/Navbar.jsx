@@ -16,7 +16,7 @@ const Navbar = () => {
       <Container className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
-          <H1 className="text-colors-heading md:text-2xl text-xl font-bold">
+          <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
             SwiftDrop
           </H1>
         </div>
