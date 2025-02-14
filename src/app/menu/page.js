@@ -1,7 +1,7 @@
 import React from "react";
 
 const Menu = () => {
-  return <div>Menu</div>;
+  return <div className="min-h-40 bg-white">Menu</div>;
 };
 
 export default Menu;

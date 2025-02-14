@@ -7,10 +7,9 @@ const BannerImage = () => {
   return (
     <div className="flex-1 relative  aspect-[2/2]  ">
       <Image
-        className="object-cover "
+        className="object-cover  w-full"
         src={bannerImage}
         alt="banner image"
-        fill
       />
     </div>
   );

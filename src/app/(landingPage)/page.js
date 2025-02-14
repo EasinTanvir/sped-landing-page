@@ -1,14 +1,13 @@
 import React from "react";
 
 import HeroBanner from "@/pageSection/landingPage/banner/HeroBanner";
-import { Container } from "@/index";
+import MenuSection from "@/pageSection/landingPage/menu/MenuSection";
 
 const page = () => {
   return (
-    <div className="bg-colors-bannerBgColor  pt-52">
-      <Container>
-        <HeroBanner />
-      </Container>
+    <div>
+      <HeroBanner />
+      <MenuSection />
     </div>
   );
 };
