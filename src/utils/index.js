@@ -1,6 +1,18 @@
 import { RiRestaurantFill, RiPhoneFill } from "react-icons/ri";
 import { BiHomeAlt } from "react-icons/bi";
-import { FaTag, FaHamburger, FaUtensils } from "react-icons/fa";
+import {
+  FaTag,
+  FaHamburger,
+  FaUtensils,
+  FaGlassMartiniAlt,
+  FaCoffee,
+  FaBirthdayCake,
+  FaPizzaSlice,
+  FaMugHot,
+  FaLeaf,
+  FaPepperHot,
+} from "react-icons/fa";
+
 import {
   pizza,
   todayMenu1,
@@ -143,4 +155,207 @@ const todayMenuItems = [
   },
 ];
 
-export { navLinks, bannerFoodItems, menuOffers, menuFoodItems, todayMenuItems };
+const qualityServices = [
+  {
+    icon: FaUtensils,
+    title: "Restaurant",
+    desc: "  Lorem ipsum dolor sit amet, adipiscing elit, sed",
+  },
+  {
+    icon: FaGlassMartiniAlt,
+    title: "Bar",
+    desc: "  Lorem ipsum dolor sit amet, adipiscing elit, sed",
+  },
+  {
+    icon: FaCoffee,
+    title: "Cafe",
+    desc: "  Lorem ipsum dolor sit amet, adipiscing elit, sed",
+  },
+  {
+    icon: FaBirthdayCake,
+    title: "Dessert",
+    desc: "  Lorem ipsum dolor sit amet, adipiscing elit, sed",
+  },
+];
+
+export const menuItems = [
+  {
+    id: 1,
+    title: "Pulled Chicken Pizza",
+    category: "Pizza",
+    price: "$30",
+    img: pizza,
+  },
+  {
+    id: 2,
+    title: "Jamaican Jerk Pizza",
+    category: "Pizza",
+    price: "$80",
+    img: pizza,
+  },
+  {
+    id: 3,
+    title: "Margherita Pizza",
+    category: "Pizza",
+    price: "$25",
+    img: pizza,
+  },
+  {
+    id: 4,
+    title: "BBQ Chicken Pizza",
+    category: "Pizza",
+    price: "$35",
+    img: pizza,
+  },
+
+  {
+    id: 5,
+    title: "Cold Brew Coffee",
+    category: "Cold Drink",
+    price: "$10",
+    img: todayMenu3,
+  },
+  {
+    id: 6,
+    title: "Iced Lemonade",
+    category: "Cold Drink",
+    price: "$8",
+    img: todayMenu3,
+  },
+  {
+    id: 7,
+    title: "Strawberry Smoothie",
+    category: "Cold Drink",
+    price: "$12",
+    img: todayMenu3,
+  },
+  {
+    id: 8,
+    title: "Mango Iced Tea",
+    category: "Cold Drink",
+    price: "$9",
+    img: todayMenu3,
+  },
+
+  {
+    id: 9,
+    title: "Caesar Salad",
+    category: "Salad",
+    price: "$15",
+    img: pizza,
+  },
+  {
+    id: 10,
+    title: "Greek Salad",
+    category: "Salad",
+    price: "$14",
+    img: pizza,
+  },
+  {
+    id: 11,
+    title: "Avocado & Quinoa Salad",
+    category: "Salad",
+    price: "$18",
+    img: pizza,
+  },
+
+  {
+    id: 12,
+    title: "Chocolate Cake",
+    category: "Sweets",
+    price: "$12",
+    img: pizza,
+  },
+  {
+    id: 13,
+    title: "Strawberry Shortcake",
+    category: "Sweets",
+    price: "$14",
+    img: pizza,
+  },
+  {
+    id: 14,
+    title: "Tiramisu",
+    category: "Sweets",
+    price: "$16",
+    img: pizza,
+  },
+
+  {
+    id: 15,
+    title: "Spicy Wings",
+    category: "Spicy",
+    price: "$18",
+    img: pizza,
+  },
+  {
+    id: 16,
+    title: "Hot & Spicy Noodles",
+    category: "Spicy",
+    price: "$16",
+    img: pizza,
+  },
+  {
+    id: 17,
+    title: "Spicy Tacos",
+    category: "Spicy",
+    price: "$20",
+    img: pizza,
+  },
+  {
+    id: 18,
+    title: "Spicy Chicken Wrap",
+    category: "Spicy",
+    price: "$19",
+    img: pizza,
+  },
+
+  {
+    id: 19,
+    title: "Cheeseburger",
+    category: "Burger",
+    price: "$22",
+    img: pizza,
+  },
+  {
+    id: 20,
+    title: "BBQ Bacon Burger",
+    category: "Burger",
+    price: "$24",
+    img: pizza,
+  },
+  {
+    id: 21,
+    title: "Mushroom Swiss Burger",
+    category: "Burger",
+    price: "$23",
+    img: pizza,
+  },
+  {
+    id: 22,
+    title: "Double Patty Burger",
+    category: "Burger",
+    price: "$26",
+    img: pizza,
+  },
+];
+
+const areMenutabs = [
+  { name: "All", icon: FaUtensils },
+  { name: "Cold Drink", icon: FaMugHot },
+  { name: "Pizza", icon: FaPizzaSlice },
+  { name: "Salad", icon: FaLeaf },
+  { name: "Sweets", icon: FaBirthdayCake },
+  { name: "Spicy", icon: FaPepperHot },
+  { name: "Burger", icon: FaHamburger },
+];
+
+export {
+  navLinks,
+  bannerFoodItems,
+  menuOffers,
+  menuFoodItems,
+  todayMenuItems,
+  qualityServices,
+  areMenutabs,
+};
