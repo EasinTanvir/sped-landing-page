@@ -22,7 +22,7 @@ const TodayMenuCard = ({ title, description, price, image, topSeller }) => {
         initial={{ y: 0 }}
         animate={{ y: isHovered ? 150 : 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white h-[120px] flex flex-col items-center absolute bottom-0 left-0 w-full py-4 space-y-2.5 px-6"
+        className="bg-white h-[120px] flex flex-col items-center absolute bottom-0 left-0 w-full py-4 space-y-2.5 sm:px-6 px-10"
       >
         <H3 className="text-2xl font-bold text-colors-heading italic">
           {title}

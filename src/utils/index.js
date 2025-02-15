@@ -342,8 +342,8 @@ export const menuItems = [
 
 const areMenutabs = [
   { name: "All", icon: FaUtensils },
-  { name: "Cold Drink", icon: FaMugHot },
   { name: "Pizza", icon: FaPizzaSlice },
+  { name: "Cold Drink", icon: FaMugHot },
   { name: "Salad", icon: FaLeaf },
   { name: "Sweets", icon: FaBirthdayCake },
   { name: "Spicy", icon: FaPepperHot },
