@@ -8,7 +8,7 @@ const OurMenu = () => {
   return (
     <div className="space-y-8">
       <H2
-        className={`lg:text-6xl sm:text-5xl text-4xl font-bold italic sm:!leading-[80px] !leading-[50px] ${lobster.className} `}
+        className={`lg:text-6xl sm:text-5xl text-4xl font-bold italic text-center sm:!leading-[80px] !leading-[50px] ${lobster.className} `}
       >
         Our Menu
       </H2>

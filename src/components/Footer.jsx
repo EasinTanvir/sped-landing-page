@@ -1,12 +1,15 @@
 import React from "react";
 
 import { navLinks } from "@/utils";
+import { H1 } from "..";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-6 px-4">
+    <footer className="w-full py-10 px-4">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between">
-        <div className="text-lg font-semibold">SwiftDrop</div>
+        <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
+          SwiftDrop
+        </H1>
 
         <p className="text-sm text-gray-600 flex-1 text-center">
           © {new Date().getFullYear()} SwiftDrop. All rights reserved.
