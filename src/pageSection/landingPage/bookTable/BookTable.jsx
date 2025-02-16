@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Container, H2 } from "@/index";
-import { lobster } from "@/app/layout";
+import { Container } from "@/index";
 import BookTableForm from "./BookTableForm";
 
 const BookTable = () => {

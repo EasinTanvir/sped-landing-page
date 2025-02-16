@@ -1,4 +1,5 @@
 import React from "react";
+
 import BannerText from "./BannerText";
 import BannerImage from "./BannerImage";
 import { Container } from "@/index";
