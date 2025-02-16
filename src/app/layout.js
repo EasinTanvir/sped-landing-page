@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       <body className={`${montserrat.className} `}>
         <ContextWrapper>
           <Navbar />
-          <main> {children}</main>
+          <main className="min-h-[calc(100vh-24px)]"> {children}</main>
           <Footer />
         </ContextWrapper>
       </body>
