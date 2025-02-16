@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "@/components/nav/Navbar";
 import ContextWrapper from "@/components/ContextWrapper";
+import Footer from "@/components/Footer";
 
 const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <ContextWrapper>
           <Navbar />
           <main> {children}</main>
+          <Footer />
         </ContextWrapper>
       </body>
     </html>

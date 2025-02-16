@@ -14,6 +14,10 @@ import {
 } from "react-icons/fa";
 
 import {
+  chef1,
+  chef2,
+  chef3,
+  chef4,
   pizza,
   todayMenu1,
   todayMenu2,
@@ -350,6 +354,57 @@ const areMenutabs = [
   { name: "Burger", icon: FaHamburger },
 ];
 
+const masterChefs = [
+  {
+    id: 1,
+    name: "Cotlin Care",
+    position: "Senior Chef",
+    image: chef1,
+  },
+  {
+    id: 2,
+    name: "Sarah Albert",
+    position: "Senior Chef",
+    image: chef2,
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    position: "Senior Chef",
+    image: chef3,
+  },
+  {
+    id: 4,
+    name: "Jemy Carline",
+    position: "Junior Chef",
+    image: chef4,
+  },
+  {
+    id: 5,
+    name: "Michael Smith",
+    position: "Executive Chef",
+    image: chef2,
+  },
+  {
+    id: 6,
+    name: "Emma Brown",
+    position: "Sous Chef",
+    image: chef1,
+  },
+  {
+    id: 7,
+    name: "Liam Johnson",
+    position: "Head Chef",
+    image: chef4,
+  },
+  {
+    id: 8,
+    name: "Olivia Davis",
+    position: "Pastry Chef",
+    image: chef3,
+  },
+];
+
 export {
   navLinks,
   bannerFoodItems,
@@ -358,4 +413,5 @@ export {
   todayMenuItems,
   qualityServices,
   areMenutabs,
+  masterChefs,
 };

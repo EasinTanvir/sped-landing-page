@@ -12,6 +12,7 @@ const BannerImage = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Image
+        priority
         className="object-cover w-full"
         src={bannerImage}
         alt="banner image"

@@ -11,6 +11,11 @@ import todayMenu2 from "../assets/todayMenu/pic4.jpg";
 import todayMenu3 from "../assets/todayMenu/pic5.jpg";
 import todayMenu4 from "../assets/todayMenu/pic6.jpg";
 
+import chef1 from "../assets/chefs/chef.jpg";
+import chef2 from "../assets/chefs/chef1.jpg";
+import chef3 from "../assets/chefs/chef2.jpg";
+import chef4 from "../assets/chefs/chef4.jpg";
+
 export {
   bannerImage,
   deliveryBoy1,
@@ -23,4 +28,8 @@ export {
   todayMenu2,
   todayMenu3,
   todayMenu4,
+  chef1,
+  chef2,
+  chef3,
+  chef4,
 };
