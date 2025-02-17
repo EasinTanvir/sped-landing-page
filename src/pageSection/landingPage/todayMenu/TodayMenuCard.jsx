@@ -16,7 +16,13 @@ const TodayMenuCard = ({ title, description, price, image, topSeller }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Image fill className="object-cover" src={image} alt="image" />
+      <Image
+        fill
+        className="object-cover"
+        src={image}
+        alt="image"
+        sizes="100vw "
+      />
 
       <Motion
         initial={{ y: 0 }}

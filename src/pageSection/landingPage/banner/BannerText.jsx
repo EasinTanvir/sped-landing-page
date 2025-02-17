@@ -1,6 +1,6 @@
 import React from "react";
 
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 import { Button, H1, Icon, Text } from "@/index";
 import { IoCheckmark } from "@/utils/icons";
 import { bannerFoodItems } from "@/utils";

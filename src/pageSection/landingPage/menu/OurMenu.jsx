@@ -2,7 +2,7 @@ import React from "react";
 
 import { H2 } from "@/index";
 import MenuSlider from "./MenuSlider";
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 
 const OurMenu = () => {
   return (

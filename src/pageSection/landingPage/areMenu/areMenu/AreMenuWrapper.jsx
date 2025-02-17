@@ -18,7 +18,7 @@ const AreMenuWrapper = () => {
     <React.Fragment>
       <AreMenuTab selectedTab={selectedTab} onTabChange={setSelectedTab} />
       <div className="grid sm:grid-cols-2 lg:gap-0 gap-5 overflow-hidden">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}

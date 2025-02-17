@@ -3,7 +3,7 @@ import React from "react";
 import QualityServiceCard from "./QualityServiceCard";
 import { qualityServices } from "@/utils";
 import { Container, H2 } from "@/index";
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 import Motion from "@/components/ui/Motion";
 
 const QualityService = () => {

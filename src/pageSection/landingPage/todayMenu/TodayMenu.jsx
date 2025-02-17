@@ -3,7 +3,7 @@ import React from "react";
 import { Container, H2 } from "@/index";
 import TodayMenuClient from "./TodayMenuClient";
 import { todayMenuItems } from "@/utils";
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 
 const TodayMenu = () => {
   return (

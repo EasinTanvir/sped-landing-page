@@ -1,13 +1,23 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+
+import { useTranslations } from "next-intl";
 
 import { useGlobalContext } from "@/contextStore/GlobalContext";
 import { Button, H1, Icon } from "@/index";
-import { RiTruckFill, FaAngleRight } from "@/utils/icons";
-import { navLinks } from "@/utils";
+import {
+  FaAngleRight,
+  RiTruckFill,
+  RiRestaurantFill,
+  RiPhoneFill,
+  FaUtensils,
+  BiHomeAlt,
+} from "@/utils/icons";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const MobileNav = () => {
   const { openNav } = useGlobalContext();
+
   return (
     <div
       className={` lg:hidden fixed inset-0 bg-black/40 z-10 transition-opacity duration-300 ${
@@ -22,6 +32,14 @@ const MobileNav = () => {
 export default MobileNav;
 
 const NavSideBar = ({ openNav }) => {
+  const t = useTranslations("navbar");
+
+  const navLinks = [
+    { name: t("Home"), path: "/", icon: BiHomeAlt },
+    { name: t("Menu"), path: "/menu", icon: RiRestaurantFill },
+    { name: t("Contact"), path: "/contact", icon: RiPhoneFill },
+    { name: t("About Us"), path: "/about", icon: FaUtensils },
+  ];
   return (
     <div
       className={`fixed top-0 left-0 h-screen bg-white z-20 transition-all duration-300 ease-in-out
@@ -54,6 +72,9 @@ const NavSideBar = ({ openNav }) => {
               </Button>
             </li>
           ))}
+          <div className="flex justify-end my-5">
+            <LanguageSwitcher />
+          </div>
         </ul>
       </div>
     </div>

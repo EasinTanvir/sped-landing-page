@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@/index";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const NavLinks = ({ name, path, icon }) => {
   return (

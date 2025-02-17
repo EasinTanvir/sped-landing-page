@@ -1,0 +1,11 @@
+{
+  "landingPage": {
+    "title": "SwiftDrop"
+  },
+  "navbar": {
+    "Home": "Etusivu",
+    "Menu": "Ruokalista",
+    "Contact": "Yhteystiedot",
+    "About Us": "Tietoa meistä"
+  }
+}

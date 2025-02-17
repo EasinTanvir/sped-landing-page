@@ -1,4 +1,4 @@
-import { RiTruckFill } from "react-icons/ri";
+import { RiTruckFill, RiRestaurantFill, RiPhoneFill } from "react-icons/ri";
 import {
   FaBars,
   FaUser,
@@ -7,10 +7,13 @@ import {
   FaPhone,
   FaEnvelope,
   FaCalendarAlt,
+  FaUtensils,
 } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaAngleRight } from "react-icons/fa6";
 import { IoCheckmark } from "react-icons/io5";
+
+import { BiHomeAlt } from "react-icons/bi";
 
 export {
   RiTruckFill,
@@ -24,4 +27,8 @@ export {
   FaPhone,
   FaEnvelope,
   FaCalendarAlt,
+  RiRestaurantFill,
+  RiPhoneFill,
+  FaUtensils,
+  BiHomeAlt,
 };

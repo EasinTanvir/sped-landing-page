@@ -2,7 +2,7 @@ import React from "react";
 
 import NewsLetterCard from "./NewsLetterCard";
 import { Container, H2 } from "@/index";
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 
 const NewsLetter = () => {
   return (

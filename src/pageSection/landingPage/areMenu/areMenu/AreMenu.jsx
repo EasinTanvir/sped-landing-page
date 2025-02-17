@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, H2 } from "@/index";
 import AreMenuWrapper from "./AreMenuWrapper";
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 
 const AreMenu = () => {
   return (

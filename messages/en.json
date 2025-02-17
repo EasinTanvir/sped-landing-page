@@ -1,0 +1,11 @@
+{
+  "landingPage": {
+    "title": "SwiftDrop"
+  },
+  "navbar": {
+    "Home": "Home",
+    "Menu": "Menu",
+    "Contact": "Contact",
+    "About Us": "About Us"
+  }
+}

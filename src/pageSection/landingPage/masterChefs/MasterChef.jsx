@@ -1,6 +1,6 @@
 import React from "react";
 
-import { lobster } from "@/app/layout";
+import { lobster } from "@/app/(routes)/[locale]/layout";
 import { Container, H2 } from "@/index";
 import ChefWarpper from "./ChefWarpper";
 
