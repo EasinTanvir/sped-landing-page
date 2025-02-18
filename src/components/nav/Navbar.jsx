@@ -36,11 +36,11 @@ const Navbar = () => {
       className={` ${
         landingPage
           ? "bg-colors-bannerBgColor"
-          : "bg-white sticky top-0 shadow-sm"
-      } py-6 absolute top-0 left-0 w-full`}
+          : "bg-white  sticky top-0 shadow-sm"
+      } py-6 absolute top-0 left-0 w-full z-50`}
     >
       <Container className="flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ">
           <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
           <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
             {heading("title")}

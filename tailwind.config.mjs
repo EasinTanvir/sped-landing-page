@@ -14,7 +14,9 @@ export default {
           subheading: "#403D39",
           text: "#555555",
           bannerBgColor: "#F3F2EB",
+
           button: "#BDBD34",
+          dashboardBg: "#2746DD",
         },
       },
     },
