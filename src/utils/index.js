@@ -11,6 +11,10 @@ import {
   FaMugHot,
   FaLeaf,
   FaPepperHot,
+  FaHome,
+  FaImage,
+  FaUserTie,
+  FaEnvelope,
 } from "react-icons/fa";
 
 import {
@@ -405,6 +409,29 @@ const masterChefs = [
   },
 ];
 
+const adminNavigation = [
+  { name: "Dashboard", href: "/admin", icon: FaHome, current: true },
+  {
+    name: "HeroBanner",
+    href: "/admin/hero-banner",
+    icon: FaImage,
+  },
+  {
+    name: "Menu",
+    href: "/admin/menu",
+    icon: FaUtensils,
+  },
+  {
+    name: "Chefs",
+    href: "/admin/chefs",
+    icon: FaUserTie,
+  },
+  {
+    name: "Newsletter",
+    href: "/admin/newsletter",
+    icon: FaEnvelope,
+  },
+];
 export {
   navLinks,
   bannerFoodItems,
@@ -414,4 +441,5 @@ export {
   qualityServices,
   areMenutabs,
   masterChefs,
+  adminNavigation,
 };

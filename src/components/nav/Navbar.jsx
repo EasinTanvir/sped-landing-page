@@ -16,11 +16,14 @@ import {
 } from "@/utils/icons";
 import NavLinks from "./NavLinks";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { usePathname } from "@/i18n/routing";
 
 const Navbar = () => {
   const t = useTranslations("navbar");
   const heading = useTranslations("landingPage");
-
+  const path = usePathname();
+  const landingPage = path === "/";
+  console.log("landingPage", landingPage);
   const navLinks = [
     { name: t("Home"), path: "/", icon: BiHomeAlt },
     { name: t("Menu"), path: "/menu", icon: RiRestaurantFill },
@@ -29,7 +32,13 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-transparent py-6 absolute top-0 left-0 w-full">
+    <div
+      className={` ${
+        landingPage
+          ? "bg-colors-bannerBgColor"
+          : "bg-white sticky top-0 shadow-sm"
+      } py-6 absolute top-0 left-0 w-full`}
+    >
       <Container className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
