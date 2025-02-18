@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, usePathname } from "@/i18n/routing";
 
-import { Icon } from "../..";
+import { Icon } from "../../..";
 
 const AdminLink = ({ icon, name, dashBoardSideBar, href }) => {
   const path = usePathname();

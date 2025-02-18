@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 import { useGlobalContext } from "@/contextStore/GlobalContext";
 import { MdAdminPanelSettings } from "@/utils/icons";
-import { Icon, H1 } from "../..";
+import { Icon, H1 } from "../../..";
 import { adminNavigation } from "@/utils";
 import AdminLink from "./AdminLink";
 import ToggleIcon from "./ToggleIcon";

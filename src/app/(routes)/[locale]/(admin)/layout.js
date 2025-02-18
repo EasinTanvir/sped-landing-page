@@ -1,7 +1,7 @@
 import React from "react";
 
-import AdminSidebar from "@/pageSection/adminPage/AdminSidebar";
-import AdminLayoutWrapper from "@/pageSection/adminPage/AdminLayoutWrapper";
+import AdminSidebar from "@/pageSection/adminPage/adminLayout/AdminSidebar";
+import AdminLayoutWrapper from "@/pageSection/adminPage/adminLayout/AdminLayoutWrapper";
 
 function AdminLaout({ children }) {
   return (
