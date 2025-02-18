@@ -9,6 +9,14 @@
     "About Us": "About Us"
   },
   "admin": {
-    "title": "Admin"
+    "title": "Admin",
+    "nav": {
+      "dashboard": "Dashboard",
+      "heroBanner": "Hero Banner",
+      "menu": "Menu",
+      "service": "Service",
+      "chefs": "Chefs",
+      "newsletter": "Newsletter"
+    }
   }
 }

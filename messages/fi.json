@@ -9,6 +9,14 @@
     "About Us": "Tietoa meistä"
   },
   "admin": {
-    "title": "Ylläpitäjän"
+    "title": "Ylläpitäjän",
+    "nav": {
+      "dashboard": "Hallintapaneeli",
+      "heroBanner": "Pääbanneri",
+      "menu": "Valikko",
+      "service": "Palvelu",
+      "chefs": "Kokit",
+      "newsletter": "Uutiskirje"
+    }
   }
 }

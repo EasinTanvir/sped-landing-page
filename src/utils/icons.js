@@ -10,12 +10,19 @@ import {
   FaUtensils,
   FaLongArrowAltLeft,
   FaLongArrowAltRight,
+  FaHome,
+  FaImage,
+  FaUserTie,
 } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaAngleRight } from "react-icons/fa6";
 import { IoCheckmark } from "react-icons/io5";
 import { BiHomeAlt } from "react-icons/bi";
-import { MdAdminPanelSettings } from "react-icons/md";
+import {
+  MdAdminPanelSettings,
+  MdMenuBook,
+  MdMiscellaneousServices,
+} from "react-icons/md";
 
 export {
   RiTruckFill,
@@ -36,4 +43,9 @@ export {
   MdAdminPanelSettings,
   FaLongArrowAltLeft,
   FaLongArrowAltRight,
+  FaHome,
+  FaImage,
+  FaUserTie,
+  MdMenuBook,
+  MdMiscellaneousServices,
 };

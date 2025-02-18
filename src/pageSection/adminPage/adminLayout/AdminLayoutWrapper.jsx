@@ -11,7 +11,7 @@ const AdminLayoutWrapper = ({ children }) => {
     <div
       className={`flex-1   ${
         dashBoardSideBar ? "lg:ml-64 ml-[78px]" : "ml-[78px]"
-      } transition-all duration-200 p-4`}
+      } transition-all duration-200 sm:p-4 p-2`}
     >
       {children}
     </div>

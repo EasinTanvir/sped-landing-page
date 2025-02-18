@@ -6,17 +6,19 @@ import { useTranslations } from "next-intl";
 import { useGlobalContext } from "@/contextStore/GlobalContext";
 import { MdAdminPanelSettings } from "@/utils/icons";
 import { Icon, H1 } from "../../..";
-import { adminNavigation } from "@/utils";
 import AdminLink from "./AdminLink";
 import ToggleIcon from "./ToggleIcon";
+import useAdminNavigation from "@/hooks/useAdminNavigation";
 
 const AdminSidebar = () => {
   const { openNav, dashBoardSideBar } = useGlobalContext();
-  const t = useTranslations("admin");
+  const heading = useTranslations("admin");
+
+  const adminNavigation = useAdminNavigation();
 
   return (
     <div
-      className={`fixed  top-0 min-h-screen  bg-black shadow-lg shadow-black transition-all duration-200 ${
+      className={`fixed  top-0 min-h-screen max-h-screen  bg-black shadow-lg shadow-black transition-all duration-200 ${
         dashBoardSideBar ? "w-64" : "w-[78px]"
       }   py-6 px-4  ${openNav ? "" : "z-20"}`}
     >
@@ -35,7 +37,7 @@ const AdminSidebar = () => {
           }`}
         >
           <H1 className="text-colors-button md:text-2xl text-xl font-bold font-mono italic">
-            {t("title")}
+            {heading("title")}
           </H1>
         </div>
       </div>

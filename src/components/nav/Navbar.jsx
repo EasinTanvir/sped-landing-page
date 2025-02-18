@@ -37,7 +37,7 @@ const Navbar = () => {
       className={` ${
         landingPage
           ? "bg-colors-bannerBgColor"
-          : "bg-white  sticky top-0 shadow-sm"
+          : "bg-white  sticky top-0 shadow-md"
       } py-6 absolute top-0 left-0 w-full z-10`}
     >
       <Container
