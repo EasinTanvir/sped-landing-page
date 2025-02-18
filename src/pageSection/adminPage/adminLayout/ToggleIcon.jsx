@@ -14,7 +14,10 @@ const ToggleIcon = () => {
     <div
       className={`flex ${dashBoardSideBar ? "justify-end" : "justify-center"}`}
     >
-      <Button className="!bg-transparent" onClick={onToggleHandler}>
+      <Button
+        className="px-2 py-0.5 rounded-md !bg-rose-600"
+        onClick={onToggleHandler}
+      >
         <Icon
           className="text-white"
           icon={dashBoardSideBar ? FaLongArrowAltLeft : FaLongArrowAltRight}
