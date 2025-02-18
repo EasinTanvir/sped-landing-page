@@ -1,13 +1,28 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 const GlobalContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
   const [openNav, setOpenNav] = useState(false);
+  const [dashBoardSideBar, setBoardSideBar] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setBoardSideBar(window.innerWidth >= 1024);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const sendData = {
     openNav,
     setOpenNav,
+    dashBoardSideBar,
+    setBoardSideBar,
   };
 
   return (

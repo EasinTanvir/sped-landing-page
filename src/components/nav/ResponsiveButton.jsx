@@ -12,14 +12,14 @@ const ResponsiveButton = () => {
       {!openNav ? (
         <Button
           onClick={() => setOpenNav(true)}
-          className="lg:hidden flex-center p-2 rounded-md z-20"
+          className="lg:hidden flex-center p-2 rounded-md z-50"
         >
           <Icon icon={FaBars} size={20} className="text-white" />
         </Button>
       ) : (
         <Button
           onClick={() => setOpenNav(false)}
-          className="lg:hidden flex-center p-2 rounded-md z-20"
+          className="lg:hidden flex-center p-2 rounded-md z-50"
         >
           <Icon icon={RxCross2} size={20} className="text-white" />
         </Button>

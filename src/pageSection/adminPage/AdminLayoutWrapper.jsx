@@ -1,7 +1,21 @@
+"use client";
+
 import React from "react";
 
+import { useGlobalContext } from "@/contextStore/GlobalContext";
+
 const AdminLayoutWrapper = ({ children }) => {
-  return <div className="flex-1  ml-64">{children}</div>;
+  const { dashBoardSideBar } = useGlobalContext();
+
+  return (
+    <div
+      className={`flex-1   ${
+        dashBoardSideBar ? "lg:ml-64 ml-[78px]" : "ml-[78px]"
+      } transition-all duration-200`}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default AdminLayoutWrapper;

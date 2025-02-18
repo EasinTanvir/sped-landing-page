@@ -16,6 +16,9 @@ import {
   FaUserTie,
   FaEnvelope,
 } from "react-icons/fa";
+import { MdMiscellaneousServices } from "react-icons/md";
+import { LuSquareMenu } from "react-icons/lu";
+import { MdMenuBook } from "react-icons/md";
 
 import {
   chef1,
@@ -419,7 +422,17 @@ const adminNavigation = [
   {
     name: "Menu",
     href: "/admin/menu",
-    icon: FaUtensils,
+    icon: MdMenuBook,
+  },
+  {
+    name: "Today Menu",
+    href: "/admin/today-menu",
+    icon: LuSquareMenu,
+  },
+  {
+    name: "Service",
+    href: "/admin/service",
+    icon: MdMiscellaneousServices,
   },
   {
     name: "Chefs",

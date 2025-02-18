@@ -7,5 +7,8 @@
     "Menu": "Menu",
     "Contact": "Contact",
     "About Us": "About Us"
+  },
+  "admin": {
+    "title": "Admin"
   }
 }

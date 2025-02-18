@@ -20,8 +20,8 @@ const MobileNav = () => {
 
   return (
     <div
-      className={` lg:hidden fixed inset-0 bg-black/40 z-10 transition-opacity duration-300 ${
-        openNav ? "opacity-100 visible" : "opacity-0 invisible"
+      className={` lg:hidden fixed inset-0 bg-black/40 transition-opacity duration-300 z-30 ${
+        openNav ? "opacity-100   visible" : "opacity-0 invisible"
       }`}
     >
       <NavSideBar openNav={openNav} />

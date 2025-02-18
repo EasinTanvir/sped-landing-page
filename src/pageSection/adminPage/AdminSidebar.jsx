@@ -1,18 +1,56 @@
-import { Link } from "@/i18n/routing";
+"use client";
+
 import React from "react";
-import { FaHome } from "react-icons/fa";
+import { useTranslations } from "next-intl";
+
+import { useGlobalContext } from "@/contextStore/GlobalContext";
+import { MdAdminPanelSettings } from "@/utils/icons";
+import { Icon, H1 } from "../..";
+import { adminNavigation } from "@/utils";
+import AdminLink from "./AdminLink";
+import ToggleIcon from "./ToggleIcon";
 
 const AdminSidebar = () => {
+  const { openNav, dashBoardSideBar } = useGlobalContext();
+  const t = useTranslations("admin");
+
   return (
-    <div className="fixed  top-0 min-h-screen  bg-slate-900  w-64 py-32 px-4">
-      <div className="">
-        <Link className="flex items-center gap-2.5 bg-colors-dashboardBg px-3 rounded-xl py-2">
-          <span>
-            {" "}
-            <FaHome className=" text-white " size={20} />
-          </span>
-          <span className="text-white "> Dashboard</span>
-        </Link>
+    <div
+      className={`fixed  top-0 min-h-screen  bg-black shadow-lg shadow-black transition-all duration-200 ${
+        dashBoardSideBar ? "w-64" : "w-[78px]"
+      }   py-6 px-4  ${openNav ? "" : "z-20"}`}
+    >
+      <div className="flex justify-center items-center gap-2 ">
+        <Icon
+          className="text-colors-button"
+          icon={MdAdminPanelSettings}
+          size={35}
+        />
+
+        <div
+          className={`overflow-hidden transition-all duration-200 ${
+            dashBoardSideBar
+              ? "opacity-100 scale-100 w-auto"
+              : "opacity-0 scale-0 w-0"
+          }`}
+        >
+          <H1 className="text-colors-button md:text-2xl text-xl font-bold font-mono italic">
+            {t("title")}
+          </H1>
+        </div>
+      </div>
+
+      <div className="mt-8  space-y-7 ">
+        <ToggleIcon />
+        <div className="space-y-5">
+          {adminNavigation.map((item, index) => (
+            <AdminLink
+              key={index}
+              {...item}
+              dashBoardSideBar={dashBoardSideBar}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

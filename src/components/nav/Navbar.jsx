@@ -3,10 +3,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/routing";
 
 import { Icon, H1, Container } from "../..";
 import ResponsiveButton from "./ResponsiveButton";
 import MobileNav from "./MobileNav";
+import NavLinks from "./NavLinks";
+import LanguageSwitcher from "../LanguageSwitcher";
 import {
   RiTruckFill,
   RiRestaurantFill,
@@ -14,16 +17,14 @@ import {
   FaUtensils,
   BiHomeAlt,
 } from "@/utils/icons";
-import NavLinks from "./NavLinks";
-import LanguageSwitcher from "../LanguageSwitcher";
-import { usePathname } from "@/i18n/routing";
 
 const Navbar = () => {
   const t = useTranslations("navbar");
   const heading = useTranslations("landingPage");
   const path = usePathname();
   const landingPage = path === "/";
-  console.log("landingPage", landingPage);
+  const adminPage = path.startsWith("/admin");
+
   const navLinks = [
     { name: t("Home"), path: "/", icon: BiHomeAlt },
     { name: t("Menu"), path: "/menu", icon: RiRestaurantFill },
@@ -37,15 +38,25 @@ const Navbar = () => {
         landingPage
           ? "bg-colors-bannerBgColor"
           : "bg-white  sticky top-0 shadow-sm"
-      } py-6 absolute top-0 left-0 w-full z-50`}
+      } py-6 absolute top-0 left-0 w-full z-10`}
     >
-      <Container className="flex justify-between items-center">
-        <div className="flex items-center gap-2 ">
-          <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
-          <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
-            {heading("title")}
-          </H1>
-        </div>
+      <Container
+        className={`flex  items-center ${
+          adminPage ? "justify-end" : "justify-between"
+        }`}
+      >
+        {!adminPage && (
+          <div className="flex items-center gap-2 ">
+            <Icon
+              className="text-colors-heading"
+              icon={RiTruckFill}
+              size={35}
+            />
+            <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
+              {heading("title")}
+            </H1>
+          </div>
+        )}
 
         <motion.ul
           className="lg:flex hidden items-center gap-12"
