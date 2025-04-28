@@ -23,11 +23,7 @@ const AdminSidebar = () => {
       }   py-6 px-4  ${openNav ? "" : "z-20"}`}
     >
       <div className="flex justify-center items-center gap-2 ">
-        <Icon
-          className="text-colors-button"
-          icon={MdAdminPanelSettings}
-          size={35}
-        />
+        <Icon className="text-white" icon={MdAdminPanelSettings} size={35} />
 
         <div
           className={`overflow-hidden transition-all duration-200 ${
@@ -36,7 +32,7 @@ const AdminSidebar = () => {
               : "opacity-0 scale-0 w-0"
           }`}
         >
-          <H1 className="text-colors-button md:text-2xl text-xl font-bold font-mono italic">
+          <H1 className="text-white md:text-2xl text-xl font-bold font-mono italic">
             {heading("title")}
           </H1>
         </div>
