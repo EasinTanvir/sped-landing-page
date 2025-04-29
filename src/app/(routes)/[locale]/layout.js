@@ -1,7 +1,6 @@
 import { Montserrat, Lobster } from "next/font/google";
 import "../../globals.css";
 
-import Navbar from "@/components/nav/Navbar";
 import ContextWrapper from "@/components/ContextWrapper";
 import Footer from "@/components/Footer";
 
@@ -9,6 +8,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { redirect } from "next/navigation";
+import NavWrapper from "@/components/nav/NavWrapper";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -40,9 +41,10 @@ export default async function RootLayout({ children, params }) {
       <body className={`${montserrat.className} `}>
         <NextIntlClientProvider messages={messages}>
           <ContextWrapper>
-            <Navbar />
+            <NavWrapper />
             <main className="min-h-[calc(100vh-24px)]"> {children}</main>
             <Footer />
+            <Toaster position="top-center" />
           </ContextWrapper>
         </NextIntlClientProvider>
       </body>
