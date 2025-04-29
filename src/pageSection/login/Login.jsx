@@ -2,12 +2,16 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "@/i18n/routing";
+import { Link, useRouter } from "@/i18n/routing";
+import { signIn } from "next-auth/react";
 
 import InputField from "@/components/shared/InputFIeld";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
   const [loader, setLoader] = useState(false);
+
+  const router = useRouter();
 
   const {
     register,
@@ -18,8 +22,24 @@ const LogIn = () => {
     mode: "onTouched",
   });
 
-  const loginHandler = async (data) => {};
-
+  const loginHandler = async (data) => {
+    console.log("data", data);
+    setLoader(true);
+    signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    }).then((cb) => {
+      if (cb?.ok) {
+        setLoader(false);
+        router.replace("/admin");
+      }
+      if (cb?.error) {
+        setLoader(false);
+        toast.error(cb.error);
+      }
+    });
+  };
   return (
     <div className="min-h-screen flex justify-center items-center p-4">
       <form
@@ -35,12 +55,12 @@ const LogIn = () => {
 
         <div className="flex flex-col gap-3">
           <InputField
-            label="UserName"
+            label="Email"
             required
-            id="username"
+            id="email"
             type="text"
-            message="*UserName is required"
-            placeholder="Enter your username"
+            message="*Email is required"
+            placeholder="Enter your emil"
             register={register}
             errors={errors}
           />

@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "@/i18n/routing";
+import toast from "react-hot-toast";
 
 import InputField from "@/components/shared/InputFIeld";
-import { Link } from "@/i18n/routing";
+import api from "@/api";
 
 const Register = () => {
   const [loader, setLoader] = useState(false);
@@ -14,13 +16,34 @@ const Register = () => {
     handleSubmit,
     reset,
     watch,
+    setError,
     formState: { errors },
   } = useForm({
     mode: "onTouched",
   });
 
   const registerHandler = async (data) => {
-    console.log(data);
+    setLoader(true);
+    try {
+      const sendData = {
+        username: data.username,
+        email: data.email,
+        password: data.password,
+      };
+
+      const { data: res } = await api.post("/api/auth/register", sendData);
+      toast.success(res.message);
+      reset();
+    } catch (err) {
+      console.log(err.response.data.email);
+      if (err.response.data.email) {
+        setError("email", { message: err.response.data.email });
+      } else {
+        toast.error("User create failed");
+      }
+    } finally {
+      setLoader(false);
+    }
   };
 
   const password = watch("password");

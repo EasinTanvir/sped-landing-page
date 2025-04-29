@@ -2,19 +2,33 @@
 
 import React from "react";
 import { useTranslations } from "next-intl";
+import { BiLogOut } from "react-icons/bi";
+import { signOut } from "next-auth/react";
+import { useParams } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
 
 import { useGlobalContext } from "@/contextStore/GlobalContext";
 import { MdAdminPanelSettings } from "@/utils/icons";
-import { Icon, H1 } from "../../..";
+import { Icon, H1, Button } from "../../..";
 import AdminLink from "./AdminLink";
 import ToggleIcon from "./ToggleIcon";
 import useAdminNavigation from "@/hooks/useAdminNavigation";
 
 const AdminSidebar = () => {
   const { openNav, dashBoardSideBar } = useGlobalContext();
-  const heading = useTranslations("admin");
-
   const adminNavigation = useAdminNavigation();
+
+  const heading = useTranslations("admin");
+  const { locale } = useParams();
+  const router = useRouter();
+
+  const logoutHandler = async () => {
+    const data = await signOut({
+      redirect: false,
+      callbackUrl: `/${locale}/login`,
+    });
+    router.push(data.url);
+  };
 
   return (
     <div
@@ -38,7 +52,7 @@ const AdminSidebar = () => {
         </div>
       </div>
 
-      <div className="mt-8  space-y-7 ">
+      <div className="mt-8  space-y-7   ">
         <ToggleIcon />
         <div className="space-y-5">
           {adminNavigation.map((item, index) => (
@@ -50,6 +64,16 @@ const AdminSidebar = () => {
           ))}
         </div>
       </div>
+
+      <Button
+        onClick={logoutHandler}
+        className={`fixed ${
+          dashBoardSideBar ? "left-10" : "left-4"
+        } bottom-4  flex items-center gap-2 p-3 rounded-lg text-white shadow-md transition-all duration-400`}
+      >
+        <BiLogOut className="w-4 h-4" />
+        {dashBoardSideBar && <span> Logout</span>}
+      </Button>
     </div>
   );
 };
