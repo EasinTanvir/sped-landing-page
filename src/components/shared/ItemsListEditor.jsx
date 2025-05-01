@@ -18,7 +18,7 @@ const ItemsListEditor = ({ items, setItems }) => {
 
   return (
     <div className="space-y-2">
-      <label className="block text-gray-700 font-medium">Items List</label>
+      <label className="block text-gray-700 font-bold">Items List</label>
       {items.map((item, index) => (
         <div key={index} className="flex gap-2">
           <input

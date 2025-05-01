@@ -9,9 +9,7 @@ const ButtonsEditor = ({
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-gray-700 font-medium">
-          Button One Text
-        </label>
+        <label className="block text-gray-700 font-bold">Button One Text</label>
         <input
           required
           type="text"
@@ -21,9 +19,7 @@ const ButtonsEditor = ({
         />
       </div>
       <div>
-        <label className="block text-gray-700 font-medium">
-          Button Two Text
-        </label>
+        <label className="block text-gray-700 font-bold">Button Two Text</label>
         <input
           required
           type="text"

@@ -3,7 +3,7 @@ import React from "react";
 const TitleInput = ({ title, setTitle }) => {
   return (
     <div>
-      <label className="block text-gray-700 font-medium">Title</label>
+      <label className="block text-gray-700 font-bold">Title</label>
       <input
         required
         type="text"

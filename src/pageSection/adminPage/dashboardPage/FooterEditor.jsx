@@ -1,7 +1,7 @@
 const FooterEditor = ({ footerText, setFooterText }) => {
   return (
     <div>
-      <label className="block text-gray-700 font-medium">Footer Text</label>
+      <label className="block text-gray-700 font-bold">Footer Text</label>
       <textarea
         required
         value={footerText}

@@ -3,9 +3,7 @@ import React from "react";
 const DescriptionInput = ({ description, setDescription }) => {
   return (
     <div>
-      <label className="block text-gray-700 font-medium">
-        Short Description
-      </label>
+      <label className="block text-gray-700 font-bold">Short Description</label>
       <input
         required
         type="text"

@@ -67,7 +67,7 @@ const BrandSettings = ({ settingData }) => {
       className="bg-white lg:p-6 p-2 rounded-lg shadow-md space-y-6"
     >
       <div>
-        <label className="block text-gray-700 font-medium">Brand Title</label>
+        <label className="block text-gray-700 font-bold">Brand Title</label>
         <input
           required
           type="text"
