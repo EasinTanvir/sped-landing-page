@@ -1,8 +1,14 @@
-"ues client";
+"use client";
+
 import React from "react";
+import LoaderCom from "@/components/shared/Loader";
 
 const Loader = () => {
-  return <div></div>;
+  return (
+    <>
+      <LoaderCom />
+    </>
+  );
 };
 
 export default Loader;

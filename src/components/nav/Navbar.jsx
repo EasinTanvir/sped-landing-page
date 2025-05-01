@@ -34,6 +34,8 @@ const Navbar = ({ brandSetting }) => {
     { name: t("About Us"), path: "/about", icon: FaUtensils },
   ];
 
+  if (path === "/login" || path === "/register") return;
+
   return (
     <div
       className={` ${

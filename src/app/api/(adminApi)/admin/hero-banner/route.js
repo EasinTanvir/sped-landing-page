@@ -28,7 +28,9 @@ export async function POST(req) {
   }
 }
 
-export async function GET(req) {
+export async function GET() {
+  console.log("re rendering");
+
   try {
     const banner = await prismaCli.heroBanner.findFirst();
 
