@@ -11,12 +11,25 @@ datasource db {
 
 
 
-model User {
-   id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  username String
-  email    String
-  password String
-  createdAt     DateTime @default(now())
+enum Role {
+  USER
+  ADMIN
+}
 
- 
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+}
+
+model HeroBanner {
+   id   String   @id @default(auto()) @map("_id") @db.ObjectId
+  title Json
+  description Json
+  items Json
+  buttonOneText Json
+  buttonTwoText Json
 }

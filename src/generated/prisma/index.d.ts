@@ -18,6 +18,28 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model HeroBanner
+ * 
+ */
+export type HeroBanner = $Result.DefaultSelection<Prisma.$HeroBannerPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const Role: {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+};
+
+export type Role = (typeof Role)[keyof typeof Role]
+
+}
+
+export type Role = $Enums.Role
+
+export const Role: typeof $Enums.Role
 
 /**
  * ##  Prisma Client ʲˢ
@@ -120,6 +142,16 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.heroBanner`: Exposes CRUD operations for the **HeroBanner** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more HeroBanners
+    * const heroBanners = await prisma.heroBanner.findMany()
+    * ```
+    */
+  get heroBanner(): Prisma.HeroBannerDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -560,7 +592,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    User: 'User'
+    User: 'User',
+    HeroBanner: 'HeroBanner'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -579,7 +612,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user"
+      modelProps: "user" | "heroBanner"
       txIsolationLevel: never
     }
     model: {
@@ -657,6 +690,80 @@ export namespace Prisma {
           }
         }
       }
+      HeroBanner: {
+        payload: Prisma.$HeroBannerPayload<ExtArgs>
+        fields: Prisma.HeroBannerFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HeroBannerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HeroBannerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>
+          }
+          findFirst: {
+            args: Prisma.HeroBannerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HeroBannerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>
+          }
+          findMany: {
+            args: Prisma.HeroBannerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>[]
+          }
+          create: {
+            args: Prisma.HeroBannerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>
+          }
+          createMany: {
+            args: Prisma.HeroBannerCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.HeroBannerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>
+          }
+          update: {
+            args: Prisma.HeroBannerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>
+          }
+          deleteMany: {
+            args: Prisma.HeroBannerDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HeroBannerUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.HeroBannerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HeroBannerPayload>
+          }
+          aggregate: {
+            args: Prisma.HeroBannerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHeroBanner>
+          }
+          groupBy: {
+            args: Prisma.HeroBannerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HeroBannerGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.HeroBannerFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.HeroBannerAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.HeroBannerCountArgs<ExtArgs>
+            result: $Utils.Optional<HeroBannerCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -729,6 +836,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
+    heroBanner?: HeroBannerOmit
   }
 
   /* Types for Logging */
@@ -838,6 +946,7 @@ export namespace Prisma {
     username: string | null
     email: string | null
     password: string | null
+    role: $Enums.Role | null
     createdAt: Date | null
   }
 
@@ -846,6 +955,7 @@ export namespace Prisma {
     username: string | null
     email: string | null
     password: string | null
+    role: $Enums.Role | null
     createdAt: Date | null
   }
 
@@ -854,6 +964,7 @@ export namespace Prisma {
     username: number
     email: number
     password: number
+    role: number
     createdAt: number
     _all: number
   }
@@ -864,6 +975,7 @@ export namespace Prisma {
     username?: true
     email?: true
     password?: true
+    role?: true
     createdAt?: true
   }
 
@@ -872,6 +984,7 @@ export namespace Prisma {
     username?: true
     email?: true
     password?: true
+    role?: true
     createdAt?: true
   }
 
@@ -880,6 +993,7 @@ export namespace Prisma {
     username?: true
     email?: true
     password?: true
+    role?: true
     createdAt?: true
     _all?: true
   }
@@ -961,6 +1075,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role: $Enums.Role
     createdAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -986,6 +1101,7 @@ export namespace Prisma {
     username?: boolean
     email?: boolean
     password?: boolean
+    role?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -996,10 +1112,11 @@ export namespace Prisma {
     username?: boolean
     email?: boolean
     password?: boolean
+    role?: boolean
     createdAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password" | "createdAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "email" | "password" | "role" | "createdAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1009,6 +1126,7 @@ export namespace Prisma {
       username: string
       email: string
       password: string
+      role: $Enums.Role
       createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -1406,6 +1524,7 @@ export namespace Prisma {
     readonly username: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'Role'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
@@ -1756,6 +1875,929 @@ export namespace Prisma {
 
 
   /**
+   * Model HeroBanner
+   */
+
+  export type AggregateHeroBanner = {
+    _count: HeroBannerCountAggregateOutputType | null
+    _min: HeroBannerMinAggregateOutputType | null
+    _max: HeroBannerMaxAggregateOutputType | null
+  }
+
+  export type HeroBannerMinAggregateOutputType = {
+    id: string | null
+  }
+
+  export type HeroBannerMaxAggregateOutputType = {
+    id: string | null
+  }
+
+  export type HeroBannerCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    items: number
+    buttonOneText: number
+    buttonTwoText: number
+    _all: number
+  }
+
+
+  export type HeroBannerMinAggregateInputType = {
+    id?: true
+  }
+
+  export type HeroBannerMaxAggregateInputType = {
+    id?: true
+  }
+
+  export type HeroBannerCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    items?: true
+    buttonOneText?: true
+    buttonTwoText?: true
+    _all?: true
+  }
+
+  export type HeroBannerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HeroBanner to aggregate.
+     */
+    where?: HeroBannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeroBanners to fetch.
+     */
+    orderBy?: HeroBannerOrderByWithRelationInput | HeroBannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HeroBannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeroBanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeroBanners.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned HeroBanners
+    **/
+    _count?: true | HeroBannerCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HeroBannerMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HeroBannerMaxAggregateInputType
+  }
+
+  export type GetHeroBannerAggregateType<T extends HeroBannerAggregateArgs> = {
+        [P in keyof T & keyof AggregateHeroBanner]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHeroBanner[P]>
+      : GetScalarType<T[P], AggregateHeroBanner[P]>
+  }
+
+
+
+
+  export type HeroBannerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HeroBannerWhereInput
+    orderBy?: HeroBannerOrderByWithAggregationInput | HeroBannerOrderByWithAggregationInput[]
+    by: HeroBannerScalarFieldEnum[] | HeroBannerScalarFieldEnum
+    having?: HeroBannerScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HeroBannerCountAggregateInputType | true
+    _min?: HeroBannerMinAggregateInputType
+    _max?: HeroBannerMaxAggregateInputType
+  }
+
+  export type HeroBannerGroupByOutputType = {
+    id: string
+    title: JsonValue
+    description: JsonValue
+    items: JsonValue
+    buttonOneText: JsonValue
+    buttonTwoText: JsonValue
+    _count: HeroBannerCountAggregateOutputType | null
+    _min: HeroBannerMinAggregateOutputType | null
+    _max: HeroBannerMaxAggregateOutputType | null
+  }
+
+  type GetHeroBannerGroupByPayload<T extends HeroBannerGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HeroBannerGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HeroBannerGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HeroBannerGroupByOutputType[P]>
+            : GetScalarType<T[P], HeroBannerGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HeroBannerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    items?: boolean
+    buttonOneText?: boolean
+    buttonTwoText?: boolean
+  }, ExtArgs["result"]["heroBanner"]>
+
+
+
+  export type HeroBannerSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    items?: boolean
+    buttonOneText?: boolean
+    buttonTwoText?: boolean
+  }
+
+  export type HeroBannerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "items" | "buttonOneText" | "buttonTwoText", ExtArgs["result"]["heroBanner"]>
+
+  export type $HeroBannerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "HeroBanner"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: Prisma.JsonValue
+      description: Prisma.JsonValue
+      items: Prisma.JsonValue
+      buttonOneText: Prisma.JsonValue
+      buttonTwoText: Prisma.JsonValue
+    }, ExtArgs["result"]["heroBanner"]>
+    composites: {}
+  }
+
+  type HeroBannerGetPayload<S extends boolean | null | undefined | HeroBannerDefaultArgs> = $Result.GetResult<Prisma.$HeroBannerPayload, S>
+
+  type HeroBannerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HeroBannerFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HeroBannerCountAggregateInputType | true
+    }
+
+  export interface HeroBannerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HeroBanner'], meta: { name: 'HeroBanner' } }
+    /**
+     * Find zero or one HeroBanner that matches the filter.
+     * @param {HeroBannerFindUniqueArgs} args - Arguments to find a HeroBanner
+     * @example
+     * // Get one HeroBanner
+     * const heroBanner = await prisma.heroBanner.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HeroBannerFindUniqueArgs>(args: SelectSubset<T, HeroBannerFindUniqueArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one HeroBanner that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HeroBannerFindUniqueOrThrowArgs} args - Arguments to find a HeroBanner
+     * @example
+     * // Get one HeroBanner
+     * const heroBanner = await prisma.heroBanner.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HeroBannerFindUniqueOrThrowArgs>(args: SelectSubset<T, HeroBannerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HeroBanner that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerFindFirstArgs} args - Arguments to find a HeroBanner
+     * @example
+     * // Get one HeroBanner
+     * const heroBanner = await prisma.heroBanner.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HeroBannerFindFirstArgs>(args?: SelectSubset<T, HeroBannerFindFirstArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HeroBanner that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerFindFirstOrThrowArgs} args - Arguments to find a HeroBanner
+     * @example
+     * // Get one HeroBanner
+     * const heroBanner = await prisma.heroBanner.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HeroBannerFindFirstOrThrowArgs>(args?: SelectSubset<T, HeroBannerFindFirstOrThrowArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HeroBanners that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all HeroBanners
+     * const heroBanners = await prisma.heroBanner.findMany()
+     * 
+     * // Get first 10 HeroBanners
+     * const heroBanners = await prisma.heroBanner.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const heroBannerWithIdOnly = await prisma.heroBanner.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HeroBannerFindManyArgs>(args?: SelectSubset<T, HeroBannerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a HeroBanner.
+     * @param {HeroBannerCreateArgs} args - Arguments to create a HeroBanner.
+     * @example
+     * // Create one HeroBanner
+     * const HeroBanner = await prisma.heroBanner.create({
+     *   data: {
+     *     // ... data to create a HeroBanner
+     *   }
+     * })
+     * 
+     */
+    create<T extends HeroBannerCreateArgs>(args: SelectSubset<T, HeroBannerCreateArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many HeroBanners.
+     * @param {HeroBannerCreateManyArgs} args - Arguments to create many HeroBanners.
+     * @example
+     * // Create many HeroBanners
+     * const heroBanner = await prisma.heroBanner.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HeroBannerCreateManyArgs>(args?: SelectSubset<T, HeroBannerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a HeroBanner.
+     * @param {HeroBannerDeleteArgs} args - Arguments to delete one HeroBanner.
+     * @example
+     * // Delete one HeroBanner
+     * const HeroBanner = await prisma.heroBanner.delete({
+     *   where: {
+     *     // ... filter to delete one HeroBanner
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HeroBannerDeleteArgs>(args: SelectSubset<T, HeroBannerDeleteArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one HeroBanner.
+     * @param {HeroBannerUpdateArgs} args - Arguments to update one HeroBanner.
+     * @example
+     * // Update one HeroBanner
+     * const heroBanner = await prisma.heroBanner.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HeroBannerUpdateArgs>(args: SelectSubset<T, HeroBannerUpdateArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more HeroBanners.
+     * @param {HeroBannerDeleteManyArgs} args - Arguments to filter HeroBanners to delete.
+     * @example
+     * // Delete a few HeroBanners
+     * const { count } = await prisma.heroBanner.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HeroBannerDeleteManyArgs>(args?: SelectSubset<T, HeroBannerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HeroBanners.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many HeroBanners
+     * const heroBanner = await prisma.heroBanner.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HeroBannerUpdateManyArgs>(args: SelectSubset<T, HeroBannerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one HeroBanner.
+     * @param {HeroBannerUpsertArgs} args - Arguments to update or create a HeroBanner.
+     * @example
+     * // Update or create a HeroBanner
+     * const heroBanner = await prisma.heroBanner.upsert({
+     *   create: {
+     *     // ... data to create a HeroBanner
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the HeroBanner we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HeroBannerUpsertArgs>(args: SelectSubset<T, HeroBannerUpsertArgs<ExtArgs>>): Prisma__HeroBannerClient<$Result.GetResult<Prisma.$HeroBannerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HeroBanners that matches the filter.
+     * @param {HeroBannerFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const heroBanner = await prisma.heroBanner.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: HeroBannerFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a HeroBanner.
+     * @param {HeroBannerAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const heroBanner = await prisma.heroBanner.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: HeroBannerAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of HeroBanners.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerCountArgs} args - Arguments to filter HeroBanners to count.
+     * @example
+     * // Count the number of HeroBanners
+     * const count = await prisma.heroBanner.count({
+     *   where: {
+     *     // ... the filter for the HeroBanners we want to count
+     *   }
+     * })
+    **/
+    count<T extends HeroBannerCountArgs>(
+      args?: Subset<T, HeroBannerCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HeroBannerCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a HeroBanner.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HeroBannerAggregateArgs>(args: Subset<T, HeroBannerAggregateArgs>): Prisma.PrismaPromise<GetHeroBannerAggregateType<T>>
+
+    /**
+     * Group by HeroBanner.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HeroBannerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HeroBannerGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HeroBannerGroupByArgs['orderBy'] }
+        : { orderBy?: HeroBannerGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HeroBannerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHeroBannerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the HeroBanner model
+   */
+  readonly fields: HeroBannerFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for HeroBanner.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HeroBannerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the HeroBanner model
+   */
+  interface HeroBannerFieldRefs {
+    readonly id: FieldRef<"HeroBanner", 'String'>
+    readonly title: FieldRef<"HeroBanner", 'Json'>
+    readonly description: FieldRef<"HeroBanner", 'Json'>
+    readonly items: FieldRef<"HeroBanner", 'Json'>
+    readonly buttonOneText: FieldRef<"HeroBanner", 'Json'>
+    readonly buttonTwoText: FieldRef<"HeroBanner", 'Json'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * HeroBanner findUnique
+   */
+  export type HeroBannerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * Filter, which HeroBanner to fetch.
+     */
+    where: HeroBannerWhereUniqueInput
+  }
+
+  /**
+   * HeroBanner findUniqueOrThrow
+   */
+  export type HeroBannerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * Filter, which HeroBanner to fetch.
+     */
+    where: HeroBannerWhereUniqueInput
+  }
+
+  /**
+   * HeroBanner findFirst
+   */
+  export type HeroBannerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * Filter, which HeroBanner to fetch.
+     */
+    where?: HeroBannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeroBanners to fetch.
+     */
+    orderBy?: HeroBannerOrderByWithRelationInput | HeroBannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HeroBanners.
+     */
+    cursor?: HeroBannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeroBanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeroBanners.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HeroBanners.
+     */
+    distinct?: HeroBannerScalarFieldEnum | HeroBannerScalarFieldEnum[]
+  }
+
+  /**
+   * HeroBanner findFirstOrThrow
+   */
+  export type HeroBannerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * Filter, which HeroBanner to fetch.
+     */
+    where?: HeroBannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeroBanners to fetch.
+     */
+    orderBy?: HeroBannerOrderByWithRelationInput | HeroBannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HeroBanners.
+     */
+    cursor?: HeroBannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeroBanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeroBanners.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HeroBanners.
+     */
+    distinct?: HeroBannerScalarFieldEnum | HeroBannerScalarFieldEnum[]
+  }
+
+  /**
+   * HeroBanner findMany
+   */
+  export type HeroBannerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * Filter, which HeroBanners to fetch.
+     */
+    where?: HeroBannerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HeroBanners to fetch.
+     */
+    orderBy?: HeroBannerOrderByWithRelationInput | HeroBannerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing HeroBanners.
+     */
+    cursor?: HeroBannerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HeroBanners from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HeroBanners.
+     */
+    skip?: number
+    distinct?: HeroBannerScalarFieldEnum | HeroBannerScalarFieldEnum[]
+  }
+
+  /**
+   * HeroBanner create
+   */
+  export type HeroBannerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * The data needed to create a HeroBanner.
+     */
+    data: XOR<HeroBannerCreateInput, HeroBannerUncheckedCreateInput>
+  }
+
+  /**
+   * HeroBanner createMany
+   */
+  export type HeroBannerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many HeroBanners.
+     */
+    data: HeroBannerCreateManyInput | HeroBannerCreateManyInput[]
+  }
+
+  /**
+   * HeroBanner update
+   */
+  export type HeroBannerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * The data needed to update a HeroBanner.
+     */
+    data: XOR<HeroBannerUpdateInput, HeroBannerUncheckedUpdateInput>
+    /**
+     * Choose, which HeroBanner to update.
+     */
+    where: HeroBannerWhereUniqueInput
+  }
+
+  /**
+   * HeroBanner updateMany
+   */
+  export type HeroBannerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update HeroBanners.
+     */
+    data: XOR<HeroBannerUpdateManyMutationInput, HeroBannerUncheckedUpdateManyInput>
+    /**
+     * Filter which HeroBanners to update
+     */
+    where?: HeroBannerWhereInput
+    /**
+     * Limit how many HeroBanners to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HeroBanner upsert
+   */
+  export type HeroBannerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * The filter to search for the HeroBanner to update in case it exists.
+     */
+    where: HeroBannerWhereUniqueInput
+    /**
+     * In case the HeroBanner found by the `where` argument doesn't exist, create a new HeroBanner with this data.
+     */
+    create: XOR<HeroBannerCreateInput, HeroBannerUncheckedCreateInput>
+    /**
+     * In case the HeroBanner was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HeroBannerUpdateInput, HeroBannerUncheckedUpdateInput>
+  }
+
+  /**
+   * HeroBanner delete
+   */
+  export type HeroBannerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+    /**
+     * Filter which HeroBanner to delete.
+     */
+    where: HeroBannerWhereUniqueInput
+  }
+
+  /**
+   * HeroBanner deleteMany
+   */
+  export type HeroBannerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HeroBanners to delete
+     */
+    where?: HeroBannerWhereInput
+    /**
+     * Limit how many HeroBanners to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * HeroBanner findRaw
+   */
+  export type HeroBannerFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * HeroBanner aggregateRaw
+   */
+  export type HeroBannerAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * HeroBanner without action
+   */
+  export type HeroBannerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HeroBanner
+     */
+    select?: HeroBannerSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HeroBanner
+     */
+    omit?: HeroBannerOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -1764,10 +2806,23 @@ export namespace Prisma {
     username: 'username',
     email: 'email',
     password: 'password',
+    role: 'role',
     createdAt: 'createdAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+
+
+  export const HeroBannerScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    items: 'items',
+    buttonOneText: 'buttonOneText',
+    buttonTwoText: 'buttonTwoText'
+  };
+
+  export type HeroBannerScalarFieldEnum = (typeof HeroBannerScalarFieldEnum)[keyof typeof HeroBannerScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -1806,6 +2861,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Role'
+   */
+  export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
+    
+
+
+  /**
+   * Reference to a field of type 'Role[]'
+   */
+  export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1816,6 +2885,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 
@@ -1844,6 +2920,7 @@ export namespace Prisma {
     username?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
   }
 
@@ -1852,25 +2929,28 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     createdAt?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     username?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
-  }, "id">
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -1885,7 +2965,65 @@ export namespace Prisma {
     username?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
+    role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+  }
+
+  export type HeroBannerWhereInput = {
+    AND?: HeroBannerWhereInput | HeroBannerWhereInput[]
+    OR?: HeroBannerWhereInput[]
+    NOT?: HeroBannerWhereInput | HeroBannerWhereInput[]
+    id?: StringFilter<"HeroBanner"> | string
+    title?: JsonFilter<"HeroBanner">
+    description?: JsonFilter<"HeroBanner">
+    items?: JsonFilter<"HeroBanner">
+    buttonOneText?: JsonFilter<"HeroBanner">
+    buttonTwoText?: JsonFilter<"HeroBanner">
+  }
+
+  export type HeroBannerOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    items?: SortOrder
+    buttonOneText?: SortOrder
+    buttonTwoText?: SortOrder
+  }
+
+  export type HeroBannerWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: HeroBannerWhereInput | HeroBannerWhereInput[]
+    OR?: HeroBannerWhereInput[]
+    NOT?: HeroBannerWhereInput | HeroBannerWhereInput[]
+    title?: JsonFilter<"HeroBanner">
+    description?: JsonFilter<"HeroBanner">
+    items?: JsonFilter<"HeroBanner">
+    buttonOneText?: JsonFilter<"HeroBanner">
+    buttonTwoText?: JsonFilter<"HeroBanner">
+  }, "id">
+
+  export type HeroBannerOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    items?: SortOrder
+    buttonOneText?: SortOrder
+    buttonTwoText?: SortOrder
+    _count?: HeroBannerCountOrderByAggregateInput
+    _max?: HeroBannerMaxOrderByAggregateInput
+    _min?: HeroBannerMinOrderByAggregateInput
+  }
+
+  export type HeroBannerScalarWhereWithAggregatesInput = {
+    AND?: HeroBannerScalarWhereWithAggregatesInput | HeroBannerScalarWhereWithAggregatesInput[]
+    OR?: HeroBannerScalarWhereWithAggregatesInput[]
+    NOT?: HeroBannerScalarWhereWithAggregatesInput | HeroBannerScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"HeroBanner"> | string
+    title?: JsonWithAggregatesFilter<"HeroBanner">
+    description?: JsonWithAggregatesFilter<"HeroBanner">
+    items?: JsonWithAggregatesFilter<"HeroBanner">
+    buttonOneText?: JsonWithAggregatesFilter<"HeroBanner">
+    buttonTwoText?: JsonWithAggregatesFilter<"HeroBanner">
   }
 
   export type UserCreateInput = {
@@ -1893,6 +3031,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     createdAt?: Date | string
   }
 
@@ -1901,6 +3040,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     createdAt?: Date | string
   }
 
@@ -1908,6 +3048,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -1915,6 +3056,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -1923,6 +3065,7 @@ export namespace Prisma {
     username: string
     email: string
     password: string
+    role?: $Enums.Role
     createdAt?: Date | string
   }
 
@@ -1930,6 +3073,7 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -1937,7 +3081,67 @@ export namespace Prisma {
     username?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HeroBannerCreateInput = {
+    id?: string
+    title: InputJsonValue
+    description: InputJsonValue
+    items: InputJsonValue
+    buttonOneText: InputJsonValue
+    buttonTwoText: InputJsonValue
+  }
+
+  export type HeroBannerUncheckedCreateInput = {
+    id?: string
+    title: InputJsonValue
+    description: InputJsonValue
+    items: InputJsonValue
+    buttonOneText: InputJsonValue
+    buttonTwoText: InputJsonValue
+  }
+
+  export type HeroBannerUpdateInput = {
+    title?: InputJsonValue | InputJsonValue
+    description?: InputJsonValue | InputJsonValue
+    items?: InputJsonValue | InputJsonValue
+    buttonOneText?: InputJsonValue | InputJsonValue
+    buttonTwoText?: InputJsonValue | InputJsonValue
+  }
+
+  export type HeroBannerUncheckedUpdateInput = {
+    title?: InputJsonValue | InputJsonValue
+    description?: InputJsonValue | InputJsonValue
+    items?: InputJsonValue | InputJsonValue
+    buttonOneText?: InputJsonValue | InputJsonValue
+    buttonTwoText?: InputJsonValue | InputJsonValue
+  }
+
+  export type HeroBannerCreateManyInput = {
+    id?: string
+    title: InputJsonValue
+    description: InputJsonValue
+    items: InputJsonValue
+    buttonOneText: InputJsonValue
+    buttonTwoText: InputJsonValue
+  }
+
+  export type HeroBannerUpdateManyMutationInput = {
+    title?: InputJsonValue | InputJsonValue
+    description?: InputJsonValue | InputJsonValue
+    items?: InputJsonValue | InputJsonValue
+    buttonOneText?: InputJsonValue | InputJsonValue
+    buttonTwoText?: InputJsonValue | InputJsonValue
+  }
+
+  export type HeroBannerUncheckedUpdateManyInput = {
+    title?: InputJsonValue | InputJsonValue
+    description?: InputJsonValue | InputJsonValue
+    items?: InputJsonValue | InputJsonValue
+    buttonOneText?: InputJsonValue | InputJsonValue
+    buttonTwoText?: InputJsonValue | InputJsonValue
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -1953,6 +3157,13 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type EnumRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -1971,6 +3182,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -1979,6 +3191,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -1987,6 +3200,7 @@ export namespace Prisma {
     username?: SortOrder
     email?: SortOrder
     password?: SortOrder
+    role?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -2008,6 +3222,16 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type EnumRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRoleFilter<$PrismaModel>
+    _max?: NestedEnumRoleFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2021,9 +3245,55 @@ export namespace Prisma {
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+  }
+
+  export type HeroBannerCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    items?: SortOrder
+    buttonOneText?: SortOrder
+    buttonTwoText?: SortOrder
+  }
+
+  export type HeroBannerMaxOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type HeroBannerMinOrderByAggregateInput = {
+    id?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type EnumRoleFieldUpdateOperationsInput = {
+    set?: $Enums.Role
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -2042,6 +3312,13 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedEnumRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2083,6 +3360,16 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedEnumRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Role | EnumRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Role[] | ListEnumRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumRoleWithAggregatesFilter<$PrismaModel> | $Enums.Role
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumRoleFilter<$PrismaModel>
+    _max?: NestedEnumRoleFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -2095,6 +3382,17 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
   }
 
 

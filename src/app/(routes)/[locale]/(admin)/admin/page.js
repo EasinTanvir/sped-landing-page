@@ -5,9 +5,9 @@ import { getServerCredentials } from "../../../../../../session/serverSesseion";
 import { redirect } from "@/i18n/routing";
 
 const Admin = async () => {
-  const user = await getServerCredentials();
+  const session = await getServerCredentials();
 
-  if (!user) redirect("/login");
+  if (!session || session.user.role !== "ADMIN") redirect("/");
 
   return (
     <React.Fragment>

@@ -118,7 +118,17 @@ exports.Prisma.UserScalarFieldEnum = {
   username: 'username',
   email: 'email',
   password: 'password',
+  role: 'role',
   createdAt: 'createdAt'
+};
+
+exports.Prisma.HeroBannerScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  items: 'items',
+  buttonOneText: 'buttonOneText',
+  buttonTwoText: 'buttonTwoText'
 };
 
 exports.Prisma.SortOrder = {
@@ -130,10 +140,14 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
-
+exports.Role = exports.$Enums.Role = {
+  USER: 'USER',
+  ADMIN: 'ADMIN'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  HeroBanner: 'HeroBanner'
 };
 
 /**

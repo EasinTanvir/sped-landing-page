@@ -2,7 +2,7 @@ import { Button } from "@/index";
 import React from "react";
 import Motion from "@/components/ui/Motion";
 
-const BannerButton = () => {
+const BannerButton = ({ buttonOneText, buttonTwoText }) => {
   return (
     <div className="space-x-5 flex">
       <Motion
@@ -15,7 +15,7 @@ const BannerButton = () => {
         whileHover={{ scale: 1.05 }}
       >
         <Button className="border-none py-2.5 px-7 text-white rounded-md">
-          Order Now
+          {buttonOneText}
         </Button>
       </Motion>
 
@@ -29,7 +29,7 @@ const BannerButton = () => {
         whileHover={{ scale: 1.05 }}
       >
         <Button className="py-2.5 px-7 !text-colors-button rounded-md bg-transparent border !border-colors-button">
-          View More
+          {buttonTwoText}
         </Button>
       </Motion>
     </div>

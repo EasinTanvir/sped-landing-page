@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import { redirect } from "next/navigation";
 import NavWrapper from "@/components/nav/NavWrapper";
 import { Toaster } from "react-hot-toast";
+import SessionPrivider from "@/Providers/SessionPrivider";
 
 const montserrat = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -40,12 +41,14 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale}>
       <body className={`${montserrat.className} `}>
         <NextIntlClientProvider messages={messages}>
-          <ContextWrapper>
-            <NavWrapper />
-            <main className="min-h-[calc(100vh-24px)]"> {children}</main>
-            <Footer />
-            <Toaster position="top-center" />
-          </ContextWrapper>
+          <SessionPrivider>
+            <ContextWrapper>
+              <NavWrapper />
+              <main className="min-h-[calc(100vh-24px)]"> {children}</main>
+              <Footer />
+              <Toaster position="top-center" />
+            </ContextWrapper>
+          </SessionPrivider>
         </NextIntlClientProvider>
       </body>
     </html>

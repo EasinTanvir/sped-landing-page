@@ -3,7 +3,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { BiLogOut } from "react-icons/bi";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useParams } from "next/navigation";
 import { useRouter } from "@/i18n/routing";
 

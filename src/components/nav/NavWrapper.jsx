@@ -6,8 +6,6 @@ import Navbar from "./Navbar";
 const NavWrapper = () => {
   const path = usePathname();
 
-  console.log("path", path);
-
   if (path === "/login" || path === "/register") return;
 
   return <Navbar />;

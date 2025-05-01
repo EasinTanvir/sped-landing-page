@@ -1,9 +1,19 @@
+"use client";
 import React from "react";
 
-import { navLinks } from "@/utils";
 import { H1 } from "..";
+import { useTranslations } from "use-intl";
 
 const Footer = () => {
+  const t = useTranslations("navbar");
+
+  const navLinks = [
+    { name: t("Home"), path: "/" },
+    { name: t("Menu"), path: "/menu" },
+    { name: t("Contact"), path: "/contact" },
+    { name: t("About Us"), path: "/about" },
+  ];
+
   return (
     <footer className="w-full py-10 px-4">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between">

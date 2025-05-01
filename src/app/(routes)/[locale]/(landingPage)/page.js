@@ -8,10 +8,13 @@ import MasterChef from "@/pageSection/landingPage/masterChefs/MasterChef";
 import NewsLetter from "@/pageSection/landingPage/newsLetter/NewsLetter";
 import BookTable from "@/pageSection/landingPage/bookTable/BookTable";
 
-const page = () => {
+const LandinPage = async () => {
+  const res = await fetch(process.env.BASE_URL + "/api/admin/hero-banner");
+  const data = await res.json();
+
   return (
     <div>
-      <HeroBanner />
+      <HeroBanner bannerData={data} />
       <MenuSection />
       <TodayMenu />
       <AreMenuService />
@@ -22,4 +25,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LandinPage;
