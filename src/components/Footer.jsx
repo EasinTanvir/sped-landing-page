@@ -2,10 +2,12 @@
 import React from "react";
 
 import { H1 } from "..";
-import { useTranslations } from "use-intl";
+import { useLocale, useTranslations } from "use-intl";
 
-const Footer = () => {
+const Footer = ({ brandSetting }) => {
   const t = useTranslations("navbar");
+
+  const locale = useLocale();
 
   const navLinks = [
     { name: t("Home"), path: "/" },
@@ -18,11 +20,12 @@ const Footer = () => {
     <footer className="w-full py-10 px-4">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between">
         <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
-          SwiftDrop
+          {brandSetting?.brandTitle[locale]}
         </H1>
 
         <p className="text-sm text-gray-600 flex-1 text-center">
-          © {new Date().getFullYear()} SwiftDrop. All rights reserved.
+          © {new Date().getFullYear()}{" "}
+          {brandSetting?.footerText[locale] || "All Right Reserved"}.
         </p>
 
         <nav className="flex gap-6 mt-4 sm:mt-0">

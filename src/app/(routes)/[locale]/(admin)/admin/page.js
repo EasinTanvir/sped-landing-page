@@ -9,9 +9,12 @@ const Admin = async () => {
 
   if (!session || session.user.role !== "ADMIN") redirect("/");
 
+  const res = await fetch(process.env.BASE_URL + "/api/admin/brand-setting");
+  const data = await res.json();
+
   return (
     <React.Fragment>
-      <DashBoardPage />
+      <DashBoardPage data={data?.data} />
     </React.Fragment>
   );
 };

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 
 import { Icon, H1, Container } from "../..";
@@ -18,9 +18,11 @@ import {
   BiHomeAlt,
 } from "@/utils/icons";
 
-const Navbar = () => {
+const Navbar = ({ brandSetting }) => {
   const t = useTranslations("navbar");
-  const heading = useTranslations("landingPage");
+
+  const locale = useLocale();
+
   const path = usePathname();
   const landingPage = path === "/";
   const adminPage = path.startsWith("/admin");
@@ -53,7 +55,7 @@ const Navbar = () => {
               size={35}
             />
             <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
-              {heading("title")}
+              {brandSetting?.brandTitle[locale] || "SwiftDop"}
             </H1>
           </div>
         )}

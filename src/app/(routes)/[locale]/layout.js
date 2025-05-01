@@ -37,15 +37,18 @@ export default async function RootLayout({ children, params }) {
 
   const messages = await getMessages();
 
+  const res = await fetch(process.env.BASE_URL + "/api/admin/brand-setting");
+  const brandSetting = await res.json();
+
   return (
     <html lang={locale}>
       <body className={`${montserrat.className} `}>
         <NextIntlClientProvider messages={messages}>
           <SessionPrivider>
             <ContextWrapper>
-              <NavWrapper />
+              <NavWrapper brandSetting={brandSetting?.data} />
               <main className="min-h-[calc(100vh-24px)]"> {children}</main>
-              <Footer />
+              <Footer brandSetting={brandSetting?.data} />
               <Toaster position="top-center" />
             </ContextWrapper>
           </SessionPrivider>

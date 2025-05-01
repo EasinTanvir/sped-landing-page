@@ -1,15 +1,9 @@
-"use client";
-import { useState } from "react";
-
-const FooterEditor = () => {
-  const [footerText, setFooterText] = useState(
-    "© 2025 SwiftDrop. All rights reserved."
-  );
-
+const FooterEditor = ({ footerText, setFooterText }) => {
   return (
     <div>
       <label className="block text-gray-700 font-medium">Footer Text</label>
       <textarea
+        required
         value={footerText}
         onChange={(e) => setFooterText(e.target.value)}
         className="w-full p-2 border border-gray-300 rounded-md mt-1"

@@ -23,6 +23,11 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type HeroBanner = $Result.DefaultSelection<Prisma.$HeroBannerPayload>
+/**
+ * Model BrandSetting
+ * 
+ */
+export type BrandSetting = $Result.DefaultSelection<Prisma.$BrandSettingPayload>
 
 /**
  * Enums
@@ -152,6 +157,16 @@ export class PrismaClient<
     * ```
     */
   get heroBanner(): Prisma.HeroBannerDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.brandSetting`: Exposes CRUD operations for the **BrandSetting** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BrandSettings
+    * const brandSettings = await prisma.brandSetting.findMany()
+    * ```
+    */
+  get brandSetting(): Prisma.BrandSettingDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +608,8 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    HeroBanner: 'HeroBanner'
+    HeroBanner: 'HeroBanner',
+    BrandSetting: 'BrandSetting'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -612,7 +628,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "heroBanner"
+      modelProps: "user" | "heroBanner" | "brandSetting"
       txIsolationLevel: never
     }
     model: {
@@ -764,6 +780,80 @@ export namespace Prisma {
           }
         }
       }
+      BrandSetting: {
+        payload: Prisma.$BrandSettingPayload<ExtArgs>
+        fields: Prisma.BrandSettingFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BrandSettingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BrandSettingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+          }
+          findFirst: {
+            args: Prisma.BrandSettingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BrandSettingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+          }
+          findMany: {
+            args: Prisma.BrandSettingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>[]
+          }
+          create: {
+            args: Prisma.BrandSettingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+          }
+          createMany: {
+            args: Prisma.BrandSettingCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.BrandSettingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+          }
+          update: {
+            args: Prisma.BrandSettingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+          }
+          deleteMany: {
+            args: Prisma.BrandSettingDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BrandSettingUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.BrandSettingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+          }
+          aggregate: {
+            args: Prisma.BrandSettingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBrandSetting>
+          }
+          groupBy: {
+            args: Prisma.BrandSettingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BrandSettingGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.BrandSettingFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.BrandSettingAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.BrandSettingCountArgs<ExtArgs>
+            result: $Utils.Optional<BrandSettingCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -837,6 +927,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     heroBanner?: HeroBannerOmit
+    brandSetting?: BrandSettingOmit
   }
 
   /* Types for Logging */
@@ -2798,6 +2889,919 @@ export namespace Prisma {
 
 
   /**
+   * Model BrandSetting
+   */
+
+  export type AggregateBrandSetting = {
+    _count: BrandSettingCountAggregateOutputType | null
+    _min: BrandSettingMinAggregateOutputType | null
+    _max: BrandSettingMaxAggregateOutputType | null
+  }
+
+  export type BrandSettingMinAggregateOutputType = {
+    id: string | null
+    brandLogo: string | null
+  }
+
+  export type BrandSettingMaxAggregateOutputType = {
+    id: string | null
+    brandLogo: string | null
+  }
+
+  export type BrandSettingCountAggregateOutputType = {
+    id: number
+    brandTitle: number
+    footerText: number
+    brandLogo: number
+    _all: number
+  }
+
+
+  export type BrandSettingMinAggregateInputType = {
+    id?: true
+    brandLogo?: true
+  }
+
+  export type BrandSettingMaxAggregateInputType = {
+    id?: true
+    brandLogo?: true
+  }
+
+  export type BrandSettingCountAggregateInputType = {
+    id?: true
+    brandTitle?: true
+    footerText?: true
+    brandLogo?: true
+    _all?: true
+  }
+
+  export type BrandSettingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BrandSetting to aggregate.
+     */
+    where?: BrandSettingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BrandSettings to fetch.
+     */
+    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BrandSettingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BrandSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BrandSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BrandSettings
+    **/
+    _count?: true | BrandSettingCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BrandSettingMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BrandSettingMaxAggregateInputType
+  }
+
+  export type GetBrandSettingAggregateType<T extends BrandSettingAggregateArgs> = {
+        [P in keyof T & keyof AggregateBrandSetting]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBrandSetting[P]>
+      : GetScalarType<T[P], AggregateBrandSetting[P]>
+  }
+
+
+
+
+  export type BrandSettingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BrandSettingWhereInput
+    orderBy?: BrandSettingOrderByWithAggregationInput | BrandSettingOrderByWithAggregationInput[]
+    by: BrandSettingScalarFieldEnum[] | BrandSettingScalarFieldEnum
+    having?: BrandSettingScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BrandSettingCountAggregateInputType | true
+    _min?: BrandSettingMinAggregateInputType
+    _max?: BrandSettingMaxAggregateInputType
+  }
+
+  export type BrandSettingGroupByOutputType = {
+    id: string
+    brandTitle: JsonValue
+    footerText: JsonValue
+    brandLogo: string | null
+    _count: BrandSettingCountAggregateOutputType | null
+    _min: BrandSettingMinAggregateOutputType | null
+    _max: BrandSettingMaxAggregateOutputType | null
+  }
+
+  type GetBrandSettingGroupByPayload<T extends BrandSettingGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BrandSettingGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BrandSettingGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BrandSettingGroupByOutputType[P]>
+            : GetScalarType<T[P], BrandSettingGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BrandSettingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    brandTitle?: boolean
+    footerText?: boolean
+    brandLogo?: boolean
+  }, ExtArgs["result"]["brandSetting"]>
+
+
+
+  export type BrandSettingSelectScalar = {
+    id?: boolean
+    brandTitle?: boolean
+    footerText?: boolean
+    brandLogo?: boolean
+  }
+
+  export type BrandSettingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "brandTitle" | "footerText" | "brandLogo", ExtArgs["result"]["brandSetting"]>
+
+  export type $BrandSettingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BrandSetting"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      brandTitle: Prisma.JsonValue
+      footerText: Prisma.JsonValue
+      brandLogo: string | null
+    }, ExtArgs["result"]["brandSetting"]>
+    composites: {}
+  }
+
+  type BrandSettingGetPayload<S extends boolean | null | undefined | BrandSettingDefaultArgs> = $Result.GetResult<Prisma.$BrandSettingPayload, S>
+
+  type BrandSettingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BrandSettingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BrandSettingCountAggregateInputType | true
+    }
+
+  export interface BrandSettingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BrandSetting'], meta: { name: 'BrandSetting' } }
+    /**
+     * Find zero or one BrandSetting that matches the filter.
+     * @param {BrandSettingFindUniqueArgs} args - Arguments to find a BrandSetting
+     * @example
+     * // Get one BrandSetting
+     * const brandSetting = await prisma.brandSetting.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BrandSettingFindUniqueArgs>(args: SelectSubset<T, BrandSettingFindUniqueArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BrandSetting that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BrandSettingFindUniqueOrThrowArgs} args - Arguments to find a BrandSetting
+     * @example
+     * // Get one BrandSetting
+     * const brandSetting = await prisma.brandSetting.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BrandSettingFindUniqueOrThrowArgs>(args: SelectSubset<T, BrandSettingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BrandSetting that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingFindFirstArgs} args - Arguments to find a BrandSetting
+     * @example
+     * // Get one BrandSetting
+     * const brandSetting = await prisma.brandSetting.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BrandSettingFindFirstArgs>(args?: SelectSubset<T, BrandSettingFindFirstArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BrandSetting that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingFindFirstOrThrowArgs} args - Arguments to find a BrandSetting
+     * @example
+     * // Get one BrandSetting
+     * const brandSetting = await prisma.brandSetting.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BrandSettingFindFirstOrThrowArgs>(args?: SelectSubset<T, BrandSettingFindFirstOrThrowArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BrandSettings that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BrandSettings
+     * const brandSettings = await prisma.brandSetting.findMany()
+     * 
+     * // Get first 10 BrandSettings
+     * const brandSettings = await prisma.brandSetting.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const brandSettingWithIdOnly = await prisma.brandSetting.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BrandSettingFindManyArgs>(args?: SelectSubset<T, BrandSettingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BrandSetting.
+     * @param {BrandSettingCreateArgs} args - Arguments to create a BrandSetting.
+     * @example
+     * // Create one BrandSetting
+     * const BrandSetting = await prisma.brandSetting.create({
+     *   data: {
+     *     // ... data to create a BrandSetting
+     *   }
+     * })
+     * 
+     */
+    create<T extends BrandSettingCreateArgs>(args: SelectSubset<T, BrandSettingCreateArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BrandSettings.
+     * @param {BrandSettingCreateManyArgs} args - Arguments to create many BrandSettings.
+     * @example
+     * // Create many BrandSettings
+     * const brandSetting = await prisma.brandSetting.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BrandSettingCreateManyArgs>(args?: SelectSubset<T, BrandSettingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BrandSetting.
+     * @param {BrandSettingDeleteArgs} args - Arguments to delete one BrandSetting.
+     * @example
+     * // Delete one BrandSetting
+     * const BrandSetting = await prisma.brandSetting.delete({
+     *   where: {
+     *     // ... filter to delete one BrandSetting
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BrandSettingDeleteArgs>(args: SelectSubset<T, BrandSettingDeleteArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BrandSetting.
+     * @param {BrandSettingUpdateArgs} args - Arguments to update one BrandSetting.
+     * @example
+     * // Update one BrandSetting
+     * const brandSetting = await prisma.brandSetting.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BrandSettingUpdateArgs>(args: SelectSubset<T, BrandSettingUpdateArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BrandSettings.
+     * @param {BrandSettingDeleteManyArgs} args - Arguments to filter BrandSettings to delete.
+     * @example
+     * // Delete a few BrandSettings
+     * const { count } = await prisma.brandSetting.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BrandSettingDeleteManyArgs>(args?: SelectSubset<T, BrandSettingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BrandSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BrandSettings
+     * const brandSetting = await prisma.brandSetting.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BrandSettingUpdateManyArgs>(args: SelectSubset<T, BrandSettingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BrandSetting.
+     * @param {BrandSettingUpsertArgs} args - Arguments to update or create a BrandSetting.
+     * @example
+     * // Update or create a BrandSetting
+     * const brandSetting = await prisma.brandSetting.upsert({
+     *   create: {
+     *     // ... data to create a BrandSetting
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BrandSetting we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BrandSettingUpsertArgs>(args: SelectSubset<T, BrandSettingUpsertArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BrandSettings that matches the filter.
+     * @param {BrandSettingFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const brandSetting = await prisma.brandSetting.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: BrandSettingFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a BrandSetting.
+     * @param {BrandSettingAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const brandSetting = await prisma.brandSetting.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: BrandSettingAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of BrandSettings.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingCountArgs} args - Arguments to filter BrandSettings to count.
+     * @example
+     * // Count the number of BrandSettings
+     * const count = await prisma.brandSetting.count({
+     *   where: {
+     *     // ... the filter for the BrandSettings we want to count
+     *   }
+     * })
+    **/
+    count<T extends BrandSettingCountArgs>(
+      args?: Subset<T, BrandSettingCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BrandSettingCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BrandSetting.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BrandSettingAggregateArgs>(args: Subset<T, BrandSettingAggregateArgs>): Prisma.PrismaPromise<GetBrandSettingAggregateType<T>>
+
+    /**
+     * Group by BrandSetting.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BrandSettingGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BrandSettingGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BrandSettingGroupByArgs['orderBy'] }
+        : { orderBy?: BrandSettingGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BrandSettingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBrandSettingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BrandSetting model
+   */
+  readonly fields: BrandSettingFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BrandSetting.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BrandSettingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BrandSetting model
+   */
+  interface BrandSettingFieldRefs {
+    readonly id: FieldRef<"BrandSetting", 'String'>
+    readonly brandTitle: FieldRef<"BrandSetting", 'Json'>
+    readonly footerText: FieldRef<"BrandSetting", 'Json'>
+    readonly brandLogo: FieldRef<"BrandSetting", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BrandSetting findUnique
+   */
+  export type BrandSettingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * Filter, which BrandSetting to fetch.
+     */
+    where: BrandSettingWhereUniqueInput
+  }
+
+  /**
+   * BrandSetting findUniqueOrThrow
+   */
+  export type BrandSettingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * Filter, which BrandSetting to fetch.
+     */
+    where: BrandSettingWhereUniqueInput
+  }
+
+  /**
+   * BrandSetting findFirst
+   */
+  export type BrandSettingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * Filter, which BrandSetting to fetch.
+     */
+    where?: BrandSettingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BrandSettings to fetch.
+     */
+    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BrandSettings.
+     */
+    cursor?: BrandSettingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BrandSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BrandSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BrandSettings.
+     */
+    distinct?: BrandSettingScalarFieldEnum | BrandSettingScalarFieldEnum[]
+  }
+
+  /**
+   * BrandSetting findFirstOrThrow
+   */
+  export type BrandSettingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * Filter, which BrandSetting to fetch.
+     */
+    where?: BrandSettingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BrandSettings to fetch.
+     */
+    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BrandSettings.
+     */
+    cursor?: BrandSettingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BrandSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BrandSettings.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BrandSettings.
+     */
+    distinct?: BrandSettingScalarFieldEnum | BrandSettingScalarFieldEnum[]
+  }
+
+  /**
+   * BrandSetting findMany
+   */
+  export type BrandSettingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * Filter, which BrandSettings to fetch.
+     */
+    where?: BrandSettingWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BrandSettings to fetch.
+     */
+    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BrandSettings.
+     */
+    cursor?: BrandSettingWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BrandSettings from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BrandSettings.
+     */
+    skip?: number
+    distinct?: BrandSettingScalarFieldEnum | BrandSettingScalarFieldEnum[]
+  }
+
+  /**
+   * BrandSetting create
+   */
+  export type BrandSettingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * The data needed to create a BrandSetting.
+     */
+    data: XOR<BrandSettingCreateInput, BrandSettingUncheckedCreateInput>
+  }
+
+  /**
+   * BrandSetting createMany
+   */
+  export type BrandSettingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BrandSettings.
+     */
+    data: BrandSettingCreateManyInput | BrandSettingCreateManyInput[]
+  }
+
+  /**
+   * BrandSetting update
+   */
+  export type BrandSettingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * The data needed to update a BrandSetting.
+     */
+    data: XOR<BrandSettingUpdateInput, BrandSettingUncheckedUpdateInput>
+    /**
+     * Choose, which BrandSetting to update.
+     */
+    where: BrandSettingWhereUniqueInput
+  }
+
+  /**
+   * BrandSetting updateMany
+   */
+  export type BrandSettingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BrandSettings.
+     */
+    data: XOR<BrandSettingUpdateManyMutationInput, BrandSettingUncheckedUpdateManyInput>
+    /**
+     * Filter which BrandSettings to update
+     */
+    where?: BrandSettingWhereInput
+    /**
+     * Limit how many BrandSettings to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BrandSetting upsert
+   */
+  export type BrandSettingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * The filter to search for the BrandSetting to update in case it exists.
+     */
+    where: BrandSettingWhereUniqueInput
+    /**
+     * In case the BrandSetting found by the `where` argument doesn't exist, create a new BrandSetting with this data.
+     */
+    create: XOR<BrandSettingCreateInput, BrandSettingUncheckedCreateInput>
+    /**
+     * In case the BrandSetting was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BrandSettingUpdateInput, BrandSettingUncheckedUpdateInput>
+  }
+
+  /**
+   * BrandSetting delete
+   */
+  export type BrandSettingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+    /**
+     * Filter which BrandSetting to delete.
+     */
+    where: BrandSettingWhereUniqueInput
+  }
+
+  /**
+   * BrandSetting deleteMany
+   */
+  export type BrandSettingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BrandSettings to delete
+     */
+    where?: BrandSettingWhereInput
+    /**
+     * Limit how many BrandSettings to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BrandSetting findRaw
+   */
+  export type BrandSettingFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * BrandSetting aggregateRaw
+   */
+  export type BrandSettingAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * BrandSetting without action
+   */
+  export type BrandSettingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BrandSetting
+     */
+    select?: BrandSettingSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BrandSetting
+     */
+    omit?: BrandSettingOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -2823,6 +3827,16 @@ export namespace Prisma {
   };
 
   export type HeroBannerScalarFieldEnum = (typeof HeroBannerScalarFieldEnum)[keyof typeof HeroBannerScalarFieldEnum]
+
+
+  export const BrandSettingScalarFieldEnum: {
+    id: 'id',
+    brandTitle: 'brandTitle',
+    footerText: 'footerText',
+    brandLogo: 'brandLogo'
+  };
+
+  export type BrandSettingScalarFieldEnum = (typeof BrandSettingScalarFieldEnum)[keyof typeof BrandSettingScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3026,6 +4040,53 @@ export namespace Prisma {
     buttonTwoText?: JsonWithAggregatesFilter<"HeroBanner">
   }
 
+  export type BrandSettingWhereInput = {
+    AND?: BrandSettingWhereInput | BrandSettingWhereInput[]
+    OR?: BrandSettingWhereInput[]
+    NOT?: BrandSettingWhereInput | BrandSettingWhereInput[]
+    id?: StringFilter<"BrandSetting"> | string
+    brandTitle?: JsonFilter<"BrandSetting">
+    footerText?: JsonFilter<"BrandSetting">
+    brandLogo?: StringNullableFilter<"BrandSetting"> | string | null
+  }
+
+  export type BrandSettingOrderByWithRelationInput = {
+    id?: SortOrder
+    brandTitle?: SortOrder
+    footerText?: SortOrder
+    brandLogo?: SortOrder
+  }
+
+  export type BrandSettingWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BrandSettingWhereInput | BrandSettingWhereInput[]
+    OR?: BrandSettingWhereInput[]
+    NOT?: BrandSettingWhereInput | BrandSettingWhereInput[]
+    brandTitle?: JsonFilter<"BrandSetting">
+    footerText?: JsonFilter<"BrandSetting">
+    brandLogo?: StringNullableFilter<"BrandSetting"> | string | null
+  }, "id">
+
+  export type BrandSettingOrderByWithAggregationInput = {
+    id?: SortOrder
+    brandTitle?: SortOrder
+    footerText?: SortOrder
+    brandLogo?: SortOrder
+    _count?: BrandSettingCountOrderByAggregateInput
+    _max?: BrandSettingMaxOrderByAggregateInput
+    _min?: BrandSettingMinOrderByAggregateInput
+  }
+
+  export type BrandSettingScalarWhereWithAggregatesInput = {
+    AND?: BrandSettingScalarWhereWithAggregatesInput | BrandSettingScalarWhereWithAggregatesInput[]
+    OR?: BrandSettingScalarWhereWithAggregatesInput[]
+    NOT?: BrandSettingScalarWhereWithAggregatesInput | BrandSettingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BrandSetting"> | string
+    brandTitle?: JsonWithAggregatesFilter<"BrandSetting">
+    footerText?: JsonWithAggregatesFilter<"BrandSetting">
+    brandLogo?: StringNullableWithAggregatesFilter<"BrandSetting"> | string | null
+  }
+
   export type UserCreateInput = {
     id?: string
     username: string
@@ -3142,6 +4203,51 @@ export namespace Prisma {
     items?: InputJsonValue | InputJsonValue
     buttonOneText?: InputJsonValue | InputJsonValue
     buttonTwoText?: InputJsonValue | InputJsonValue
+  }
+
+  export type BrandSettingCreateInput = {
+    id?: string
+    brandTitle: InputJsonValue
+    footerText: InputJsonValue
+    brandLogo?: string | null
+  }
+
+  export type BrandSettingUncheckedCreateInput = {
+    id?: string
+    brandTitle: InputJsonValue
+    footerText: InputJsonValue
+    brandLogo?: string | null
+  }
+
+  export type BrandSettingUpdateInput = {
+    brandTitle?: InputJsonValue | InputJsonValue
+    footerText?: InputJsonValue | InputJsonValue
+    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BrandSettingUncheckedUpdateInput = {
+    brandTitle?: InputJsonValue | InputJsonValue
+    footerText?: InputJsonValue | InputJsonValue
+    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BrandSettingCreateManyInput = {
+    id?: string
+    brandTitle: InputJsonValue
+    footerText: InputJsonValue
+    brandLogo?: string | null
+  }
+
+  export type BrandSettingUpdateManyMutationInput = {
+    brandTitle?: InputJsonValue | InputJsonValue
+    footerText?: InputJsonValue | InputJsonValue
+    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type BrandSettingUncheckedUpdateManyInput = {
+    brandTitle?: InputJsonValue | InputJsonValue
+    footerText?: InputJsonValue | InputJsonValue
+    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3288,6 +4394,58 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
+  }
+
+  export type BrandSettingCountOrderByAggregateInput = {
+    id?: SortOrder
+    brandTitle?: SortOrder
+    footerText?: SortOrder
+    brandLogo?: SortOrder
+  }
+
+  export type BrandSettingMaxOrderByAggregateInput = {
+    id?: SortOrder
+    brandLogo?: SortOrder
+  }
+
+  export type BrandSettingMinOrderByAggregateInput = {
+    id?: SortOrder
+    brandLogo?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -3298,6 +4456,11 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+    unset?: boolean
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -3393,6 +4556,51 @@ export namespace Prisma {
   export type NestedJsonFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    isSet?: boolean
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+    isSet?: boolean
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    isSet?: boolean
   }
 
 

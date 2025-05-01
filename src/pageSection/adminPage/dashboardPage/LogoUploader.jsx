@@ -1,9 +1,6 @@
-"use client";
 import { useState } from "react";
 
-const LogoUploader = () => {
-  const [logo, setLogo] = useState(null);
-
+const LogoUploader = ({ logo, setLogo }) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {

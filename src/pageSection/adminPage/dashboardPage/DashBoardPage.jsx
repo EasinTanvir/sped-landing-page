@@ -5,7 +5,7 @@ import { FiExternalLink } from "react-icons/fi";
 import BrandSettings from "./BrandSettings";
 import { H3 } from "@/index";
 
-const DashBoardPage = () => {
+const DashBoardPage = ({ data }) => {
   return (
     <div className="space-y-6 ">
       <div className="flex md:flex-row flex-col md:justify-between gap-4 md:items-center">
@@ -20,7 +20,7 @@ const DashBoardPage = () => {
           View Site <FiExternalLink size={18} />
         </Link>
       </div>
-      <BrandSettings />
+      <BrandSettings settingData={data} />
     </div>
   );
 };
