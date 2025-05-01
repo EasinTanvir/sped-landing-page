@@ -7,6 +7,7 @@ const DescriptionInput = ({ description, setDescription }) => {
         Short Description
       </label>
       <input
+        required
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}

@@ -5,6 +5,7 @@ const TitleInput = ({ title, setTitle }) => {
     <div>
       <label className="block text-gray-700 font-medium">Title</label>
       <input
+        required
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}

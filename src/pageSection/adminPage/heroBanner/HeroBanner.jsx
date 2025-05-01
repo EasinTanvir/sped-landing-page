@@ -21,7 +21,8 @@ const HeroBanner = ({ bannerData }) => {
 
   const router = useRouter();
 
-  const updateHeroBanner = async () => {
+  const updateHeroBanner = async (event) => {
+    event.preventDefault();
     setLoader(true);
     try {
       const translatedItems = await Promise.all(
@@ -52,6 +53,8 @@ const HeroBanner = ({ bannerData }) => {
         },
       };
 
+      console.log("send Data", sendData);
+
       const method = bannerData?.id ? "put" : "post";
 
       const { data } = await api[method](
@@ -71,19 +74,18 @@ const HeroBanner = ({ bannerData }) => {
   useEffect(() => {
     if (!bannerData) return;
 
-    setTitle(bannerData.title[locale] || bannerData.title.en);
-    setDescription(bannerData.description[locale] || bannerData.description.en);
-    setItems(bannerData.items.map((item) => item[locale] || item.en));
-    setButtonOneText(
-      bannerData.buttonOneText[locale] || bannerData.buttonOneText.en
-    );
-    setButtonTwoText(
-      bannerData.buttonTwoText[locale] || bannerData.buttonTwoText.en
-    );
+    setTitle(bannerData.title[locale]);
+    setDescription(bannerData.description[locale]);
+    setItems(bannerData.items.map((item) => item[locale]));
+    setButtonOneText(bannerData.buttonOneText[locale]);
+    setButtonTwoText(bannerData.buttonTwoText[locale]);
   }, [bannerData, locale]);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
+    <form
+      onSubmit={updateHeroBanner}
+      className="bg-white p-6 rounded-lg shadow-md space-y-6"
+    >
       <TitleInput title={title} setTitle={setTitle} />
       <DescriptionInput
         description={description}
@@ -97,13 +99,10 @@ const HeroBanner = ({ bannerData }) => {
         setButtonTwoText={setButtonTwoText}
       />
 
-      <Button
-        onClick={updateHeroBanner}
-        className="px-5 py-2 rounded-lg font-semibold"
-      >
+      <Button type="submit" className="px-5 py-2 rounded-lg font-semibold">
         {loader ? "Loading.." : "Save"}
       </Button>
-    </div>
+    </form>
   );
 };
 

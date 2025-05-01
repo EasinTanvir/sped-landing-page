@@ -13,6 +13,7 @@ const ButtonsEditor = ({
           Button One Text
         </label>
         <input
+          required
           type="text"
           value={buttonOneText}
           onChange={(e) => setButtonOneText(e.target.value)}
@@ -24,6 +25,7 @@ const ButtonsEditor = ({
           Button Two Text
         </label>
         <input
+          required
           type="text"
           value={buttonTwoText}
           onChange={(e) => setButtonTwoText(e.target.value)}

@@ -19,7 +19,8 @@ const BrandSettings = ({ settingData }) => {
 
   const router = useRouter();
 
-  const updateBrandSetting = async () => {
+  const updateBrandSetting = async (event) => {
+    event.preventDefault();
     setLoading(true);
     try {
       const translatedTitle = await translateText(brandTitle);
@@ -55,16 +56,16 @@ const BrandSettings = ({ settingData }) => {
 
   useEffect(() => {
     if (settingData) {
-      setBrandTitle(settingData?.brandTitle[locale] || "SwiftDrop");
-      setFooterText(
-        settingData?.footerText[locale] ||
-          "© 2025 SwiftDrop. All rights reserved."
-      );
+      setBrandTitle(settingData?.brandTitle[locale]);
+      setFooterText(settingData?.footerText[locale]);
     }
   }, [settingData]);
 
   return (
-    <div className="bg-white lg:p-6 p-2 rounded-lg shadow-md space-y-6">
+    <form
+      onSubmit={updateBrandSetting}
+      className="bg-white lg:p-6 p-2 rounded-lg shadow-md space-y-6"
+    >
       <div>
         <label className="block text-gray-700 font-medium">Brand Title</label>
         <input
@@ -81,13 +82,13 @@ const BrandSettings = ({ settingData }) => {
       <FooterEditor footerText={footerText} setFooterText={setFooterText} />
 
       <Button
-        onClick={updateBrandSetting}
+        type="submit"
         disabled={loading}
         className="px-5 py-2 rounded-lg font-semibold"
       >
         {loading ? "Saving..." : "Save"}
       </Button>
-    </div>
+    </form>
   );
 };
 
