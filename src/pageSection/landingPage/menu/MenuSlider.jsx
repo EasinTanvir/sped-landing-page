@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 import SwipperButton from "@/components/swiper/SwipperButton";
 import SwiperSlider from "@/components/swiper/SwiperSlider";
 
-const MenuSlider = () => {
+const MenuSlider = ({ menuItems }) => {
   return (
     <div>
       <SwiperSlider
@@ -37,7 +37,7 @@ const MenuSlider = () => {
             spaceBetween: 5,
           },
         }}
-        lists={menuFoodItems}
+        lists={menuItems}
         renderCard={(item) => <Menucard key={item.id} {...item} />}
         showControls
         title=""

@@ -11,8 +11,9 @@ const PriceDetailsEditor = ({
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-gray-700 font-medium">Price Title</label>
+        <label className="block text-gray-700 font-bold">Price Title</label>
         <input
+          required
           type="text"
           value={priceTitle}
           onChange={(e) => setPriceTitle(e.target.value)}
@@ -21,8 +22,9 @@ const PriceDetailsEditor = ({
       </div>
 
       <div>
-        <label className="block text-gray-700 font-medium">Price Unit</label>
+        <label className="block text-gray-700  font-bold">Price Unit</label>
         <input
+          required
           type="text"
           value={priceUnit}
           onChange={(e) => setPriceUnit(e.target.value)}
@@ -32,8 +34,9 @@ const PriceDetailsEditor = ({
       </div>
 
       <div>
-        <label className="block text-gray-700 font-medium">Price</label>
+        <label className="block text-gray-700  font-bold">Price</label>
         <input
+          required
           type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}

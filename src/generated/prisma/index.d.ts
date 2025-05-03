@@ -24,10 +24,10 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type HeroBanner = $Result.DefaultSelection<Prisma.$HeroBannerPayload>
 /**
- * Model BrandSetting
+ * Model Menu
  * 
  */
-export type BrandSetting = $Result.DefaultSelection<Prisma.$BrandSettingPayload>
+export type Menu = $Result.DefaultSelection<Prisma.$MenuPayload>
 
 /**
  * Enums
@@ -159,14 +159,14 @@ export class PrismaClient<
   get heroBanner(): Prisma.HeroBannerDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.brandSetting`: Exposes CRUD operations for the **BrandSetting** model.
+   * `prisma.menu`: Exposes CRUD operations for the **Menu** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more BrandSettings
-    * const brandSettings = await prisma.brandSetting.findMany()
+    * // Fetch zero or more Menus
+    * const menus = await prisma.menu.findMany()
     * ```
     */
-  get brandSetting(): Prisma.BrandSettingDelegate<ExtArgs, ClientOptions>;
+  get menu(): Prisma.MenuDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +609,7 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     HeroBanner: 'HeroBanner',
-    BrandSetting: 'BrandSetting'
+    Menu: 'Menu'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +628,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "heroBanner" | "brandSetting"
+      modelProps: "user" | "heroBanner" | "menu"
       txIsolationLevel: never
     }
     model: {
@@ -780,77 +780,77 @@ export namespace Prisma {
           }
         }
       }
-      BrandSetting: {
-        payload: Prisma.$BrandSettingPayload<ExtArgs>
-        fields: Prisma.BrandSettingFieldRefs
+      Menu: {
+        payload: Prisma.$MenuPayload<ExtArgs>
+        fields: Prisma.MenuFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.BrandSettingFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload> | null
+            args: Prisma.MenuFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.BrandSettingFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+            args: Prisma.MenuFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>
           }
           findFirst: {
-            args: Prisma.BrandSettingFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload> | null
+            args: Prisma.MenuFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.BrandSettingFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+            args: Prisma.MenuFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>
           }
           findMany: {
-            args: Prisma.BrandSettingFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>[]
+            args: Prisma.MenuFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>[]
           }
           create: {
-            args: Prisma.BrandSettingCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+            args: Prisma.MenuCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>
           }
           createMany: {
-            args: Prisma.BrandSettingCreateManyArgs<ExtArgs>
+            args: Prisma.MenuCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.BrandSettingDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+            args: Prisma.MenuDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>
           }
           update: {
-            args: Prisma.BrandSettingUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+            args: Prisma.MenuUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>
           }
           deleteMany: {
-            args: Prisma.BrandSettingDeleteManyArgs<ExtArgs>
+            args: Prisma.MenuDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.BrandSettingUpdateManyArgs<ExtArgs>
+            args: Prisma.MenuUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.BrandSettingUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$BrandSettingPayload>
+            args: Prisma.MenuUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MenuPayload>
           }
           aggregate: {
-            args: Prisma.BrandSettingAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateBrandSetting>
+            args: Prisma.MenuAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMenu>
           }
           groupBy: {
-            args: Prisma.BrandSettingGroupByArgs<ExtArgs>
-            result: $Utils.Optional<BrandSettingGroupByOutputType>[]
+            args: Prisma.MenuGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MenuGroupByOutputType>[]
           }
           findRaw: {
-            args: Prisma.BrandSettingFindRawArgs<ExtArgs>
+            args: Prisma.MenuFindRawArgs<ExtArgs>
             result: JsonObject
           }
           aggregateRaw: {
-            args: Prisma.BrandSettingAggregateRawArgs<ExtArgs>
+            args: Prisma.MenuAggregateRawArgs<ExtArgs>
             result: JsonObject
           }
           count: {
-            args: Prisma.BrandSettingCountArgs<ExtArgs>
-            result: $Utils.Optional<BrandSettingCountAggregateOutputType> | number
+            args: Prisma.MenuCountArgs<ExtArgs>
+            result: $Utils.Optional<MenuCountAggregateOutputType> | number
           }
         }
       }
@@ -927,7 +927,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     user?: UserOmit
     heroBanner?: HeroBannerOmit
-    brandSetting?: BrandSettingOmit
+    menu?: MenuOmit
   }
 
   /* Types for Logging */
@@ -2889,311 +2889,301 @@ export namespace Prisma {
 
 
   /**
-   * Model BrandSetting
+   * Model Menu
    */
 
-  export type AggregateBrandSetting = {
-    _count: BrandSettingCountAggregateOutputType | null
-    _min: BrandSettingMinAggregateOutputType | null
-    _max: BrandSettingMaxAggregateOutputType | null
+  export type AggregateMenu = {
+    _count: MenuCountAggregateOutputType | null
+    _min: MenuMinAggregateOutputType | null
+    _max: MenuMaxAggregateOutputType | null
   }
 
-  export type BrandSettingMinAggregateOutputType = {
+  export type MenuMinAggregateOutputType = {
     id: string | null
-    brandLogo: string | null
   }
 
-  export type BrandSettingMaxAggregateOutputType = {
+  export type MenuMaxAggregateOutputType = {
     id: string | null
-    brandLogo: string | null
   }
 
-  export type BrandSettingCountAggregateOutputType = {
+  export type MenuCountAggregateOutputType = {
     id: number
-    brandTitle: number
-    footerText: number
-    brandLogo: number
+    menuTitle: number
+    menuItems: number
     _all: number
   }
 
 
-  export type BrandSettingMinAggregateInputType = {
+  export type MenuMinAggregateInputType = {
     id?: true
-    brandLogo?: true
   }
 
-  export type BrandSettingMaxAggregateInputType = {
+  export type MenuMaxAggregateInputType = {
     id?: true
-    brandLogo?: true
   }
 
-  export type BrandSettingCountAggregateInputType = {
+  export type MenuCountAggregateInputType = {
     id?: true
-    brandTitle?: true
-    footerText?: true
-    brandLogo?: true
+    menuTitle?: true
+    menuItems?: true
     _all?: true
   }
 
-  export type BrandSettingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which BrandSetting to aggregate.
+     * Filter which Menu to aggregate.
      */
-    where?: BrandSettingWhereInput
+    where?: MenuWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BrandSettings to fetch.
+     * Determine the order of Menus to fetch.
      */
-    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    orderBy?: MenuOrderByWithRelationInput | MenuOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: BrandSettingWhereUniqueInput
+    cursor?: MenuWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BrandSettings from the position of the cursor.
+     * Take `±n` Menus from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BrandSettings.
+     * Skip the first `n` Menus.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned BrandSettings
+     * Count returned Menus
     **/
-    _count?: true | BrandSettingCountAggregateInputType
+    _count?: true | MenuCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: BrandSettingMinAggregateInputType
+    _min?: MenuMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: BrandSettingMaxAggregateInputType
+    _max?: MenuMaxAggregateInputType
   }
 
-  export type GetBrandSettingAggregateType<T extends BrandSettingAggregateArgs> = {
-        [P in keyof T & keyof AggregateBrandSetting]: P extends '_count' | 'count'
+  export type GetMenuAggregateType<T extends MenuAggregateArgs> = {
+        [P in keyof T & keyof AggregateMenu]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateBrandSetting[P]>
-      : GetScalarType<T[P], AggregateBrandSetting[P]>
+        : GetScalarType<T[P], AggregateMenu[P]>
+      : GetScalarType<T[P], AggregateMenu[P]>
   }
 
 
 
 
-  export type BrandSettingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: BrandSettingWhereInput
-    orderBy?: BrandSettingOrderByWithAggregationInput | BrandSettingOrderByWithAggregationInput[]
-    by: BrandSettingScalarFieldEnum[] | BrandSettingScalarFieldEnum
-    having?: BrandSettingScalarWhereWithAggregatesInput
+  export type MenuGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MenuWhereInput
+    orderBy?: MenuOrderByWithAggregationInput | MenuOrderByWithAggregationInput[]
+    by: MenuScalarFieldEnum[] | MenuScalarFieldEnum
+    having?: MenuScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: BrandSettingCountAggregateInputType | true
-    _min?: BrandSettingMinAggregateInputType
-    _max?: BrandSettingMaxAggregateInputType
+    _count?: MenuCountAggregateInputType | true
+    _min?: MenuMinAggregateInputType
+    _max?: MenuMaxAggregateInputType
   }
 
-  export type BrandSettingGroupByOutputType = {
+  export type MenuGroupByOutputType = {
     id: string
-    brandTitle: JsonValue
-    footerText: JsonValue
-    brandLogo: string | null
-    _count: BrandSettingCountAggregateOutputType | null
-    _min: BrandSettingMinAggregateOutputType | null
-    _max: BrandSettingMaxAggregateOutputType | null
+    menuTitle: JsonValue
+    menuItems: JsonValue
+    _count: MenuCountAggregateOutputType | null
+    _min: MenuMinAggregateOutputType | null
+    _max: MenuMaxAggregateOutputType | null
   }
 
-  type GetBrandSettingGroupByPayload<T extends BrandSettingGroupByArgs> = Prisma.PrismaPromise<
+  type GetMenuGroupByPayload<T extends MenuGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<BrandSettingGroupByOutputType, T['by']> &
+      PickEnumerable<MenuGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof BrandSettingGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof MenuGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], BrandSettingGroupByOutputType[P]>
-            : GetScalarType<T[P], BrandSettingGroupByOutputType[P]>
+              : GetScalarType<T[P], MenuGroupByOutputType[P]>
+            : GetScalarType<T[P], MenuGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type BrandSettingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MenuSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    brandTitle?: boolean
-    footerText?: boolean
-    brandLogo?: boolean
-  }, ExtArgs["result"]["brandSetting"]>
+    menuTitle?: boolean
+    menuItems?: boolean
+  }, ExtArgs["result"]["menu"]>
 
 
 
-  export type BrandSettingSelectScalar = {
+  export type MenuSelectScalar = {
     id?: boolean
-    brandTitle?: boolean
-    footerText?: boolean
-    brandLogo?: boolean
+    menuTitle?: boolean
+    menuItems?: boolean
   }
 
-  export type BrandSettingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "brandTitle" | "footerText" | "brandLogo", ExtArgs["result"]["brandSetting"]>
+  export type MenuOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "menuTitle" | "menuItems", ExtArgs["result"]["menu"]>
 
-  export type $BrandSettingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "BrandSetting"
+  export type $MenuPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Menu"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      brandTitle: Prisma.JsonValue
-      footerText: Prisma.JsonValue
-      brandLogo: string | null
-    }, ExtArgs["result"]["brandSetting"]>
+      menuTitle: Prisma.JsonValue
+      menuItems: Prisma.JsonValue
+    }, ExtArgs["result"]["menu"]>
     composites: {}
   }
 
-  type BrandSettingGetPayload<S extends boolean | null | undefined | BrandSettingDefaultArgs> = $Result.GetResult<Prisma.$BrandSettingPayload, S>
+  type MenuGetPayload<S extends boolean | null | undefined | MenuDefaultArgs> = $Result.GetResult<Prisma.$MenuPayload, S>
 
-  type BrandSettingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<BrandSettingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: BrandSettingCountAggregateInputType | true
+  type MenuCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MenuFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MenuCountAggregateInputType | true
     }
 
-  export interface BrandSettingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BrandSetting'], meta: { name: 'BrandSetting' } }
+  export interface MenuDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Menu'], meta: { name: 'Menu' } }
     /**
-     * Find zero or one BrandSetting that matches the filter.
-     * @param {BrandSettingFindUniqueArgs} args - Arguments to find a BrandSetting
+     * Find zero or one Menu that matches the filter.
+     * @param {MenuFindUniqueArgs} args - Arguments to find a Menu
      * @example
-     * // Get one BrandSetting
-     * const brandSetting = await prisma.brandSetting.findUnique({
+     * // Get one Menu
+     * const menu = await prisma.menu.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends BrandSettingFindUniqueArgs>(args: SelectSubset<T, BrandSettingFindUniqueArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends MenuFindUniqueArgs>(args: SelectSubset<T, MenuFindUniqueArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one BrandSetting that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Menu that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {BrandSettingFindUniqueOrThrowArgs} args - Arguments to find a BrandSetting
+     * @param {MenuFindUniqueOrThrowArgs} args - Arguments to find a Menu
      * @example
-     * // Get one BrandSetting
-     * const brandSetting = await prisma.brandSetting.findUniqueOrThrow({
+     * // Get one Menu
+     * const menu = await prisma.menu.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends BrandSettingFindUniqueOrThrowArgs>(args: SelectSubset<T, BrandSettingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends MenuFindUniqueOrThrowArgs>(args: SelectSubset<T, MenuFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first BrandSetting that matches the filter.
+     * Find the first Menu that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingFindFirstArgs} args - Arguments to find a BrandSetting
+     * @param {MenuFindFirstArgs} args - Arguments to find a Menu
      * @example
-     * // Get one BrandSetting
-     * const brandSetting = await prisma.brandSetting.findFirst({
+     * // Get one Menu
+     * const menu = await prisma.menu.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends BrandSettingFindFirstArgs>(args?: SelectSubset<T, BrandSettingFindFirstArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends MenuFindFirstArgs>(args?: SelectSubset<T, MenuFindFirstArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first BrandSetting that matches the filter or
+     * Find the first Menu that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingFindFirstOrThrowArgs} args - Arguments to find a BrandSetting
+     * @param {MenuFindFirstOrThrowArgs} args - Arguments to find a Menu
      * @example
-     * // Get one BrandSetting
-     * const brandSetting = await prisma.brandSetting.findFirstOrThrow({
+     * // Get one Menu
+     * const menu = await prisma.menu.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends BrandSettingFindFirstOrThrowArgs>(args?: SelectSubset<T, BrandSettingFindFirstOrThrowArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends MenuFindFirstOrThrowArgs>(args?: SelectSubset<T, MenuFindFirstOrThrowArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more BrandSettings that matches the filter.
+     * Find zero or more Menus that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {MenuFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all BrandSettings
-     * const brandSettings = await prisma.brandSetting.findMany()
+     * // Get all Menus
+     * const menus = await prisma.menu.findMany()
      * 
-     * // Get first 10 BrandSettings
-     * const brandSettings = await prisma.brandSetting.findMany({ take: 10 })
+     * // Get first 10 Menus
+     * const menus = await prisma.menu.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const brandSettingWithIdOnly = await prisma.brandSetting.findMany({ select: { id: true } })
+     * const menuWithIdOnly = await prisma.menu.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends BrandSettingFindManyArgs>(args?: SelectSubset<T, BrandSettingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends MenuFindManyArgs>(args?: SelectSubset<T, MenuFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a BrandSetting.
-     * @param {BrandSettingCreateArgs} args - Arguments to create a BrandSetting.
+     * Create a Menu.
+     * @param {MenuCreateArgs} args - Arguments to create a Menu.
      * @example
-     * // Create one BrandSetting
-     * const BrandSetting = await prisma.brandSetting.create({
+     * // Create one Menu
+     * const Menu = await prisma.menu.create({
      *   data: {
-     *     // ... data to create a BrandSetting
+     *     // ... data to create a Menu
      *   }
      * })
      * 
      */
-    create<T extends BrandSettingCreateArgs>(args: SelectSubset<T, BrandSettingCreateArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends MenuCreateArgs>(args: SelectSubset<T, MenuCreateArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many BrandSettings.
-     * @param {BrandSettingCreateManyArgs} args - Arguments to create many BrandSettings.
+     * Create many Menus.
+     * @param {MenuCreateManyArgs} args - Arguments to create many Menus.
      * @example
-     * // Create many BrandSettings
-     * const brandSetting = await prisma.brandSetting.createMany({
+     * // Create many Menus
+     * const menu = await prisma.menu.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends BrandSettingCreateManyArgs>(args?: SelectSubset<T, BrandSettingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends MenuCreateManyArgs>(args?: SelectSubset<T, MenuCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a BrandSetting.
-     * @param {BrandSettingDeleteArgs} args - Arguments to delete one BrandSetting.
+     * Delete a Menu.
+     * @param {MenuDeleteArgs} args - Arguments to delete one Menu.
      * @example
-     * // Delete one BrandSetting
-     * const BrandSetting = await prisma.brandSetting.delete({
+     * // Delete one Menu
+     * const Menu = await prisma.menu.delete({
      *   where: {
-     *     // ... filter to delete one BrandSetting
+     *     // ... filter to delete one Menu
      *   }
      * })
      * 
      */
-    delete<T extends BrandSettingDeleteArgs>(args: SelectSubset<T, BrandSettingDeleteArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends MenuDeleteArgs>(args: SelectSubset<T, MenuDeleteArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one BrandSetting.
-     * @param {BrandSettingUpdateArgs} args - Arguments to update one BrandSetting.
+     * Update one Menu.
+     * @param {MenuUpdateArgs} args - Arguments to update one Menu.
      * @example
-     * // Update one BrandSetting
-     * const brandSetting = await prisma.brandSetting.update({
+     * // Update one Menu
+     * const menu = await prisma.menu.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3203,30 +3193,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends BrandSettingUpdateArgs>(args: SelectSubset<T, BrandSettingUpdateArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends MenuUpdateArgs>(args: SelectSubset<T, MenuUpdateArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more BrandSettings.
-     * @param {BrandSettingDeleteManyArgs} args - Arguments to filter BrandSettings to delete.
+     * Delete zero or more Menus.
+     * @param {MenuDeleteManyArgs} args - Arguments to filter Menus to delete.
      * @example
-     * // Delete a few BrandSettings
-     * const { count } = await prisma.brandSetting.deleteMany({
+     * // Delete a few Menus
+     * const { count } = await prisma.menu.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends BrandSettingDeleteManyArgs>(args?: SelectSubset<T, BrandSettingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends MenuDeleteManyArgs>(args?: SelectSubset<T, MenuDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more BrandSettings.
+     * Update zero or more Menus.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {MenuUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many BrandSettings
-     * const brandSetting = await prisma.brandSetting.updateMany({
+     * // Update many Menus
+     * const menu = await prisma.menu.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3236,79 +3226,79 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends BrandSettingUpdateManyArgs>(args: SelectSubset<T, BrandSettingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends MenuUpdateManyArgs>(args: SelectSubset<T, MenuUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one BrandSetting.
-     * @param {BrandSettingUpsertArgs} args - Arguments to update or create a BrandSetting.
+     * Create or update one Menu.
+     * @param {MenuUpsertArgs} args - Arguments to update or create a Menu.
      * @example
-     * // Update or create a BrandSetting
-     * const brandSetting = await prisma.brandSetting.upsert({
+     * // Update or create a Menu
+     * const menu = await prisma.menu.upsert({
      *   create: {
-     *     // ... data to create a BrandSetting
+     *     // ... data to create a Menu
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the BrandSetting we want to update
+     *     // ... the filter for the Menu we want to update
      *   }
      * })
      */
-    upsert<T extends BrandSettingUpsertArgs>(args: SelectSubset<T, BrandSettingUpsertArgs<ExtArgs>>): Prisma__BrandSettingClient<$Result.GetResult<Prisma.$BrandSettingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends MenuUpsertArgs>(args: SelectSubset<T, MenuUpsertArgs<ExtArgs>>): Prisma__MenuClient<$Result.GetResult<Prisma.$MenuPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more BrandSettings that matches the filter.
-     * @param {BrandSettingFindRawArgs} args - Select which filters you would like to apply.
+     * Find zero or more Menus that matches the filter.
+     * @param {MenuFindRawArgs} args - Select which filters you would like to apply.
      * @example
-     * const brandSetting = await prisma.brandSetting.findRaw({
+     * const menu = await prisma.menu.findRaw({
      *   filter: { age: { $gt: 25 } }
      * })
      */
-    findRaw(args?: BrandSettingFindRawArgs): Prisma.PrismaPromise<JsonObject>
+    findRaw(args?: MenuFindRawArgs): Prisma.PrismaPromise<JsonObject>
 
     /**
-     * Perform aggregation operations on a BrandSetting.
-     * @param {BrandSettingAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * Perform aggregation operations on a Menu.
+     * @param {MenuAggregateRawArgs} args - Select which aggregations you would like to apply.
      * @example
-     * const brandSetting = await prisma.brandSetting.aggregateRaw({
+     * const menu = await prisma.menu.aggregateRaw({
      *   pipeline: [
      *     { $match: { status: "registered" } },
      *     { $group: { _id: "$country", total: { $sum: 1 } } }
      *   ]
      * })
      */
-    aggregateRaw(args?: BrandSettingAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+    aggregateRaw(args?: MenuAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
 
 
     /**
-     * Count the number of BrandSettings.
+     * Count the number of Menus.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingCountArgs} args - Arguments to filter BrandSettings to count.
+     * @param {MenuCountArgs} args - Arguments to filter Menus to count.
      * @example
-     * // Count the number of BrandSettings
-     * const count = await prisma.brandSetting.count({
+     * // Count the number of Menus
+     * const count = await prisma.menu.count({
      *   where: {
-     *     // ... the filter for the BrandSettings we want to count
+     *     // ... the filter for the Menus we want to count
      *   }
      * })
     **/
-    count<T extends BrandSettingCountArgs>(
-      args?: Subset<T, BrandSettingCountArgs>,
+    count<T extends MenuCountArgs>(
+      args?: Subset<T, MenuCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], BrandSettingCountAggregateOutputType>
+          : GetScalarType<T['select'], MenuCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a BrandSetting.
+     * Allows you to perform aggregations operations on a Menu.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {MenuAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3328,13 +3318,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends BrandSettingAggregateArgs>(args: Subset<T, BrandSettingAggregateArgs>): Prisma.PrismaPromise<GetBrandSettingAggregateType<T>>
+    aggregate<T extends MenuAggregateArgs>(args: Subset<T, MenuAggregateArgs>): Prisma.PrismaPromise<GetMenuAggregateType<T>>
 
     /**
-     * Group by BrandSetting.
+     * Group by Menu.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {BrandSettingGroupByArgs} args - Group by arguments.
+     * @param {MenuGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3349,14 +3339,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends BrandSettingGroupByArgs,
+      T extends MenuGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: BrandSettingGroupByArgs['orderBy'] }
-        : { orderBy?: BrandSettingGroupByArgs['orderBy'] },
+        ? { orderBy: MenuGroupByArgs['orderBy'] }
+        : { orderBy?: MenuGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3405,20 +3395,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, BrandSettingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBrandSettingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, MenuGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMenuGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the BrandSetting model
+   * Fields of the Menu model
    */
-  readonly fields: BrandSettingFieldRefs;
+  readonly fields: MenuFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for BrandSetting.
+   * The delegate class that acts as a "Promise-like" for Menu.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__BrandSettingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__MenuClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3446,322 +3436,321 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the BrandSetting model
+   * Fields of the Menu model
    */
-  interface BrandSettingFieldRefs {
-    readonly id: FieldRef<"BrandSetting", 'String'>
-    readonly brandTitle: FieldRef<"BrandSetting", 'Json'>
-    readonly footerText: FieldRef<"BrandSetting", 'Json'>
-    readonly brandLogo: FieldRef<"BrandSetting", 'String'>
+  interface MenuFieldRefs {
+    readonly id: FieldRef<"Menu", 'String'>
+    readonly menuTitle: FieldRef<"Menu", 'Json'>
+    readonly menuItems: FieldRef<"Menu", 'Json'>
   }
     
 
   // Custom InputTypes
   /**
-   * BrandSetting findUnique
+   * Menu findUnique
    */
-  export type BrandSettingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * Filter, which BrandSetting to fetch.
+     * Filter, which Menu to fetch.
      */
-    where: BrandSettingWhereUniqueInput
+    where: MenuWhereUniqueInput
   }
 
   /**
-   * BrandSetting findUniqueOrThrow
+   * Menu findUniqueOrThrow
    */
-  export type BrandSettingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * Filter, which BrandSetting to fetch.
+     * Filter, which Menu to fetch.
      */
-    where: BrandSettingWhereUniqueInput
+    where: MenuWhereUniqueInput
   }
 
   /**
-   * BrandSetting findFirst
+   * Menu findFirst
    */
-  export type BrandSettingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * Filter, which BrandSetting to fetch.
+     * Filter, which Menu to fetch.
      */
-    where?: BrandSettingWhereInput
+    where?: MenuWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BrandSettings to fetch.
+     * Determine the order of Menus to fetch.
      */
-    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    orderBy?: MenuOrderByWithRelationInput | MenuOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for BrandSettings.
+     * Sets the position for searching for Menus.
      */
-    cursor?: BrandSettingWhereUniqueInput
+    cursor?: MenuWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BrandSettings from the position of the cursor.
+     * Take `±n` Menus from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BrandSettings.
+     * Skip the first `n` Menus.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of BrandSettings.
+     * Filter by unique combinations of Menus.
      */
-    distinct?: BrandSettingScalarFieldEnum | BrandSettingScalarFieldEnum[]
+    distinct?: MenuScalarFieldEnum | MenuScalarFieldEnum[]
   }
 
   /**
-   * BrandSetting findFirstOrThrow
+   * Menu findFirstOrThrow
    */
-  export type BrandSettingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * Filter, which BrandSetting to fetch.
+     * Filter, which Menu to fetch.
      */
-    where?: BrandSettingWhereInput
+    where?: MenuWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BrandSettings to fetch.
+     * Determine the order of Menus to fetch.
      */
-    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    orderBy?: MenuOrderByWithRelationInput | MenuOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for BrandSettings.
+     * Sets the position for searching for Menus.
      */
-    cursor?: BrandSettingWhereUniqueInput
+    cursor?: MenuWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BrandSettings from the position of the cursor.
+     * Take `±n` Menus from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BrandSettings.
+     * Skip the first `n` Menus.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of BrandSettings.
+     * Filter by unique combinations of Menus.
      */
-    distinct?: BrandSettingScalarFieldEnum | BrandSettingScalarFieldEnum[]
+    distinct?: MenuScalarFieldEnum | MenuScalarFieldEnum[]
   }
 
   /**
-   * BrandSetting findMany
+   * Menu findMany
    */
-  export type BrandSettingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * Filter, which BrandSettings to fetch.
+     * Filter, which Menus to fetch.
      */
-    where?: BrandSettingWhereInput
+    where?: MenuWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of BrandSettings to fetch.
+     * Determine the order of Menus to fetch.
      */
-    orderBy?: BrandSettingOrderByWithRelationInput | BrandSettingOrderByWithRelationInput[]
+    orderBy?: MenuOrderByWithRelationInput | MenuOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing BrandSettings.
+     * Sets the position for listing Menus.
      */
-    cursor?: BrandSettingWhereUniqueInput
+    cursor?: MenuWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` BrandSettings from the position of the cursor.
+     * Take `±n` Menus from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` BrandSettings.
+     * Skip the first `n` Menus.
      */
     skip?: number
-    distinct?: BrandSettingScalarFieldEnum | BrandSettingScalarFieldEnum[]
+    distinct?: MenuScalarFieldEnum | MenuScalarFieldEnum[]
   }
 
   /**
-   * BrandSetting create
+   * Menu create
    */
-  export type BrandSettingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * The data needed to create a BrandSetting.
+     * The data needed to create a Menu.
      */
-    data: XOR<BrandSettingCreateInput, BrandSettingUncheckedCreateInput>
+    data: XOR<MenuCreateInput, MenuUncheckedCreateInput>
   }
 
   /**
-   * BrandSetting createMany
+   * Menu createMany
    */
-  export type BrandSettingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many BrandSettings.
+     * The data used to create many Menus.
      */
-    data: BrandSettingCreateManyInput | BrandSettingCreateManyInput[]
+    data: MenuCreateManyInput | MenuCreateManyInput[]
   }
 
   /**
-   * BrandSetting update
+   * Menu update
    */
-  export type BrandSettingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * The data needed to update a BrandSetting.
+     * The data needed to update a Menu.
      */
-    data: XOR<BrandSettingUpdateInput, BrandSettingUncheckedUpdateInput>
+    data: XOR<MenuUpdateInput, MenuUncheckedUpdateInput>
     /**
-     * Choose, which BrandSetting to update.
+     * Choose, which Menu to update.
      */
-    where: BrandSettingWhereUniqueInput
+    where: MenuWhereUniqueInput
   }
 
   /**
-   * BrandSetting updateMany
+   * Menu updateMany
    */
-  export type BrandSettingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update BrandSettings.
+     * The data used to update Menus.
      */
-    data: XOR<BrandSettingUpdateManyMutationInput, BrandSettingUncheckedUpdateManyInput>
+    data: XOR<MenuUpdateManyMutationInput, MenuUncheckedUpdateManyInput>
     /**
-     * Filter which BrandSettings to update
+     * Filter which Menus to update
      */
-    where?: BrandSettingWhereInput
+    where?: MenuWhereInput
     /**
-     * Limit how many BrandSettings to update.
+     * Limit how many Menus to update.
      */
     limit?: number
   }
 
   /**
-   * BrandSetting upsert
+   * Menu upsert
    */
-  export type BrandSettingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * The filter to search for the BrandSetting to update in case it exists.
+     * The filter to search for the Menu to update in case it exists.
      */
-    where: BrandSettingWhereUniqueInput
+    where: MenuWhereUniqueInput
     /**
-     * In case the BrandSetting found by the `where` argument doesn't exist, create a new BrandSetting with this data.
+     * In case the Menu found by the `where` argument doesn't exist, create a new Menu with this data.
      */
-    create: XOR<BrandSettingCreateInput, BrandSettingUncheckedCreateInput>
+    create: XOR<MenuCreateInput, MenuUncheckedCreateInput>
     /**
-     * In case the BrandSetting was found with the provided `where` argument, update it with this data.
+     * In case the Menu was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<BrandSettingUpdateInput, BrandSettingUncheckedUpdateInput>
+    update: XOR<MenuUpdateInput, MenuUncheckedUpdateInput>
   }
 
   /**
-   * BrandSetting delete
+   * Menu delete
    */
-  export type BrandSettingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
     /**
-     * Filter which BrandSetting to delete.
+     * Filter which Menu to delete.
      */
-    where: BrandSettingWhereUniqueInput
+    where: MenuWhereUniqueInput
   }
 
   /**
-   * BrandSetting deleteMany
+   * Menu deleteMany
    */
-  export type BrandSettingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which BrandSettings to delete
+     * Filter which Menus to delete
      */
-    where?: BrandSettingWhereInput
+    where?: MenuWhereInput
     /**
-     * Limit how many BrandSettings to delete.
+     * Limit how many Menus to delete.
      */
     limit?: number
   }
 
   /**
-   * BrandSetting findRaw
+   * Menu findRaw
    */
-  export type BrandSettingFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
      */
@@ -3773,9 +3762,9 @@ export namespace Prisma {
   }
 
   /**
-   * BrandSetting aggregateRaw
+   * Menu aggregateRaw
    */
-  export type BrandSettingAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
      */
@@ -3787,17 +3776,17 @@ export namespace Prisma {
   }
 
   /**
-   * BrandSetting without action
+   * Menu without action
    */
-  export type BrandSettingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MenuDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the BrandSetting
+     * Select specific fields to fetch from the Menu
      */
-    select?: BrandSettingSelect<ExtArgs> | null
+    select?: MenuSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the BrandSetting
+     * Omit specific fields from the Menu
      */
-    omit?: BrandSettingOmit<ExtArgs> | null
+    omit?: MenuOmit<ExtArgs> | null
   }
 
 
@@ -3829,14 +3818,13 @@ export namespace Prisma {
   export type HeroBannerScalarFieldEnum = (typeof HeroBannerScalarFieldEnum)[keyof typeof HeroBannerScalarFieldEnum]
 
 
-  export const BrandSettingScalarFieldEnum: {
+  export const MenuScalarFieldEnum: {
     id: 'id',
-    brandTitle: 'brandTitle',
-    footerText: 'footerText',
-    brandLogo: 'brandLogo'
+    menuTitle: 'menuTitle',
+    menuItems: 'menuItems'
   };
 
-  export type BrandSettingScalarFieldEnum = (typeof BrandSettingScalarFieldEnum)[keyof typeof BrandSettingScalarFieldEnum]
+  export type MenuScalarFieldEnum = (typeof MenuScalarFieldEnum)[keyof typeof MenuScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4040,51 +4028,46 @@ export namespace Prisma {
     buttonTwoText?: JsonWithAggregatesFilter<"HeroBanner">
   }
 
-  export type BrandSettingWhereInput = {
-    AND?: BrandSettingWhereInput | BrandSettingWhereInput[]
-    OR?: BrandSettingWhereInput[]
-    NOT?: BrandSettingWhereInput | BrandSettingWhereInput[]
-    id?: StringFilter<"BrandSetting"> | string
-    brandTitle?: JsonFilter<"BrandSetting">
-    footerText?: JsonFilter<"BrandSetting">
-    brandLogo?: StringNullableFilter<"BrandSetting"> | string | null
+  export type MenuWhereInput = {
+    AND?: MenuWhereInput | MenuWhereInput[]
+    OR?: MenuWhereInput[]
+    NOT?: MenuWhereInput | MenuWhereInput[]
+    id?: StringFilter<"Menu"> | string
+    menuTitle?: JsonFilter<"Menu">
+    menuItems?: JsonFilter<"Menu">
   }
 
-  export type BrandSettingOrderByWithRelationInput = {
+  export type MenuOrderByWithRelationInput = {
     id?: SortOrder
-    brandTitle?: SortOrder
-    footerText?: SortOrder
-    brandLogo?: SortOrder
+    menuTitle?: SortOrder
+    menuItems?: SortOrder
   }
 
-  export type BrandSettingWhereUniqueInput = Prisma.AtLeast<{
+  export type MenuWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: BrandSettingWhereInput | BrandSettingWhereInput[]
-    OR?: BrandSettingWhereInput[]
-    NOT?: BrandSettingWhereInput | BrandSettingWhereInput[]
-    brandTitle?: JsonFilter<"BrandSetting">
-    footerText?: JsonFilter<"BrandSetting">
-    brandLogo?: StringNullableFilter<"BrandSetting"> | string | null
+    AND?: MenuWhereInput | MenuWhereInput[]
+    OR?: MenuWhereInput[]
+    NOT?: MenuWhereInput | MenuWhereInput[]
+    menuTitle?: JsonFilter<"Menu">
+    menuItems?: JsonFilter<"Menu">
   }, "id">
 
-  export type BrandSettingOrderByWithAggregationInput = {
+  export type MenuOrderByWithAggregationInput = {
     id?: SortOrder
-    brandTitle?: SortOrder
-    footerText?: SortOrder
-    brandLogo?: SortOrder
-    _count?: BrandSettingCountOrderByAggregateInput
-    _max?: BrandSettingMaxOrderByAggregateInput
-    _min?: BrandSettingMinOrderByAggregateInput
+    menuTitle?: SortOrder
+    menuItems?: SortOrder
+    _count?: MenuCountOrderByAggregateInput
+    _max?: MenuMaxOrderByAggregateInput
+    _min?: MenuMinOrderByAggregateInput
   }
 
-  export type BrandSettingScalarWhereWithAggregatesInput = {
-    AND?: BrandSettingScalarWhereWithAggregatesInput | BrandSettingScalarWhereWithAggregatesInput[]
-    OR?: BrandSettingScalarWhereWithAggregatesInput[]
-    NOT?: BrandSettingScalarWhereWithAggregatesInput | BrandSettingScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"BrandSetting"> | string
-    brandTitle?: JsonWithAggregatesFilter<"BrandSetting">
-    footerText?: JsonWithAggregatesFilter<"BrandSetting">
-    brandLogo?: StringNullableWithAggregatesFilter<"BrandSetting"> | string | null
+  export type MenuScalarWhereWithAggregatesInput = {
+    AND?: MenuScalarWhereWithAggregatesInput | MenuScalarWhereWithAggregatesInput[]
+    OR?: MenuScalarWhereWithAggregatesInput[]
+    NOT?: MenuScalarWhereWithAggregatesInput | MenuScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Menu"> | string
+    menuTitle?: JsonWithAggregatesFilter<"Menu">
+    menuItems?: JsonWithAggregatesFilter<"Menu">
   }
 
   export type UserCreateInput = {
@@ -4205,49 +4188,42 @@ export namespace Prisma {
     buttonTwoText?: InputJsonValue | InputJsonValue
   }
 
-  export type BrandSettingCreateInput = {
+  export type MenuCreateInput = {
     id?: string
-    brandTitle: InputJsonValue
-    footerText: InputJsonValue
-    brandLogo?: string | null
+    menuTitle: InputJsonValue
+    menuItems: InputJsonValue
   }
 
-  export type BrandSettingUncheckedCreateInput = {
+  export type MenuUncheckedCreateInput = {
     id?: string
-    brandTitle: InputJsonValue
-    footerText: InputJsonValue
-    brandLogo?: string | null
+    menuTitle: InputJsonValue
+    menuItems: InputJsonValue
   }
 
-  export type BrandSettingUpdateInput = {
-    brandTitle?: InputJsonValue | InputJsonValue
-    footerText?: InputJsonValue | InputJsonValue
-    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  export type MenuUpdateInput = {
+    menuTitle?: InputJsonValue | InputJsonValue
+    menuItems?: InputJsonValue | InputJsonValue
   }
 
-  export type BrandSettingUncheckedUpdateInput = {
-    brandTitle?: InputJsonValue | InputJsonValue
-    footerText?: InputJsonValue | InputJsonValue
-    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  export type MenuUncheckedUpdateInput = {
+    menuTitle?: InputJsonValue | InputJsonValue
+    menuItems?: InputJsonValue | InputJsonValue
   }
 
-  export type BrandSettingCreateManyInput = {
+  export type MenuCreateManyInput = {
     id?: string
-    brandTitle: InputJsonValue
-    footerText: InputJsonValue
-    brandLogo?: string | null
+    menuTitle: InputJsonValue
+    menuItems: InputJsonValue
   }
 
-  export type BrandSettingUpdateManyMutationInput = {
-    brandTitle?: InputJsonValue | InputJsonValue
-    footerText?: InputJsonValue | InputJsonValue
-    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  export type MenuUpdateManyMutationInput = {
+    menuTitle?: InputJsonValue | InputJsonValue
+    menuItems?: InputJsonValue | InputJsonValue
   }
 
-  export type BrandSettingUncheckedUpdateManyInput = {
-    brandTitle?: InputJsonValue | InputJsonValue
-    footerText?: InputJsonValue | InputJsonValue
-    brandLogo?: NullableStringFieldUpdateOperationsInput | string | null
+  export type MenuUncheckedUpdateManyInput = {
+    menuTitle?: InputJsonValue | InputJsonValue
+    menuItems?: InputJsonValue | InputJsonValue
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -4394,56 +4370,18 @@ export namespace Prisma {
     _max?: NestedJsonFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-    isSet?: boolean
-  }
-
-  export type BrandSettingCountOrderByAggregateInput = {
+  export type MenuCountOrderByAggregateInput = {
     id?: SortOrder
-    brandTitle?: SortOrder
-    footerText?: SortOrder
-    brandLogo?: SortOrder
+    menuTitle?: SortOrder
+    menuItems?: SortOrder
   }
 
-  export type BrandSettingMaxOrderByAggregateInput = {
+  export type MenuMaxOrderByAggregateInput = {
     id?: SortOrder
-    brandLogo?: SortOrder
   }
 
-  export type BrandSettingMinOrderByAggregateInput = {
+  export type MenuMinOrderByAggregateInput = {
     id?: SortOrder
-    brandLogo?: SortOrder
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-    isSet?: boolean
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4456,11 +4394,6 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-    unset?: boolean
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4556,51 +4489,6 @@ export namespace Prisma {
   export type NestedJsonFilterBase<$PrismaModel = never> = {
     equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-    isSet?: boolean
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-    isSet?: boolean
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-    isSet?: boolean
   }
 
 

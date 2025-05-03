@@ -10,12 +10,19 @@ import BookTable from "@/pageSection/landingPage/bookTable/BookTable";
 import { serverApi } from "@/api";
 import ErrorFallback from "@/components/shared/ErrorFallback";
 
-const LandinPage = async () => {
+const LandinPage = async ({ params }) => {
   let data = null;
+  let menuData = null;
+
+  const { locale } = await params;
 
   try {
     const res = await serverApi.get("/api/admin/hero-banner");
+
     data = res.data;
+
+    const menuList = await serverApi.get("/api/admin/menu");
+    menuData = menuList.data;
   } catch (error) {
     console.error("Failed to fetch hero banner:", error);
   }
@@ -30,7 +37,7 @@ const LandinPage = async () => {
   return (
     <div>
       <HeroBanner bannerData={data} />
-      <MenuSection />
+      <MenuSection menuData={menuData} locale={locale} />
       <TodayMenu />
       <AreMenuService />
       <MasterChef />

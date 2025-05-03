@@ -131,11 +131,10 @@ exports.Prisma.HeroBannerScalarFieldEnum = {
   buttonTwoText: 'buttonTwoText'
 };
 
-exports.Prisma.BrandSettingScalarFieldEnum = {
+exports.Prisma.MenuScalarFieldEnum = {
   id: 'id',
-  brandTitle: 'brandTitle',
-  footerText: 'footerText',
-  brandLogo: 'brandLogo'
+  menuTitle: 'menuTitle',
+  menuItems: 'menuItems'
 };
 
 exports.Prisma.SortOrder = {
@@ -155,7 +154,7 @@ exports.Role = exports.$Enums.Role = {
 exports.Prisma.ModelName = {
   User: 'User',
   HeroBanner: 'HeroBanner',
-  BrandSetting: 'BrandSetting'
+  Menu: 'Menu'
 };
 
 /**
