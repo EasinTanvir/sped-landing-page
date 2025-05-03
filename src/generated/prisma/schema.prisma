@@ -31,6 +31,13 @@ model HeroBanner {
   buttonTwoText Json
 }
 
+model BrandSetting {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  brandTitle Json
+  footerText Json
+  brandLogo  String?
+}
+
 model Menu {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
   menuTitle Json
