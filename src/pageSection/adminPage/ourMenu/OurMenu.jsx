@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import useImageUpload from "@/hooks/useImageUpload";
 import Image from "next/image";
 import uploadToCloud from "@/utils/uploadToCloud";
+import MyDropzone from "./MyDropzone";
 
 const OurMenu = ({ menuList }) => {
   const router = useRouter();
@@ -175,8 +176,8 @@ const OurMenu = ({ menuList }) => {
           )}
 
           <div className="space-y-2">
-            <label className="block text-gray-700 font-bold">Brand Logo</label>
-            {previews[index] ? (
+            <label className="block text-gray-700 font-bold">Image</label>
+            {previews[index] && (
               <Image
                 width={400}
                 height={400}
@@ -184,13 +185,11 @@ const OurMenu = ({ menuList }) => {
                 alt="preview"
                 className="w-24 h-24 object-cover"
               />
-            ) : (
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setImageFile(index, e.target.files[0])}
-              />
             )}
+
+            <div>
+              <MyDropzone index={index} setImageFile={setImageFile} />
+            </div>
           </div>
 
           <TitleInput

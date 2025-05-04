@@ -20,7 +20,11 @@ const ImageDropZone = ({ handleFileChange }) => {
       className="border-2 border-slate-400 p-4 border-dashed cursor-pointer text-sm text-slate-400 flex justify-center items-center"
     >
       <input {...getInputProps()} type="file" name="" id="" />
-      {isDragActive ? <p>Drop the image here...</p> : <p>Drag and Drop Here</p>}
+      {isDragActive ? (
+        <p>Drop the image here...</p>
+      ) : (
+        <p>Drag & drop an image here, or click to select</p>
+      )}
     </div>
   );
 };

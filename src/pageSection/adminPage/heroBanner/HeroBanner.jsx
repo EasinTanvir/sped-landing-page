@@ -9,6 +9,9 @@ import toast from "react-hot-toast";
 import api from "@/api";
 import { useParams, useRouter } from "next/navigation";
 import { translateText } from "@/libs/googleTranslate";
+import ImageDropZone from "@/components/shared/ImageDropZone";
+import Image from "next/image";
+import useImagePreview from "@/hooks/useImagePreview";
 
 const HeroBanner = ({ bannerData }) => {
   const [title, setTitle] = useState("");
@@ -18,6 +21,8 @@ const HeroBanner = ({ bannerData }) => {
   const [buttonTwoText, setButtonTwoText] = useState("");
   const [loader, setLoader] = useState(false);
   const { locale } = useParams();
+
+  const { file, previewUrl, handleFileChange, resetImage } = useImagePreview();
 
   const router = useRouter();
 
@@ -86,6 +91,31 @@ const HeroBanner = ({ bannerData }) => {
       onSubmit={updateHeroBanner}
       className="bg-white p-6 rounded-lg shadow-md space-y-6"
     >
+      <div className="space-y-2">
+        <label className="block text-gray-700 font-bold">Banner Image</label>
+        {!file ? (
+          <ImageDropZone handleFileChange={handleFileChange} />
+        ) : (
+          <div className="flex items-center gap-4">
+            {previewUrl && (
+              <Image
+                src={previewUrl}
+                alt="Preview"
+                width={700}
+                height={500}
+                className="rounded border object-cover"
+              />
+            )}
+            <button
+              className="bg-colors-button text-white px-4 text-sm py-1 rounded-md"
+              onClick={resetImage}
+            >
+              Cancel
+            </button>
+          </div>
+        )}
+      </div>
+
       <TitleInput title={title} setTitle={setTitle} />
       <DescriptionInput
         description={description}

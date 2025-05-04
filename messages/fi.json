@@ -2,6 +2,9 @@
   "landingPage": {
     "title": "SwiftDrop"
   },
+  "restaurant": {
+    "title": "Ravintolamme"
+  },
   "navbar": {
     "Home": "Etusivu",
     "Menu": "Ruokalista",

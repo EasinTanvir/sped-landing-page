@@ -2,6 +2,9 @@
   "landingPage": {
     "title": "SwiftDrop"
   },
+  "restaurant": {
+    "title": "Our Restaurants"
+  },
   "navbar": {
     "Home": "Home",
     "Menu": "Menu",
