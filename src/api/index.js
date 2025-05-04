@@ -6,3 +6,6 @@ export default axios.create({
 export const serverApi = axios.create({
   baseURL: process.env.BASE_URL,
 });
+export const spedApi = axios.create({
+  baseURL: process.env.SPED_BASE_URL,
+});
