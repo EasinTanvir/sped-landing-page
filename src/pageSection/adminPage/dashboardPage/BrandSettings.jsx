@@ -1,19 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import LogoUploader from "./LogoUploader";
 import FooterEditor from "./FooterEditor";
 import { Button } from "@/index";
 import api from "@/api";
 import { translateText } from "@/libs/googleTranslate";
 import { useParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import ImageDropZone from "@/components/shared/ImageDropZone";
+import Image from "next/image";
+import useImagePreview from "@/hooks/useImagePreview";
 
 const BrandSettings = ({ settingData }) => {
   const [brandTitle, setBrandTitle] = useState("");
   const [footerText, setFooterText] = useState("");
-  const [logo, setLogo] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { file, previewUrl, handleFileChange, resetImage } = useImagePreview();
 
   const { locale } = useParams();
 
@@ -66,6 +69,30 @@ const BrandSettings = ({ settingData }) => {
       onSubmit={updateBrandSetting}
       className="bg-white lg:p-6 p-2 rounded-lg shadow-md space-y-6"
     >
+      <div className="space-y-2">
+        <label className="block text-gray-700 font-bold">Brand Logo</label>
+        {!file ? (
+          <ImageDropZone handleFileChange={handleFileChange} />
+        ) : (
+          <div className="flex items-center gap-4">
+            {previewUrl && (
+              <Image
+                src={previewUrl}
+                alt="Preview"
+                width={70}
+                height={70}
+                className="rounded border object-cover"
+              />
+            )}
+            <button
+              className="bg-colors-button text-white px-4 text-sm py-1 rounded-md"
+              onClick={resetImage}
+            >
+              Cancel
+            </button>
+          </div>
+        )}
+      </div>
       <div>
         <label className="block text-gray-700 font-bold">Brand Title</label>
         <input

@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ImageUploader from "@/components/shared/ImageUploader";
 import TitleInput from "@/components/shared/TitleInput";
 import DescriptionInput from "@/components/shared/DescriptionInput";
 import PriceDetailsEditor from "./PriceDetailsEditor";
@@ -11,11 +10,14 @@ import { translateText } from "@/libs/googleTranslate";
 import toast from "react-hot-toast";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
+import useImageUpload from "@/hooks/useImageUpload";
+import Image from "next/image";
+import uploadToCloud from "@/utils/uploadToCloud";
 
 const OurMenu = ({ menuList }) => {
   const router = useRouter();
 
-  console.log("menuList", menuList);
+  const { files, previews, setImageFile } = useImageUpload();
 
   const locale = useLocale();
   const [menuTitle, setMenuTitle] = useState("");
@@ -60,19 +62,27 @@ const OurMenu = ({ menuList }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const uploadedImageLinks = await Promise.all(
+      files.map(async (file) => {
+        if (!file) return "";
+        const link = await uploadToCloud(file);
+        return link;
+      })
+    );
+
     setLoader(true);
     try {
       const translatedMenuTitle = await translateText(menuTitle);
 
       const translatedItems = await Promise.all(
-        menuItems.map(async (item) => {
+        menuItems.map(async (item, index) => {
           const translatedName = await translateText(item.name);
           const translatedDescription = await translateText(item.description);
           const translatedPriceTitle = await translateText(item.priceTitle);
           //const translatedPriceUnit = await translateText(item.priceUnit);
 
           return {
-            image: item.image,
+            image: uploadedImageLinks[index],
             name: {
               en: item.name,
               fi: translatedName,
@@ -164,10 +174,24 @@ const OurMenu = ({ menuList }) => {
             </button>
           )}
 
-          {/* <ImageUploader
-            image={item.image}
-            setImage={(val) => handleItemChange(index, "image", val)}
-          /> */}
+          <div className="space-y-2">
+            <label className="block text-gray-700 font-bold">Brand Logo</label>
+            {previews[index] ? (
+              <Image
+                width={400}
+                height={400}
+                src={previews[index]}
+                alt="preview"
+                className="w-24 h-24 object-cover"
+              />
+            ) : (
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImageFile(index, e.target.files[0])}
+              />
+            )}
+          </div>
 
           <TitleInput
             title={item.name}
