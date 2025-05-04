@@ -5,6 +5,7 @@ import deliveryBoy3 from "../assets/pic4.jpg";
 import pizza from "../assets/pic2.png";
 import pasta from "../assets/pic6.jpg";
 import chocolate from "../assets/pic5.jpg";
+import icons from "../assets/icons.png";
 
 import todayMenu1 from "../assets/todayMenu/pic2.jpg";
 import todayMenu2 from "../assets/todayMenu/pic4.jpg";
@@ -32,4 +33,5 @@ export {
   chef2,
   chef3,
   chef4,
+  icons,
 };

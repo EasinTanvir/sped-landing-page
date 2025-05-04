@@ -7,12 +7,14 @@ import AreMenuService from "@/pageSection/landingPage/areMenu/AreMenuService";
 import MasterChef from "@/pageSection/landingPage/masterChefs/MasterChef";
 import NewsLetter from "@/pageSection/landingPage/newsLetter/NewsLetter";
 import BookTable from "@/pageSection/landingPage/bookTable/BookTable";
-import { serverApi } from "@/api";
+import { serverApi, spedApi } from "@/api";
 import ErrorFallback from "@/components/shared/ErrorFallback";
+import Restaurants from "@/pageSection/landingPage/menu/Restaurants/Restaurants";
 
 const LandinPage = async ({ params }) => {
   let data = null;
   let menuData = null;
+  let allRestaurants = [];
 
   const { locale } = await params;
 
@@ -23,6 +25,9 @@ const LandinPage = async ({ params }) => {
 
     const menuList = await serverApi.get("/api/admin/menu");
     menuData = menuList.data;
+
+    const { data: allres } = await spedApi.get("restaurants/fin/joensuu");
+    allRestaurants = allres.data;
   } catch (error) {
     console.error("Failed to fetch hero banner:", error);
   }
@@ -37,6 +42,7 @@ const LandinPage = async ({ params }) => {
   return (
     <div>
       <HeroBanner bannerData={data} />
+      <Restaurants allRestaurants={allRestaurants} locale={locale} />
       <MenuSection menuData={menuData} locale={locale} />
       <TodayMenu />
       <AreMenuService />

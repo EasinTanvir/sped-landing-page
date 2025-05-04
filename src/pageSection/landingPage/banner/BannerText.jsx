@@ -7,7 +7,7 @@ import BannerButton from "./BannerButton";
 import Motion from "@/components/ui/Motion";
 import { useLocale } from "next-intl";
 
-const BannerText = ({ bannerData }) => {
+const BannerText = ({ bannerData, lobster }) => {
   const locale = useLocale();
 
   const title =
@@ -39,7 +39,9 @@ const BannerText = ({ bannerData }) => {
           transition: { duration: 0.8, ease: "easeOut" },
         }}
       >
-        <H1 className="lg:text-5xl sm:text-4xl text-2xl font-bold italic sm:!leading-[70px] !leading-[50px]">
+        <H1
+          className={`lg:text-6xl sm:text-4xl text-3xl font-bold italic sm:!leading-[70px] !leading-[50px] ${lobster.className}`}
+        >
           {title}
         </H1>
       </Motion>
