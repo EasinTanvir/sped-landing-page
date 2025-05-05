@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 import SwipperButton from "@/components/swiper/SwipperButton";
 import SwiperSlider from "@/components/swiper/SwiperSlider";
 
-const MenuSlider = ({ menuItems }) => {
+const MenuSlider = ({ mergedFoods, locale }) => {
   return (
     <div>
       <SwiperSlider
@@ -29,16 +29,18 @@ const MenuSlider = ({ menuItems }) => {
             spaceBetween: 12,
           },
           640: {
-            spaceBetween: 2,
+            spaceBetween: 3,
             spaceBetween: 6,
           },
           300: {
-            slidesPerView: 1,
+            slidesPerView: 1.5,
             spaceBetween: 5,
           },
         }}
-        lists={menuItems}
-        renderCard={(item) => <Menucard key={item.id} {...item} />}
+        lists={mergedFoods}
+        renderCard={(item) => (
+          <Menucard key={item.id} {...item} locale={locale} />
+        )}
         showControls
         title=""
         wrapperClassName="flex justify-end items-center"

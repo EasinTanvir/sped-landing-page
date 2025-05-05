@@ -1,40 +1,54 @@
 import Image from "next/image";
 import React from "react";
 
-import { Button, H3, H4, H5, Text } from "@/index";
-import { useLocale } from "next-intl";
-import { pizza } from "@/utils/constant";
+import { Button, H4, H5, Text } from "@/index";
+import Link from "next/link";
 
 const Menucard = ({
-  name,
-  description,
-  image,
-  price,
-  priceTitle,
-  priceUnit,
+  food_name,
+  food_description,
+  food_image,
+  food_price,
+  food_alt_txt,
+  locale,
 }) => {
-  const locale = useLocale();
   return (
-    <div className="bg-white shadow-md rounded-xl p-4  w-full max-w-72  relative overflow-hidden">
-      <div className="flex gap-2">
-        <Image
-          src={pizza}
-          alt="pizza"
-          className="w-12 h-12 rounded-full object-cover mb-2"
-        />
-        <div>
-          <H4 className="font-semibold text-lg">{name[locale]}</H4>
-          <Text className="text-gray-500 !text-sm">{description[locale]}</Text>
+    <Link
+      target="_blank"
+      href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/ravintola-sinet`}
+      className="bg-white shadow-md rounded-xl p-3 w-full max-w-64 relative overflow-hidden flex flex-col justify-between h-[170px]"
+    >
+      <div className="flex items-start gap-2">
+        {food_image && (
+          <Image
+            src={food_image}
+            alt={food_alt_txt || food_name}
+            width={44}
+            height={44}
+            className="w-11 h-11 rounded-full object-cover"
+          />
+        )}
+        <div className="flex-1">
+          <H4 className="font-semibold text-base leading-5">{food_name}</H4>
+          <Text className="text-gray-500 !text-xs line-clamp-2 leading-4">
+            {food_description || "No description"}
+          </Text>
         </div>
       </div>
-      <H5 className="text-gray-600 mt-5">{priceTitle[locale]}</H5>
-      <Text className="text-green-600 font-bold !text-xs">
-        {priceUnit[locale]} {price}
-      </Text>
-      <Button className="absolute bottom-0 right-0 bg-green-600 text-white py-2 px-4 rounded-tl-[10px] rounded-br-[10px] text-xl">
-        +
-      </Button>
-    </div>
+
+      <div className="flex justify-between items-end mt-auto">
+        <div>
+          <H5 className="text-gray-600 text-xs">Price</H5>
+          <Text className="text-green-600 font-bold text-sm">
+            € {food_price}
+          </Text>
+        </div>
+
+        <Button className="bg-green-600 text-white py-1 px-3 rounded text-lg">
+          +
+        </Button>
+      </div>
+    </Link>
   );
 };
 

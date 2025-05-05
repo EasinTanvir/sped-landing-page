@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AreMenuTab from "./AreMenuTab";
 import AreMenucard from "./AreMenucard";
 
-const AreMenuWrapper = ({ foodMenu }) => {
+const AreMenuWrapper = ({ foodMenu, locale }) => {
   const [selectedTab, setSelectedTab] = useState("All");
 
   // Flatten food list and attach subcategory info to each food
@@ -53,7 +53,7 @@ const AreMenuWrapper = ({ foodMenu }) => {
                 delay: index * 0.04,
               }}
             >
-              <AreMenucard item={item} />
+              <AreMenucard item={item} locale={locale} />
             </motion.div>
           ))}
         </AnimatePresence>

@@ -16,6 +16,7 @@ const LandinPage = async ({ params }) => {
   let menuData = null;
   let allRestaurants = [];
   let foodMenu = null;
+  let mergedFoods = null;
 
   const { locale } = await params;
 
@@ -39,6 +40,14 @@ const LandinPage = async ({ params }) => {
     const { data: menus } = await spedApi.get("/foods/2");
 
     foodMenu = menus.data;
+
+    mergedFoods = foodMenu?.flatMap((subcategory) =>
+      subcategory.foods.map((food) => ({
+        ...food,
+        subcategory_slug: subcategory.subcategory_slug,
+        subcategory_name: subcategory.subcategory_name,
+      }))
+    );
   } catch (error) {
     console.error("Failed to fetch hero banner:", error);
   }
@@ -54,9 +63,9 @@ const LandinPage = async ({ params }) => {
     <div>
       <HeroBanner bannerData={data} />
       <Restaurants allRestaurants={allRestaurants} locale={locale} />
-      <MenuSection menuData={menuData} locale={locale} />
+      <MenuSection mergedFoods={mergedFoods} locale={locale} />
       {/* <TodayMenu /> */}
-      <AreMenuService foodMenu={foodMenu} />
+      <AreMenuService foodMenu={foodMenu} locale={locale} />
       <MasterChef />
       <NewsLetter />
       <BookTable />
