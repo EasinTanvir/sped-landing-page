@@ -15,6 +15,7 @@ const LandinPage = async ({ params }) => {
   let data = null;
   let menuData = null;
   let allRestaurants = [];
+  let foodMenu = null;
 
   const { locale } = await params;
 
@@ -26,8 +27,18 @@ const LandinPage = async ({ params }) => {
     const menuList = await serverApi.get("/api/admin/menu");
     menuData = menuList.data;
 
-    const { data: allres } = await spedApi.get("restaurants/fin/joensuu");
-    allRestaurants = allres.data;
+    // const { data: allres } = await spedApi.get("/restaurants/fin/joensuu");
+    // allRestaurants = allres.data;
+
+    const { data: oneRes } = await spedApi.get(
+      "/restaurants-by-slug/ravintola-sinet"
+    );
+
+    allRestaurants.push(oneRes.data.restaurant);
+
+    const { data: menus } = await spedApi.get("/foods/2");
+
+    foodMenu = menus.data;
   } catch (error) {
     console.error("Failed to fetch hero banner:", error);
   }
@@ -44,8 +55,8 @@ const LandinPage = async ({ params }) => {
       <HeroBanner bannerData={data} />
       <Restaurants allRestaurants={allRestaurants} locale={locale} />
       <MenuSection menuData={menuData} locale={locale} />
-      <TodayMenu />
-      <AreMenuService />
+      {/* <TodayMenu /> */}
+      <AreMenuService foodMenu={foodMenu} />
       <MasterChef />
       <NewsLetter />
       <BookTable />

@@ -17,7 +17,11 @@ const Restaurants = async ({ allRestaurants, locale }) => {
         </H2>
 
         <div>
-          <RestarantSlider allRestaurants={allRestaurants} locale={locale} />
+          {allRestaurants?.length > 0 ? (
+            <RestarantSlider allRestaurants={allRestaurants} locale={locale} />
+          ) : (
+            <p className="text-center text-rose-600">No Restaurants Found</p>
+          )}
         </div>
       </Container>
     </div>

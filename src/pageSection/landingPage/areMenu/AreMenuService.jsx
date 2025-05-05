@@ -3,12 +3,12 @@ import React from "react";
 import QualityService from "./qualityService/QualityService";
 import AreMenu from "./areMenu/AreMenu";
 
-const AreMenuService = () => {
+const AreMenuService = ({ foodMenu }) => {
   return (
-    <React.Fragment c>
+    <div className="pt-96">
       <QualityService />
-      <AreMenu />
-    </React.Fragment>
+      <AreMenu foodMenu={foodMenu} />
+    </div>
   );
 };
 
