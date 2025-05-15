@@ -22,5 +22,22 @@
       "chefs": "Kokit",
       "newsletter": "Uutiskirje"
     }
+  },
+  "cookie": {
+    "cookie_banner_text": "Käytämme evästeitä helpottaaksemme ja nopeuttaaksemme palvelumme käyttöä, yksilöidäksemme sisältöä ja analysoidaksemme verkkoliikennettä. Voit oppia lisää evästeistä tai hallita niitä yksittäin napsauttamalla 'Hallitse'. Lisätietoja ja mahdollisuus peruuttaa suostumuksesi löytyy tietosuojakäytännöstämme.",
+    "manage": "Hallitse",
+    "reject_all": "Hylkää kaikki",
+    "accept_all": "Hyväksy kaikki",
+    "cookie_preferences": "Evästeasetukset",
+    "customize_preferences": "Mukauta asetuksiasi:",
+    "functional_cookies": "Toiminnalliset evästeet",
+    "analytics_cookies": "Analytiikka",
+    "marketing_cookies": "Markkinointi",
+    "cancel": "Peruuta",
+    "save_preferences": "Tallenna asetukset",
+    "necessary": "Välttämätön (aina käytössä)",
+    "preferences": "Asetukset",
+    "ad_user_data": "Mainoskäyttäjän tiedot",
+    "ad_personalization": "Mainosten personointi"
   }
 }

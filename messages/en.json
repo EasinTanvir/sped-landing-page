@@ -22,5 +22,22 @@
       "chefs": "Chefs",
       "newsletter": "Newsletter"
     }
+  },
+  "cookie": {
+    "cookie_banner_text": "We use cookies to make our service easier and faster for you to use, to personalize content for you, and to analyze website traffic. You can learn more about cookies or manage them individually by clicking 'Manage'. You can find more information and withdraw your consent at any time in our Privacy Policy.",
+    "manage": "Manage",
+    "reject_all": "Reject All",
+    "accept_all": "Accept All",
+    "cookie_preferences": "Cookie Preferences",
+    "customize_preferences": "Customize your preferences:",
+    "functional_cookies": "Functional Cookies",
+    "analytics_cookies": "Analytics",
+    "marketing_cookies": "Marketing",
+    "cancel": "Cancel",
+    "save_preferences": "Save Preferences",
+    "necessary": "Necessary (always enabled)",
+    "preferences": "Preferences",
+    "ad_user_data": "Ad User Data",
+    "ad_personalization": "Ad Personalization"
   }
 }
