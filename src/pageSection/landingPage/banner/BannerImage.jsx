@@ -16,6 +16,8 @@ const BannerImage = () => {
         className="object-cover w-full"
         src={bannerImage}
         alt="banner image"
+        fill
+        sizes="(max-width: 1024px) 900px, 500px"
       />
     </Motion>
   );
