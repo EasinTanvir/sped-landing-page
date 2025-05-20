@@ -11,12 +11,12 @@ import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
 import LanguageSwitcher from "../LanguageSwitcher";
 import {
-  RiTruckFill,
   RiRestaurantFill,
   RiPhoneFill,
   FaUtensils,
   BiHomeAlt,
 } from "@/utils/icons";
+import { MdOutlineRestaurant } from "react-icons/md";
 
 const Navbar = ({ brandSetting }) => {
   const t = useTranslations("navbar");
@@ -53,7 +53,7 @@ const Navbar = ({ brandSetting }) => {
           <div className="flex items-center gap-2 ">
             <Icon
               className="text-colors-heading"
-              icon={RiTruckFill}
+              icon={MdOutlineRestaurant}
               size={35}
             />
             <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">

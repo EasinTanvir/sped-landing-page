@@ -26,7 +26,7 @@ export const lobster = Lobster({
 });
 
 export const metadata = {
-  title: "SwiftDrop",
+  title: "Ravintola Sinet",
   description: "Fatest Delivery In The Town",
 };
 

@@ -13,5 +13,5 @@ export async function adminOnlyMiddleware() {
     );
   }
 
-  return null; // ✅ Allow the request
+  return null;
 }
