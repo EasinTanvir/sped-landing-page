@@ -38,7 +38,7 @@ const AreMenuWrapper = ({ foodMenu, locale }) => {
         categories={categories}
       />
 
-      <div className="grid sm:grid-cols-2 lg:gap-0 gap-5 overflow-hidden">
+      <div className="grid sm:grid-cols-2 lg:gap-0 gap-5 overflow-hidden space-y-3">
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, index) => (
             <motion.div
@@ -53,7 +53,16 @@ const AreMenuWrapper = ({ foodMenu, locale }) => {
                 delay: index * 0.04,
               }}
             >
-              <AreMenucard item={item} locale={locale} />
+              <AreMenucard
+                item={item}
+                locale={locale}
+                price={item.original_price ? item.original_price : 0}
+                discountPrice={
+                  item.food_price && Number(item?.discount_price || 0) !== 0
+                    ? item.food_price
+                    : null
+                }
+              />
             </motion.div>
           ))}
         </AnimatePresence>
