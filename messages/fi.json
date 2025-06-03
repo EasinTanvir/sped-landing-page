@@ -65,5 +65,16 @@
     "weeklyDescription": "Saat eksklusiivisia viikoittaisia oivalluksia suoraan sähköpostiisi.",
     "noSpamTitle": "Ei roskapostia",
     "noSpamDescription": "Kunnioitamme yksityisyyttäsi. Ei roskapostia, vain arvokasta sisältöä."
+  },
+  "bookTable": {
+    "title": "Varaa pöytä",
+    "description": "Varaa pöytäsi nyt ja nauti ihanasta ruokailuhetkestä.",
+    "name": "Nimesi",
+    "phone": "Puhelinnumero",
+    "people": "Henkilöiden määrä",
+    "email": "Sähköpostisi",
+    "time": "Aika",
+    "date": "Päivämäärä",
+    "submit": "Varaa pöytä"
   }
 }

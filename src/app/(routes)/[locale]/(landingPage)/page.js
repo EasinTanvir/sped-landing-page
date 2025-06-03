@@ -4,7 +4,7 @@ import HeroBanner from "@/pageSection/landingPage/banner/HeroBanner";
 
 import MasterChef from "@/pageSection/landingPage/masterChefs/MasterChef";
 import NewsLetter from "@/pageSection/landingPage/newsLetter/NewsLetter";
-//import BookTable from "@/pageSection/landingPage/bookTable/BookTable";
+import BookTable from "@/pageSection/landingPage/bookTable/BookTable";
 import { serverApi, spedApi } from "@/api";
 import ErrorFallback from "@/components/shared/ErrorFallback";
 import Restaurants from "@/pageSection/landingPage/menu/Restaurants/Restaurants";
@@ -87,7 +87,7 @@ const LandinPage = async ({ params }) => {
       <MasterChef />
       {/* <SpeddBanner /> */}
       <NewsLetter />
-      {/* <BookTable /> */}
+      <BookTable />
     </div>
   );
 };

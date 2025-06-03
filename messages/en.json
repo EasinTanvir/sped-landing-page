@@ -65,5 +65,16 @@
     "weeklyDescription": "Get exclusive weekly insights delivered straight to your inbox.",
     "noSpamTitle": "No spam",
     "noSpamDescription": "We respect your privacy. No spam, just valuable content."
+  },
+  "bookTable": {
+    "title": "Book a Table",
+    "description": "Book your table now and enjoy a great dining experience.",
+    "name": "Your Name",
+    "phone": "Phone Number",
+    "people": "Number of People",
+    "email": "Your Email",
+    "time": "Time",
+    "date": "Date",
+    "submit": "Book a Table"
   }
 }

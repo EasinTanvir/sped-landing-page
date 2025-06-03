@@ -1,23 +1,20 @@
-import { usePathname, useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { FaGlobe } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-
-const languages = [
-  { code: "en", label: "English" },
-  { code: "fi", label: "Finland" },
-];
+import { routing, usePathname, useRouter } from "@/i18n/routing";
+import { useParams } from "next/navigation";
 
 export default function LanguageSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
+
   const currentLocale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
 
   const switchLanguage = (locale) => {
-    const newPath = `/${locale}${pathname.replace(/^\/(en|fi)/, "")}`;
-    router.push(newPath);
+    router.replace({ pathname, params }, { locale, scroll: false });
     setIsOpen(false);
   };
 
@@ -29,22 +26,22 @@ export default function LanguageSwitcher() {
       >
         <FaGlobe size={18} />
         <span>
-          {languages.find((lang) => lang.code === currentLocale)?.label}
+          {routing.locales
+            .find((lang) => lang === currentLocale || "")
+            ?.toUpperCase()}
         </span>
         <IoIosArrowDown size={14} />
       </button>
 
       {isOpen && (
         <ul className="absolute left-0 mt-2 w-32 bg-white shadow-lg rounded-lg overflow-hidden">
-          {languages.map((lang) => (
+          {routing.locales.map((lang) => (
             <li
-              key={lang.code}
-              className={`px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 ${
-                lang.code === currentLocale ? "font-bold" : ""
-              }`}
-              onClick={() => switchLanguage(lang.code)}
+              key={lang}
+              className={`px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 font-semibold`}
+              onClick={() => switchLanguage(lang)}
             >
-              {lang.label}
+              {lang?.toUpperCase()}
             </li>
           ))}
         </ul>
