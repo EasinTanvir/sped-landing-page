@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { FaHamburger } from "react-icons/fa";
 import { MdDeliveryDining } from "react-icons/md";
 
-const SpedBanner = () => {
+const SpedBanner = ({ locale }) => {
   const t = useTranslations("spedBanner");
 
   return (
@@ -31,7 +31,7 @@ const SpedBanner = () => {
             <div className="flex items-center gap-4 sm:mt-0 mt-8">
               <MdDeliveryDining className="text-6xl text-yellow-500 animate-bounce" />
               <Link
-                href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/`}
+                href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}`}
                 target="_blank"
                 className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300"
               >

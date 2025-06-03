@@ -5,7 +5,7 @@ import { Container, H2 } from "@/index";
 import { lobster } from "@/app/(routes)/[locale]/layout";
 import { useTranslations } from "next-intl";
 
-const NewsLetter = () => {
+const NewsLetter = ({ locale }) => {
   const t = useTranslations("newsLetter");
   return (
     <div className=" pt-20 pb-36 ">
@@ -16,7 +16,7 @@ const NewsLetter = () => {
           {t("pageTitle")}
         </H2>
 
-        <NewsLetterCard t={t} />
+        <NewsLetterCard t={t} locale={locale} />
       </Container>
     </div>
   );

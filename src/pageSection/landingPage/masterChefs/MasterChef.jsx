@@ -6,7 +6,7 @@ import { H2 } from "@/index";
 import SpedBanner from "../newsLetter/spedbanner/SpedBanner";
 import { getTranslations } from "next-intl/server";
 
-const MasterChef = async () => {
+const MasterChef = async ({ locale }) => {
   const t = await getTranslations("spedBanner");
   return (
     <div className="bg-colors-bannerBgColor sm:py-20  py-12">
@@ -17,7 +17,7 @@ const MasterChef = async () => {
       </H2>
 
       {/* <ChefWarpper /> */}
-      <SpedBanner />
+      <SpedBanner locale={locale} />
     </div>
   );
 };

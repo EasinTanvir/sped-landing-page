@@ -71,9 +71,9 @@ const LandinPage = async ({ params }) => {
         locale={locale}
         allDiscountedFoods={allDiscountedFoods}
       />
-      <MasterChef />
+      <MasterChef locale={locale} />
       {/* <SpeddBanner /> */}
-      <NewsLetter />
+      <NewsLetter locale={locale} />
       <BookTable />
     </div>
   );
