@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 
 import HeroBanner from "@/pageSection/landingPage/banner/HeroBanner";
 
@@ -10,9 +10,9 @@ import ErrorFallback from "@/components/shared/ErrorFallback";
 import Restaurants from "@/pageSection/landingPage/menu/Restaurants/Restaurants";
 import AllMenusAndDiscount from "@/pageSection/landingPage/areMenu/AllMenusAndDiscount";
 import CategorySection from "@/pageSection/landingPage/category/CategorySection";
+import InitialLoader from "@/components/InitialLoader";
 
 const LandinPage = async ({ params }) => {
-  let data = null;
   let menuData = null;
   let allRestaurants = [];
   let foodMenu = null;
@@ -23,10 +23,6 @@ const LandinPage = async ({ params }) => {
   const { locale } = await params;
 
   try {
-    const res = await serverApi.get("/api/admin/hero-banner");
-
-    data = res.data;
-
     const menuList = await serverApi.get("/api/admin/menu");
     menuData = menuList.data;
 
@@ -64,18 +60,9 @@ const LandinPage = async ({ params }) => {
   } catch (error) {
     console.error("Failed to fetch hero banner:", error);
   }
-  if (!data) {
-    return (
-      <ErrorFallback
-        title="Failed to load Hero Banner"
-        description="We could not load the banner data at the moment. Please refresh or try again later."
-      />
-    );
-  }
 
   return (
     <div>
-      <HeroBanner bannerData={data} />
       <Restaurants allRestaurants={allRestaurants} locale={locale} />
       <CategorySection allCategories={allCategories} locale={locale} />
       {/* <TodayMenu /> */}
@@ -92,4 +79,19 @@ const LandinPage = async ({ params }) => {
   );
 };
 
-export default LandinPage;
+const LandinPageWrapper = async (params) => {
+  const res = await serverApi.get("/api/admin/hero-banner");
+
+  const data = res.data;
+
+  return (
+    <div>
+      <HeroBanner bannerData={data} />
+      <Suspense fallback={<InitialLoader />}>
+        <LandinPage params={params} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default LandinPageWrapper;
