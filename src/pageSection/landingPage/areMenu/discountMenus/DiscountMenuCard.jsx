@@ -5,16 +5,12 @@ import Link from "next/link";
 import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
 import { FaTags } from "react-icons/fa";
 
-const DiscountMenu = ({ item, locale, discountPrice, price }) => {
+const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
   return (
     <Link
       target="_blank"
       href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/ravintola-sinet`}
-      className={`flex flex-row relative cursor-pointer gap-2 items-center border-b-[1px] ${
-        discountPrice
-          ? "border-yellow-500 bg-yellow-100/20"
-          : "border-borderColor bg-white"
-      } rounded-lg shadow-md py-2 px-3 h-44 w-full max-w-[480px]`}
+      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2 border-yellow-500 bg-colors-button/30  rounded-lg  sm:py-6 py-3 sm:px-3 px-1.5  w-full max-w-[480px]`}
     >
       <div className="flex-grow flex flex-col justify-between h-full">
         <div>
@@ -23,7 +19,7 @@ const DiscountMenu = ({ item, locale, discountPrice, price }) => {
               {item.food_name}
             </h3>
             {discountPrice && (
-              <span className="inline-block bg-brandColor text-white text-xs px-2 py-1 rounded-lg">
+              <span className="inline-block bg-colors-button text-white text-xs px-2 py-1 rounded-lg">
                 {calculateDiscountPercentage(price, discountPrice)}% Off
               </span>
             )}
@@ -35,21 +31,17 @@ const DiscountMenu = ({ item, locale, discountPrice, price }) => {
         </div>
 
         <div className="flex items-center mt-4 space-x-2">
-          {discountPrice ? (
-            <div className="flex items-center gap-2 bg-yellow-50 border border-yellow-300 px-3 py-1 rounded-lg shadow-sm">
-              <FaTags className="text-yellow-600 text-lg" />
-              <div className="flex flex-row items-center gap-2">
-                <span className="text-base text-gray-400 line-through">
-                  €{price}
-                </span>
-                <span className="text-base text-red-600 font-bold">
-                  €{discountPrice}
-                </span>
-              </div>
+          <div className="flex items-center gap-2 bg-colors-button border  px-3 py-1 rounded-lg ">
+            <FaTags className="text-white text-lg" />
+            <div className="flex flex-row items-center gap-2">
+              <span className="text-base text-gray-200 line-through">
+                €{price}
+              </span>
+              <span className="text-base text-red-600 font-bold">
+                €{discountPrice}
+              </span>
             </div>
-          ) : (
-            <span className="text-sm text-brandColor">€{price}</span>
-          )}
+          </div>
         </div>
       </div>
 
@@ -69,4 +61,4 @@ const DiscountMenu = ({ item, locale, discountPrice, price }) => {
   );
 };
 
-export default DiscountMenu;
+export default DiscountMenuCard;

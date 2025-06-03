@@ -2,12 +2,13 @@
 
 import React from "react";
 
-import Menucard from "./Menucard";
 import { Autoplay } from "swiper/modules";
 import SwipperButton from "@/components/swiper/SwipperButton";
 import SwiperSlider from "@/components/swiper/SwiperSlider";
+import DiscountMenus from "./DiscountMenus";
 
-const MenuSlider = ({ mergedFoods, locale }) => {
+const DiscountMenuSlider = ({ allDiscountedFoods, locale }) => {
+  console.log("allDiscountedFoods", allDiscountedFoods);
   return (
     <div>
       <SwiperSlider
@@ -37,9 +38,19 @@ const MenuSlider = ({ mergedFoods, locale }) => {
             spaceBetween: 5,
           },
         }}
-        lists={mergedFoods}
+        lists={allDiscountedFoods}
         renderCard={(item) => (
-          <Menucard key={item.id} {...item} locale={locale} />
+          <DiscountMenus
+            key={item.id}
+            locale={locale}
+            item={item}
+            price={item.original_price ? item.original_price : 0}
+            discountPrice={
+              item.food_price && Number(item?.discount_price || 0) !== 0
+                ? item.food_price
+                : null
+            }
+          />
         )}
         showControls
         title=""
@@ -53,4 +64,4 @@ const MenuSlider = ({ mergedFoods, locale }) => {
   );
 };
 
-export default MenuSlider;
+export default DiscountMenuSlider;
