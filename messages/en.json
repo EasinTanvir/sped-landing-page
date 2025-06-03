@@ -39,5 +39,31 @@
     "preferences": "Preferences",
     "ad_user_data": "Ad User Data",
     "ad_personalization": "Ad Personalization"
+  },
+  "categories": {
+    "catTitle": "All Categories"
+  },
+  "discountMenus": {
+    "discountTitle": "Exclusive Discounts"
+  },
+  "allMenus": {
+    "menuTitle": "Our Menus"
+  },
+  "spedBanner": {
+    "title": "Make Order with Sped",
+    "description": "Craving something delicious? Get your favorite meals delivered fresh and fast. We partner with the best restaurants to satisfy your taste buds in no time.",
+    "button": "Order Now"
+  },
+  "newsLetter": {
+    "pageTitle": "Newsletter",
+    "title": "Subscribe to our newsletter",
+    "description": "Stay updated with the latest news, trends, and exclusive content. Subscribe now to never miss an update.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "button": "Subscribe",
+    "weeklyTitle": "Weekly articles",
+    "weeklyDescription": "Get exclusive weekly insights delivered straight to your inbox.",
+    "noSpamTitle": "No spam",
+    "noSpamDescription": "We respect your privacy. No spam, just valuable content."
   }
 }

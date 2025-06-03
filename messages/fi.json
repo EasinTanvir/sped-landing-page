@@ -39,5 +39,31 @@
     "preferences": "Asetukset",
     "ad_user_data": "Mainoskäyttäjän tiedot",
     "ad_personalization": "Mainosten personointi"
+  },
+  "categories": {
+    "catTitle": "Kaikki luokat"
+  },
+  "discountMenus": {
+    "discountTitle": "Eksklusiiviset alennukset"
+  },
+  "allMenus": {
+    "menuTitle": "Menumme"
+  },
+  "spedBanner": {
+    "title": "Tee tilaus Spedillä",
+    "description": "Himoitsetko jotain herkullista? Tilaa suosikkiruokasi tuoreena ja nopeasti. Teemme yhteistyötä parhaiden ravintoloiden kanssa, jotta makunystyräsi saavat nautintoa hetkessä.",
+    "button": "Tilaa nyt"
+  },
+  "newsLetter": {
+    "pageTitle": "uutiskirje",
+    "title": "Tilaa uutiskirjeemme",
+    "description": "Pysy ajan tasalla uusimmista uutisista, trendeistä ja eksklusiivisesta sisällöstä. Tilaa nyt, niin et jää mistään paitsi.",
+    "emailLabel": "Sähköpostiosoite",
+    "emailPlaceholder": "Syötä sähköpostisi",
+    "button": "Tilaa",
+    "weeklyTitle": "Viikoittaiset artikkelit",
+    "weeklyDescription": "Saat eksklusiivisia viikoittaisia oivalluksia suoraan sähköpostiisi.",
+    "noSpamTitle": "Ei roskapostia",
+    "noSpamDescription": "Kunnioitamme yksityisyyttäsi. Ei roskapostia, vain arvokasta sisältöä."
   }
 }

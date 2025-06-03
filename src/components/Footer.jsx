@@ -17,7 +17,7 @@ const Footer = ({ brandSetting }) => {
   ];
 
   return (
-    <footer className="w-full py-10 px-4">
+    <footer className="w-full py-10 px-4 bg-colors-bannerBgColor">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between">
         <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
           {brandSetting?.brandTitle[locale]}
@@ -35,7 +35,7 @@ const Footer = ({ brandSetting }) => {
               href={link.path}
               className="flex items-center gap-2 text-gray-700 hover:text-black transition"
             >
-              <span className="hidden sm:inline">{link.name}</span>
+              <span className="hidden italic sm:inline">{link.name}</span>
             </a>
           ))}
         </nav>

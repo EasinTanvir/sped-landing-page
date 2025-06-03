@@ -4,13 +4,13 @@ import { H2 } from "@/index";
 import { lobster } from "@/app/(routes)/[locale]/layout";
 import CategorySlider from "./CategorySlider";
 
-const CategoryWrapper = ({ allCategories, locale }) => {
+const CategoryWrapper = ({ allCategories, locale, t }) => {
   return (
     <div className="space-y-8">
       <H2
         className={`lg:text-6xl sm:text-5xl text-4xl font-bold italic text-center sm:!leading-[80px] !leading-[50px] ${lobster.className}  `}
       >
-        Categories
+        {t("catTitle")}
       </H2>
 
       <CategorySlider allCategories={allCategories} locale={locale} />
