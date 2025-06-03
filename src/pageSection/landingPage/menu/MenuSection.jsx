@@ -1,6 +1,6 @@
 import React from "react";
 
-import MenuOffer from "./MenuOffer";
+// import MenuOffer from "./MenuOffer";
 import { Container } from "@/index";
 import OurMenu from "./OurMenu";
 

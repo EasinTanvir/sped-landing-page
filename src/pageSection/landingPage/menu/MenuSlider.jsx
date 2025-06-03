@@ -46,7 +46,7 @@ const MenuSlider = ({ mergedFoods, locale }) => {
         wrapperClassName="flex justify-end items-center"
         seeAllClassName=""
         swiperStyle={{ display: "flex", flexDirection: "column-reverse" }}
-        cardClassName=" py-5 "
+        cardClassName="py-5"
         titleClassName="lg:text-4xl sm:text-3xl text-2xl font-bold text-headingColor"
       />
     </div>

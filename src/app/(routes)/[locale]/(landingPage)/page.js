@@ -17,6 +17,7 @@ const LandinPage = async ({ params }) => {
   let allRestaurants = [];
   let foodMenu = null;
   let mergedFoods = null;
+  let allDiscountedFoods = [];
 
   const { locale } = await params;
 
@@ -48,6 +49,17 @@ const LandinPage = async ({ params }) => {
         subcategory_name: subcategory.subcategory_name,
       }))
     );
+
+    allDiscountedFoods = foodMenu.flatMap((group) =>
+      group.foods
+        .filter((food) => food.discount_price !== "0.00")
+        .map((food) => {
+          return {
+            ...food,
+            subcategory_name: group.subcategory_name,
+          };
+        })
+    );
   } catch (error) {
     console.error("Failed to fetch hero banner:", error);
   }
@@ -59,13 +71,18 @@ const LandinPage = async ({ params }) => {
       />
     );
   }
+
   return (
     <div>
       <HeroBanner bannerData={data} />
       <Restaurants allRestaurants={allRestaurants} locale={locale} />
       <MenuSection mergedFoods={mergedFoods} locale={locale} />
       {/* <TodayMenu /> */}
-      <AreMenuService foodMenu={foodMenu} locale={locale} />
+      <AreMenuService
+        foodMenu={foodMenu}
+        locale={locale}
+        allDiscountedFoods={allDiscountedFoods}
+      />
       <MasterChef />
       <NewsLetter />
       <BookTable />

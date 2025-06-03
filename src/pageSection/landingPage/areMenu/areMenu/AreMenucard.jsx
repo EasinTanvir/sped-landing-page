@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { H3, H4, Text } from "@/index";
+import { Text } from "@/index";
 import Link from "next/link";
-import { FaTags } from "react-icons/fa";
 import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
 
 const AreMenucard = ({ item, locale, discountPrice, price }) => {

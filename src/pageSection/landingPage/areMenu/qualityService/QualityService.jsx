@@ -1,12 +1,11 @@
 import React from "react";
 
-import QualityServiceCard from "./QualityServiceCard";
-import { qualityServices } from "@/utils";
 import { Container, H2 } from "@/index";
 import { lobster } from "@/app/(routes)/[locale]/layout";
 import Motion from "@/components/ui/Motion";
+import DiscountMenu from "../areMenu/DiscountMenu";
 
-const QualityService = () => {
+const QualityService = ({ allDiscountedFoods, locale }) => {
   return (
     <Motion
       initial={{ rotateX: 90, opacity: 0, y: 50 }}
@@ -18,11 +17,21 @@ const QualityService = () => {
         <H2
           className={`lg:text-6xl sm:text-5xl text-4xl text-center font-bold italic sm:!leading-[80px] !leading-[50px] ${lobster.className}`}
         >
-          Quality Services
+          Exclusive Discounts
         </H2>
-        <div className=" bg-white grid lg:grid-cols-4 sm:grid-cols-2  py-16 px-8 gap-10  rounded-lg">
-          {qualityServices.map((item, index) => (
-            <QualityServiceCard key={index} {...item} />
+        <div className=" bg-white  py-16 px-8    flex flex-wrap gap-4">
+          {allDiscountedFoods.map((item, index) => (
+            <DiscountMenu
+              key={index}
+              locale={locale}
+              item={item}
+              price={item.original_price ? item.original_price : 0}
+              discountPrice={
+                item.food_price && Number(item?.discount_price || 0) !== 0
+                  ? item.food_price
+                  : null
+              }
+            />
           ))}
         </div>
       </Container>
