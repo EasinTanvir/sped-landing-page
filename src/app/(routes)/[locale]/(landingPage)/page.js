@@ -79,7 +79,7 @@ const LandinPage = async ({ params }) => {
   );
 };
 
-const LandinPageWrapper = async (params) => {
+const LandinPageWrapper = async ({ params }) => {
   const res = await serverApi.get("/api/admin/hero-banner");
 
   const data = res.data;
