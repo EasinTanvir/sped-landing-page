@@ -1,8 +1,6 @@
 import React from "react";
 
 import HeroBanner from "@/pageSection/landingPage/banner/HeroBanner";
-import MenuSection from "@/pageSection/landingPage/menu/MenuSection";
-import TodayMenu from "@/pageSection/landingPage/todayMenu/TodayMenu";
 
 import MasterChef from "@/pageSection/landingPage/masterChefs/MasterChef";
 import NewsLetter from "@/pageSection/landingPage/newsLetter/NewsLetter";
@@ -11,6 +9,8 @@ import { serverApi, spedApi } from "@/api";
 import ErrorFallback from "@/components/shared/ErrorFallback";
 import Restaurants from "@/pageSection/landingPage/menu/Restaurants/Restaurants";
 import AllMenusAndDiscount from "@/pageSection/landingPage/areMenu/AllMenusAndDiscount";
+import CategorySection from "@/pageSection/landingPage/category/CategorySection";
+import SpeddBanner from "@/pageSection/landingPage/newsLetter/spedbanner/SpedBanner";
 
 const LandinPage = async ({ params }) => {
   let data = null;
@@ -19,6 +19,7 @@ const LandinPage = async ({ params }) => {
   let foodMenu = null;
   let mergedFoods = null;
   let allDiscountedFoods = [];
+  let allCategories = [];
 
   const { locale } = await params;
 
@@ -30,12 +31,12 @@ const LandinPage = async ({ params }) => {
     const menuList = await serverApi.get("/api/admin/menu");
     menuData = menuList.data;
 
-    // const { data: allres } = await spedApi.get("/restaurants/fin/joensuu");
-    // allRestaurants = allres.data;
-
     const { data: oneRes } = await spedApi.get(
       "/restaurants-by-slug/ravintola-sinet"
     );
+
+    const { data: getAllCat } = await spedApi.get("/categories/fin/joensuu");
+    allCategories = getAllCat?.data;
 
     allRestaurants.push(oneRes.data.restaurant);
 
@@ -43,13 +44,13 @@ const LandinPage = async ({ params }) => {
 
     foodMenu = menus.data;
 
-    mergedFoods = foodMenu?.flatMap((subcategory) =>
-      subcategory.foods.map((food) => ({
-        ...food,
-        subcategory_slug: subcategory.subcategory_slug,
-        subcategory_name: subcategory.subcategory_name,
-      }))
-    );
+    // mergedFoods = foodMenu?.flatMap((subcategory) =>
+    //   subcategory.foods.map((food) => ({
+    //     ...food,
+    //     subcategory_slug: subcategory.subcategory_slug,
+    //     subcategory_name: subcategory.subcategory_name,
+    //   }))
+    // );
 
     allDiscountedFoods = foodMenu.flatMap((group) =>
       group.foods
@@ -77,7 +78,7 @@ const LandinPage = async ({ params }) => {
     <div>
       <HeroBanner bannerData={data} />
       <Restaurants allRestaurants={allRestaurants} locale={locale} />
-      <MenuSection mergedFoods={mergedFoods} locale={locale} />
+      <CategorySection allCategories={allCategories} locale={locale} />
       {/* <TodayMenu /> */}
       <AllMenusAndDiscount
         foodMenu={foodMenu}
@@ -85,6 +86,7 @@ const LandinPage = async ({ params }) => {
         allDiscountedFoods={allDiscountedFoods}
       />
       <MasterChef />
+      {/* <SpeddBanner /> */}
       <NewsLetter />
       <BookTable />
     </div>

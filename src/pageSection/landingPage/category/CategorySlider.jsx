@@ -2,34 +2,34 @@
 
 import React from "react";
 
-import Menucard from "./Menucard";
 import { Autoplay } from "swiper/modules";
 import SwipperButton from "@/components/swiper/SwipperButton";
 import SwiperSlider from "@/components/swiper/SwiperSlider";
+import CategorySectionCard from "./CategorySectionCard";
 
-const MenuSlider = ({ mergedFoods, locale }) => {
+const CategorySlider = ({ allCategories, locale }) => {
   return (
     <div>
       <SwiperSlider
-        grabCursor
-        loop
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 3000 }}
         speed={1000}
         modules={[Autoplay]}
         scrollbar={{ draggable: true }}
+        loop
+        grabCursor
         swiperClassName="relative"
         customSwiperButton={() => <SwipperButton />}
         breakpoints={{
           1280: {
-            slidesPerView: 4,
+            slidesPerView: 5,
             spaceBetween: 15,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 5,
             spaceBetween: 12,
           },
           640: {
-            spaceBetween: 3,
+            spaceBetween: 4,
             spaceBetween: 6,
           },
           300: {
@@ -37,9 +37,15 @@ const MenuSlider = ({ mergedFoods, locale }) => {
             spaceBetween: 5,
           },
         }}
-        lists={mergedFoods}
+        lists={allCategories}
         renderCard={(item) => (
-          <Menucard key={item.id} {...item} locale={locale} />
+          <CategorySectionCard
+            key={item.id}
+            {...item}
+            locale={locale}
+            country="fin"
+            city="joensuu"
+          />
         )}
         showControls
         title=""
@@ -53,4 +59,4 @@ const MenuSlider = ({ mergedFoods, locale }) => {
   );
 };
 
-export default MenuSlider;
+export default CategorySlider;
