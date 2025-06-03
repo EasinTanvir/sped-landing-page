@@ -6,7 +6,12 @@ import AllMenus from "./areMenu/AllMenus";
 const AllMenusAndDiscount = ({ foodMenu, locale, allDiscountedFoods }) => {
   return (
     <div className="sm:pt-96 pt-80">
-      <DiscountMenus allDiscountedFoods={allDiscountedFoods} locale={locale} />
+      {allDiscountedFoods?.length > 0 && (
+        <DiscountMenus
+          allDiscountedFoods={allDiscountedFoods}
+          locale={locale}
+        />
+      )}
       <AllMenus foodMenu={foodMenu} locale={locale} />
     </div>
   );

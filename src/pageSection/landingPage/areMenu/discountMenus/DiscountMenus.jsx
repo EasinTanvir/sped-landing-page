@@ -4,8 +4,7 @@ import { Container, H2 } from "@/index";
 import { lobster } from "@/app/(routes)/[locale]/layout";
 import Motion from "@/components/ui/Motion";
 
-// import DiscountMenuSlider from "./DiscountMenuSlider";
-import DiscountMenuCard from "./DiscountMenuCard";
+import DiscountMenuSlider from "./DiscountMenuSlider";
 
 const DiscountMenus = ({ allDiscountedFoods, locale }) => {
   return (
@@ -22,8 +21,8 @@ const DiscountMenus = ({ allDiscountedFoods, locale }) => {
           Exclusive Discounts
         </H2>
 
-        <div className=" bg-white  py-16    flex flex-wrap gap-4">
-          {allDiscountedFoods.map((item, index) => (
+        <div className=" bg-white  ">
+          {/* {allDiscountedFoods.map((item, index) => (
             <DiscountMenuCard
               key={index}
               locale={locale}
@@ -35,7 +34,12 @@ const DiscountMenus = ({ allDiscountedFoods, locale }) => {
                   : null
               }
             />
-          ))}
+          ))} */}
+
+          <DiscountMenuSlider
+            allDiscountedFoods={allDiscountedFoods}
+            locale={locale}
+          />
         </div>
       </Container>
     </Motion>

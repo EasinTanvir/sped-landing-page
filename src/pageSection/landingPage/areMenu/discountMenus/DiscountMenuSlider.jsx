@@ -1,14 +1,11 @@
 "use client";
-
 import React from "react";
-
 import { Autoplay } from "swiper/modules";
-import SwipperButton from "@/components/swiper/SwipperButton";
 import SwiperSlider from "@/components/swiper/SwiperSlider";
-import DiscountMenus from "./DiscountMenus";
+import SwipperButton from "@/components/swiper/SwipperButton";
+import DiscountMenuCard from "./DiscountMenuCard";
 
 const DiscountMenuSlider = ({ allDiscountedFoods, locale }) => {
-  console.log("allDiscountedFoods", allDiscountedFoods);
   return (
     <div>
       <SwiperSlider
@@ -30,17 +27,17 @@ const DiscountMenuSlider = ({ allDiscountedFoods, locale }) => {
             spaceBetween: 12,
           },
           640: {
-            spaceBetween: 3,
+            spaceBetween: 1,
             spaceBetween: 6,
           },
           300: {
-            slidesPerView: 1.5,
+            slidesPerView: 1,
             spaceBetween: 5,
           },
         }}
         lists={allDiscountedFoods}
         renderCard={(item) => (
-          <DiscountMenus
+          <DiscountMenuCard
             key={item.id}
             locale={locale}
             item={item}
@@ -57,7 +54,7 @@ const DiscountMenuSlider = ({ allDiscountedFoods, locale }) => {
         wrapperClassName="flex justify-end items-center"
         seeAllClassName=""
         swiperStyle={{ display: "flex", flexDirection: "column-reverse" }}
-        cardClassName="py-5"
+        cardClassName=" py-10 sm:min-w-[500px] sm:max-w-[500px] min-w-full max-w-full"
         titleClassName="lg:text-4xl sm:text-3xl text-2xl font-bold text-headingColor"
       />
     </div>

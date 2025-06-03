@@ -10,7 +10,7 @@ const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
     <Link
       target="_blank"
       href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/ravintola-sinet`}
-      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2 border-yellow-500 bg-colors-button/30  rounded-lg  sm:py-6 py-3 sm:px-3 px-1.5  w-full max-w-[480px]`}
+      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2 border-yellow-500 bg-colors-button/30  rounded-lg py-6 px-3 w-full sm:max-w-[500px] max-w-full`}
     >
       <div className="flex-grow flex flex-col justify-between h-full">
         <div>
@@ -19,7 +19,7 @@ const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
               {item.food_name}
             </h3>
             {discountPrice && (
-              <span className="inline-block bg-colors-button text-white text-xs px-2 py-1 rounded-lg">
+              <span className="inline-block bg-[#f59e0b] text-white text-xs px-2 py-1 rounded-lg">
                 {calculateDiscountPercentage(price, discountPrice)}% Off
               </span>
             )}
@@ -30,14 +30,14 @@ const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
           </Text>
         </div>
 
-        <div className="flex items-center mt-4 space-x-2">
-          <div className="flex items-center gap-2 bg-colors-button border  px-3 py-1 rounded-lg ">
+        <div className="flex items-center mt-6 space-x-2">
+          <div className="flex items-center gap-2 bg-[#f59e0b] border px-3 py-1 rounded-lg">
             <FaTags className="text-white text-lg" />
             <div className="flex flex-row items-center gap-2">
-              <span className="text-base text-gray-200 line-through">
+              <span className="text-base text-white/80 line-through">
                 €{price}
               </span>
-              <span className="text-base text-red-600 font-bold">
+              <span className="text-base text-[#b91c1c] font-bold">
                 €{discountPrice}
               </span>
             </div>
