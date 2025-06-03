@@ -50,6 +50,7 @@
     "menuTitle": "Menumme"
   },
   "spedBanner": {
+    "mainTitle": "Liity Spediin tänään",
     "title": "Tee tilaus Spedillä",
     "description": "Himoitsetko jotain herkullista? Tilaa suosikkiruokasi tuoreena ja nopeasti. Teemme yhteistyötä parhaiden ravintoloiden kanssa, jotta makunystyräsi saavat nautintoa hetkessä.",
     "button": "Tilaa nyt"
