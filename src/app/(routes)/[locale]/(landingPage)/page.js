@@ -3,13 +3,14 @@ import React from "react";
 import HeroBanner from "@/pageSection/landingPage/banner/HeroBanner";
 import MenuSection from "@/pageSection/landingPage/menu/MenuSection";
 import TodayMenu from "@/pageSection/landingPage/todayMenu/TodayMenu";
-import AreMenuService from "@/pageSection/landingPage/areMenu/AreMenuService";
+
 import MasterChef from "@/pageSection/landingPage/masterChefs/MasterChef";
 import NewsLetter from "@/pageSection/landingPage/newsLetter/NewsLetter";
 import BookTable from "@/pageSection/landingPage/bookTable/BookTable";
 import { serverApi, spedApi } from "@/api";
 import ErrorFallback from "@/components/shared/ErrorFallback";
 import Restaurants from "@/pageSection/landingPage/menu/Restaurants/Restaurants";
+import AllMenusAndDiscount from "@/pageSection/landingPage/areMenu/AllMenusAndDiscount";
 
 const LandinPage = async ({ params }) => {
   let data = null;
@@ -78,7 +79,7 @@ const LandinPage = async ({ params }) => {
       <Restaurants allRestaurants={allRestaurants} locale={locale} />
       <MenuSection mergedFoods={mergedFoods} locale={locale} />
       {/* <TodayMenu /> */}
-      <AreMenuService
+      <AllMenusAndDiscount
         foodMenu={foodMenu}
         locale={locale}
         allDiscountedFoods={allDiscountedFoods}

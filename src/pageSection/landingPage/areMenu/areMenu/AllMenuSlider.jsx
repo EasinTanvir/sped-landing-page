@@ -1,8 +1,9 @@
 "use client";
+
 import React from "react";
 
-const AreMenuSlider = () => {
+const AllMenuSlider = () => {
   return <div></div>;
 };
 
-export default AreMenuSlider;
+export default AllMenuSlider;

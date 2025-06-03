@@ -5,7 +5,7 @@ import { lobster } from "@/app/(routes)/[locale]/layout";
 import Motion from "@/components/ui/Motion";
 import DiscountMenu from "../areMenu/DiscountMenu";
 
-const QualityService = ({ allDiscountedFoods, locale }) => {
+const DiscountMenus = ({ allDiscountedFoods, locale }) => {
   return (
     <Motion
       initial={{ rotateX: 90, opacity: 0, y: 50 }}
@@ -39,4 +39,4 @@ const QualityService = ({ allDiscountedFoods, locale }) => {
   );
 };
 
-export default QualityService;
+export default DiscountMenus;
