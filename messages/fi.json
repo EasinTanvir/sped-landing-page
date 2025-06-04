@@ -77,5 +77,43 @@
     "time": "Aika",
     "date": "Päivämäärä",
     "submit": "Varaa pöytä"
+  },
+  "aboutUs": {
+    "title": "Tietoa Ravintola Sinetistä",
+    "description": "Tervetuloa {name}, jossa maku kohtaa perinteen. Sijaitsemme yhteisömme sydämessä ja tarjoamme huolella valmistettuja annoksia tuoreista, paikallisesti hankituista raaka-aineista.",
+    "features": {
+      "authenticTitle": "Aito Keittiö",
+      "authenticDescription": "Ruokalistamme perustuu perinteisiin ja moderneihin makuihin, jotka miellyttävät jokaista makunystyrää.",
+      "freshTitle": "Tuoreet Ainekset",
+      "freshDescription": "Uskomme tuoreisiin, orgaanisiin ja paikallisiin raaka-aineisiin — vain parasta lautasellesi.",
+      "loveTitle": "Rakkaudella Valmistettu",
+      "loveDescription": "Jokainen annos valmistetaan huolella ja intohimolla omistautuneiden kokkiemme toimesta.",
+      "hospitalityTitle": "Lämmin Vieraanvaraisuus",
+      "hospitalityDescription": "Koe lämmin ilmapiiri, jossa jokainen asiakas on kuin perheenjäsen."
+    },
+    "closing": "Tule mukaan {name} — jokainen ateria on tarina ja jokainen asiakas on perhettä."
+  },
+  "contactUs": {
+    "heading": "Ota yhteyttä",
+    "description": "Haluamme kuulla sinusta. Olipa sinulla kysymyksiä, palautetta tai haluat tehdä varauksen — ota meihin yhteyttä!",
+    "phoneLabel": "Puhelin",
+    "phoneValue": "+358 12 345 6789",
+    "emailLabel": "Sähköposti",
+    "emailValue": "info@ravintolasinet.fi",
+    "locationLabel": "Sijainti",
+    "locationValue": "Helsinki, Suomi",
+    "form": {
+      "name": "Nimesi",
+      "email": "Sähköpostisi",
+      "message": "Viesti",
+      "submit": "Lähetä viesti"
+    },
+    "formErrors": {
+      "name": "Nimi on pakollinen",
+      "emailRequired": "Sähköposti on pakollinen",
+      "emailInvalid": "Virheellinen sähköpostiosoite",
+      "message": "Viesti on pakollinen"
+    },
+    "toastSuccess": "Tulossa pian..."
   }
 }

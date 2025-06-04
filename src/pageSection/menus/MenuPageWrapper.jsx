@@ -2,8 +2,11 @@ import React from "react";
 import DiscountMenuCard from "../landingPage/areMenu/discountMenus/DiscountMenuCard";
 import { Container, H2 } from "@/index";
 import { lobster } from "@/app/(routes)/[locale]/layout";
+import { getTranslations } from "next-intl/server";
 
 const MenuPageWrapper = async ({ foodMenu, allDiscountedFoods, locale }) => {
+  const t = await getTranslations("discountMenus");
+  const menuT = await getTranslations("allMenus");
   return (
     <Container className="sm:py-16 py-12 sm:space-y-24 space-y-16">
       {/* Discount Section */}
@@ -13,7 +16,7 @@ const MenuPageWrapper = async ({ foodMenu, allDiscountedFoods, locale }) => {
             text-4xl sm:text-5xl lg:text-6xl 
             !leading-[50px] sm:!leading-[80px]`}
         >
-          Exclusive Discounts
+          {t("discountTitle")}
         </H2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {allDiscountedFoods.map((item, index) => (
@@ -39,7 +42,7 @@ const MenuPageWrapper = async ({ foodMenu, allDiscountedFoods, locale }) => {
             text-4xl sm:text-5xl lg:text-6xl 
             !leading-[50px] sm:!leading-[80px]`}
         >
-          Our Menus
+          {menuT("menuTitle")}
         </H2>
 
         <div className="space-y-14">

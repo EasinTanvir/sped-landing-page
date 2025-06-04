@@ -77,5 +77,43 @@
     "time": "Time",
     "date": "Date",
     "submit": "Book a Table"
+  },
+  "aboutUs": {
+    "title": "About Ravintola Sinet",
+    "description": "Welcome to {name}, where flavor meets tradition. Located in the heart of our community, we offer a carefully crafted selection of dishes made with fresh, locally sourced ingredients.",
+    "features": {
+      "authenticTitle": "Authentic Cuisine",
+      "authenticDescription": "Our menu is inspired by traditional and modern flavors, designed to satisfy every palate.",
+      "freshTitle": "Fresh Ingredients",
+      "freshDescription": "We believe in fresh, organic, and locally sourced produce to serve the best on your plate.",
+      "loveTitle": "Made with Love",
+      "loveDescription": "Every dish we serve is prepared with care and passion by our dedicated chefs.",
+      "hospitalityTitle": "Warm Hospitality",
+      "hospitalityDescription": "Experience a welcoming atmosphere where every guest is treated like family."
+    },
+    "closing": "Join us at {name} — where every meal is a story, and every guest is family."
+  },
+  "contactUs": {
+    "heading": "Contact Us",
+    "description": "We'd love to hear from you. Whether you have questions, feedback, or want to make a reservation — reach out to us!",
+    "phoneLabel": "Phone",
+    "phoneValue": "+358 12 345 6789",
+    "emailLabel": "Email",
+    "emailValue": "info@ravintolasinet.fi",
+    "locationLabel": "Location",
+    "locationValue": "Helsinki, Finland",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "submit": "Send Message"
+    },
+    "formErrors": {
+      "name": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "message": "Message is required"
+    },
+    "toastSuccess": "Coming Soon..."
   }
 }

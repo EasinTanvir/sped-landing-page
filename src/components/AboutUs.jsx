@@ -1,61 +1,59 @@
 import React from "react";
 import { FaUtensils, FaLeaf, FaHeart, FaPeopleCarry } from "react-icons/fa";
-import { Container } from "@/index"; // Assuming you have a Container component
+import { Container } from "@/index";
+import { getTranslations } from "next-intl/server";
 
-const AboutUs = () => {
+const AboutUs = async () => {
+  const t = await getTranslations("aboutUs");
+  const restaurantName = "Ravintola Sinet";
+
   return (
     <Container className="md:py-40 py-12 space-y-12 ">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl sm:text-5xl font-bold italic">
-          About Ravintola Sinet
-        </h1>
+        <h1 className="text-4xl sm:text-5xl font-bold italic">{t("title")}</h1>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          Welcome to <span className="font-semibold">Ravintola Sinet</span>,
-          where flavor meets tradition. Located in the heart of our community,
-          we offer a carefully crafted selection of dishes made with fresh,
-          locally sourced ingredients.
+          {t("description", { name: restaurantName })}
         </p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="text-center space-y-3">
           <FaUtensils className="text-4xl text-colors-button mx-auto" />
-          <h3 className="text-xl font-semibold">Authentic Cuisine</h3>
+          <h3 className="text-xl font-semibold">
+            {t("features.authenticTitle")}
+          </h3>
           <p className="text-gray-600 text-sm">
-            Our menu is inspired by traditional and modern flavors, designed to
-            satisfy every palate.
+            {t("features.authenticDescription")}
           </p>
         </div>
         <div className="text-center space-y-3">
           <FaLeaf className="text-4xl text-colors-button mx-auto" />
-          <h3 className="text-xl font-semibold">Fresh Ingredients</h3>
+          <h3 className="text-xl font-semibold">{t("features.freshTitle")}</h3>
           <p className="text-gray-600 text-sm">
-            We believe in fresh, organic, and locally sourced produce to serve
-            the best on your plate.
+            {t("features.freshDescription")}
           </p>
         </div>
         <div className="text-center space-y-3">
           <FaHeart className="text-4xl text-colors-button mx-auto" />
-          <h3 className="text-xl font-semibold">Made with Love</h3>
+          <h3 className="text-xl font-semibold">{t("features.loveTitle")}</h3>
           <p className="text-gray-600 text-sm">
-            Every dish we serve is prepared with care and passion by our
-            dedicated chefs.
+            {t("features.loveDescription")}
           </p>
         </div>
         <div className="text-center space-y-3">
           <FaPeopleCarry className="text-4xl text-colors-button mx-auto" />
-          <h3 className="text-xl font-semibold">Warm Hospitality</h3>
+          <h3 className="text-xl font-semibold">
+            {t("features.hospitalityTitle")}
+          </h3>
           <p className="text-gray-600 text-sm">
-            Experience a welcoming atmosphere where every guest is treated like
-            family.
+            {t("features.hospitalityDescription")}
           </p>
         </div>
       </div>
 
       <div className="text-center pt-10 border-t border-gray-200">
         <p className="text-gray-700 italic">
-          Join us at <span className="font-semibold">Ravintola Sinet</span> —
-          where every meal is a story, and every guest is family.
+          {t("closing", { name: restaurantName })}
         </p>
       </div>
     </Container>
