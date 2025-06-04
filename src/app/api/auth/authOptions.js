@@ -17,8 +17,6 @@ export const authConfig = {
           throw new Error("Email is required");
         }
 
-        console.log("credentials", credentials);
-
         user = await prismaCli.user.findFirst({
           where: {
             email: credentials.email,

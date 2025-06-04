@@ -4,20 +4,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
-
+import { HiOutlineUserGroup } from "react-icons/hi2";
+import { IoFastFood } from "react-icons/io5";
 import { Icon, H1, Container } from "../..";
 import ResponsiveButton from "./ResponsiveButton";
 import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
 import LanguageSwitcher from "../LanguageSwitcher";
-import {
-  RiRestaurantFill,
-  RiPhoneFill,
-  FaUtensils,
-  BiHomeAlt,
-} from "@/utils/icons";
-import { MdOutlineRestaurant } from "react-icons/md";
+import { RiRestaurantFill, RiPhoneFill, BiHomeAlt } from "@/utils/icons";
+import { Lobster } from "next/font/google";
 
+export const lobster = Lobster({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin", "cyrillic", "cyrillic-ext", "latin-ext"],
+});
 const Navbar = ({ brandSetting }) => {
   const t = useTranslations("navbar");
 
@@ -30,8 +31,8 @@ const Navbar = ({ brandSetting }) => {
   const navLinks = [
     { name: t("Home"), path: "/", icon: BiHomeAlt },
     { name: t("Menu"), path: "/menu", icon: RiRestaurantFill },
+    { name: t("About Us"), path: "/about", icon: HiOutlineUserGroup },
     { name: t("Contact"), path: "/contact", icon: RiPhoneFill },
-    { name: t("About Us"), path: "/about", icon: FaUtensils },
   ];
 
   if (path === "/login" || path === "/register") return;
@@ -52,11 +53,13 @@ const Navbar = ({ brandSetting }) => {
         {!adminPage && (
           <div className="flex items-center gap-2 ">
             <Icon
-              className="text-colors-heading"
-              icon={MdOutlineRestaurant}
+              className=" mb-1 text-colors-button"
+              icon={IoFastFood}
               size={35}
             />
-            <H1 className="text-colors-heading md:text-2xl text-xl font-bold font-mono italic">
+            <H1
+              className={`text-colors-button md:text-4xl text-3xl   ${lobster.className}`}
+            >
               {brandSetting?.brandTitle[locale] || "SwiftDop"}
             </H1>
           </div>
@@ -87,7 +90,11 @@ const Navbar = ({ brandSetting }) => {
         </motion.ul>
 
         <ResponsiveButton />
-        <MobileNav />
+        <MobileNav
+          lobster={lobster}
+          brandSetting={brandSetting}
+          locale={locale}
+        />
       </Container>
     </div>
   );

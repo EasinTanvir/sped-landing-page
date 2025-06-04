@@ -15,7 +15,7 @@ const defaultConsent = {
 
 export default function CookieConsent() {
   const { isAuthenticated: isLoggedIn, isLoading, session } = useAuthStatus();
-  console.log("isLoggedIn", isLoggedIn);
+
   const [visible, setVisible] = useState(false);
   const [consent, setConsent] = useState(defaultConsent);
 

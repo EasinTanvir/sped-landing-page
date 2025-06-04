@@ -36,10 +36,9 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
-  console.log("I am hit");
   try {
     const body = await req.json();
-    console.log("body", body);
+
     if (!body.id) {
       return NextResponse.json(
         { success: false, message: "Missing ID for update" },

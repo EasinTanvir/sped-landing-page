@@ -58,8 +58,6 @@ const HeroBanner = ({ bannerData }) => {
         },
       };
 
-      console.log("send Data", sendData);
-
       const method = bannerData?.id ? "put" : "post";
 
       const { data } = await api[method](

@@ -5,10 +5,18 @@ import { FaTags } from "react-icons/fa";
 import { Text } from "@/index";
 import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
 
-const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
+const DiscountMenuCard = ({
+  item,
+  locale,
+  discountPrice,
+  price,
+  subcategory_name = false,
+}) => {
   return (
     <div
-      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2 border-colors-button bg-colors-button/20  rounded-lg py-6 px-3 w-full sm:max-w-[500px] max-w-full`}
+      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2  ${
+        discountPrice ? "border-colors-button bg-colors-button/20" : " bg-white"
+      }   rounded-lg py-6 px-3 w-full sm:max-w-[500px] max-w-full`}
     >
       <div className="flex-grow flex flex-col justify-between h-full">
         <div>
@@ -29,17 +37,21 @@ const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
         </div>
 
         <div className="flex items-center mt-6 space-x-2">
-          <div className="flex items-center gap-2 bg-colors-button border px-3 py-1 rounded-lg">
-            <FaTags className="text-white text-lg" />
-            <div className="flex flex-row items-center gap-2">
-              <span className="text-base text-white/80 line-through">
-                €{price}
-              </span>
-              <span className="text-base text-rose-600 font-semibold">
-                €{discountPrice}
-              </span>
+          {discountPrice ? (
+            <div className="flex items-center gap-2 bg-colors-button border px-3 py-1 rounded-lg">
+              <FaTags className="text-white text-lg" />
+              <div className="flex flex-row items-center gap-2">
+                <span className="text-base text-white/80 line-through">
+                  €{price}
+                </span>
+                <span className="text-base text-rose-600 font-semibold">
+                  €{discountPrice}
+                </span>
+              </div>
             </div>
-          </div>
+          ) : (
+            <span className="text-base text-colors-button">€{price}</span>
+          )}
         </div>
       </div>
 

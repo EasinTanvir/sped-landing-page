@@ -14,8 +14,9 @@ import {
   BiHomeAlt,
 } from "@/utils/icons";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { IoFastFoodSharp } from "react-icons/io5";
 
-const MobileNav = () => {
+const MobileNav = ({ brandSetting, lobster, locale }) => {
   const { openNav } = useGlobalContext();
 
   return (
@@ -24,14 +25,19 @@ const MobileNav = () => {
         openNav ? "opacity-100   visible" : "opacity-0 invisible"
       }`}
     >
-      <NavSideBar openNav={openNav} />
+      <NavSideBar
+        openNav={openNav}
+        lobster={lobster}
+        brandSetting={brandSetting}
+        locale={locale}
+      />
     </div>
   );
 };
 
 export default MobileNav;
 
-const NavSideBar = ({ openNav }) => {
+const NavSideBar = ({ openNav, brandSetting, lobster, locale }) => {
   const t = useTranslations("navbar");
 
   const navLinks = [
@@ -51,10 +57,16 @@ const NavSideBar = ({ openNav }) => {
           openNav ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="flex items-center gap-2">
-          <Icon className="text-colors-heading" icon={RiTruckFill} size={35} />
-          <H1 className="text-sm text-colors-heading md:text-2xl font-semibold">
-            SwiftDrop
+        <div className="flex items-center gap-2 ">
+          <Icon
+            className=" mb-1 text-colors-button"
+            icon={IoFastFoodSharp}
+            size={35}
+          />
+          <H1
+            className={`text-colors-button md:text-4xl text-3xl   ${lobster.className}`}
+          >
+            {brandSetting?.brandTitle[locale] || "SwiftDop"}
           </H1>
         </div>
 

@@ -1,9 +1,9 @@
 import { FaSpinner } from "react-icons/fa";
 
-export default function InitialLoader() {
+export default function InitialLoader({ className = "" }) {
   return (
     <div
-      className="min-h-[40vh] flex items-center justify-center pb-40"
+      className={`min-h-[40vh] flex items-center justify-center pb-40 ${className}`}
       style={{ backgroundColor: "#F3F2EB" }}
     >
       <div className="flex flex-col items-center gap-4">
