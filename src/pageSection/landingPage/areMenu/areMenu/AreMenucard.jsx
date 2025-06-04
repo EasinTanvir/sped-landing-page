@@ -1,14 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { Text } from "@/index";
-import Link from "next/link";
 import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
 
 const AreMenucard = ({ item, locale, discountPrice, price }) => {
   return (
-    <Link
-      target="_blank"
-      href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/ravintola-sinet`}
+    <div
       className={`flex lg:flex-row sm:flex-col flex-row ${
         discountPrice ? "bg-yellow-100" : "hover:bg-gray-100"
       }  cursor-pointer p-1.5 rounded-lg   lg:items-center sm:items-start items-center lg:space-x-4 space-x-0   sm:gap-4 gap-2 relative sm:w-full w-[90%] xl:max-w-[460px] `}
@@ -53,7 +50,7 @@ const AreMenucard = ({ item, locale, discountPrice, price }) => {
           {item.food_description || "No description"}
         </Text>
       </div>
-    </Link>
+    </div>
   );
 };
 

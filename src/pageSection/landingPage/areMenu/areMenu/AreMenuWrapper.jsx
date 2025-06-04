@@ -39,37 +39,31 @@ const AreMenuWrapper = ({ foodMenu, locale }) => {
       />
 
       <div className="overflow-hidden ">
-        <motion.div layout>
-          <div className="grid sm:grid-cols-2 lg:gap-0 gap-5 space-y-3">
-            <AnimatePresence mode="popLayout">
-              {filteredItems.map((item, index) => (
-                <motion.div
-                  key={`${selectedTab}-${item.food_id}`}
-                  layout
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 50 }}
-                  transition={{
-                    duration: 0.3,
-                    ease: "easeInOut",
-                    delay: index * 0.03,
-                  }}
-                >
-                  <AreMenucard
-                    item={item}
-                    locale={locale}
-                    price={item.original_price ? item.original_price : 0}
-                    discountPrice={
-                      item.food_price && Number(item?.discount_price || 0) !== 0
-                        ? item.food_price
-                        : null
-                    }
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </motion.div>
+        <div className="grid sm:grid-cols-2 lg:gap-0 gap-5 space-y-3">
+          {filteredItems.map((item, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              transition={{
+                duration: 0.3,
+                ease: "easeInOut",
+                delay: index * 0.03,
+              }}
+            >
+              <AreMenucard
+                item={item}
+                locale={locale}
+                price={item.original_price ? item.original_price : 0}
+                discountPrice={
+                  item.food_price && Number(item?.discount_price || 0) !== 0
+                    ? item.food_price
+                    : null
+                }
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </React.Fragment>
   );

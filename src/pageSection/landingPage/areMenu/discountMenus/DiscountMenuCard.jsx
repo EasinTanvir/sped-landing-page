@@ -1,25 +1,23 @@
 import React from "react";
 import Image from "next/image";
-import { Text } from "@/index";
-import Link from "next/link";
-import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
 import { FaTags } from "react-icons/fa";
+
+import { Text } from "@/index";
+import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
 
 const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
   return (
-    <Link
-      target="_blank"
-      href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/ravintola-sinet`}
-      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2 border-yellow-500 bg-colors-button/30  rounded-lg py-6 px-3 w-full sm:max-w-[500px] max-w-full`}
+    <div
+      className={`flex flex-row relative cursor-pointer gap-2 items-center border-2 border-colors-button bg-colors-button/20  rounded-lg py-6 px-3 w-full sm:max-w-[500px] max-w-full`}
     >
       <div className="flex-grow flex flex-col justify-between h-full">
         <div>
-          <div className="flex flex-wrap items-center gap-1">
+          <div className="flex flex-wrap items-center gap-2">
             <h3 className="text-headingColor font-semibold text-base">
               {item.food_name}
             </h3>
             {discountPrice && (
-              <span className="inline-block bg-[#f59e0b] text-white text-xs px-2 py-1 rounded-lg">
+              <span className="inline-block font-semibold bg-colors-button text-white text-xs px-3 py-1 rounded-lg">
                 {calculateDiscountPercentage(price, discountPrice)}% Off
               </span>
             )}
@@ -31,13 +29,13 @@ const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
         </div>
 
         <div className="flex items-center mt-6 space-x-2">
-          <div className="flex items-center gap-2 bg-[#f59e0b] border px-3 py-1 rounded-lg">
+          <div className="flex items-center gap-2 bg-colors-button border px-3 py-1 rounded-lg">
             <FaTags className="text-white text-lg" />
             <div className="flex flex-row items-center gap-2">
               <span className="text-base text-white/80 line-through">
                 €{price}
               </span>
-              <span className="text-base text-[#b91c1c] font-bold">
+              <span className="text-base text-rose-600 font-semibold">
                 €{discountPrice}
               </span>
             </div>
@@ -57,7 +55,7 @@ const DiscountMenuCard = ({ item, locale, discountPrice, price }) => {
           />
         )}
       </div>
-    </Link>
+    </div>
   );
 };
 

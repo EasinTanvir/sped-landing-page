@@ -1,8 +1,7 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 
 import { Button, H4, H5, Text } from "@/index";
-import Link from "next/link";
 
 const Menucard = ({
   food_name,
@@ -13,11 +12,7 @@ const Menucard = ({
   locale,
 }) => {
   return (
-    <Link
-      target="_blank"
-      href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/ravintola-sinet`}
-      className="bg-white shadow-md rounded-xl p-3 w-full max-w-64 relative overflow-hidden flex flex-col justify-between h-[170px]"
-    >
+    <div className="bg-white shadow-md rounded-xl p-3 w-full max-w-64 relative overflow-hidden flex flex-col justify-between h-[170px]">
       <div className="flex items-start gap-2">
         {food_image && (
           <Image
@@ -48,7 +43,7 @@ const Menucard = ({
           +
         </Button>
       </div>
-    </Link>
+    </div>
   );
 };
 
