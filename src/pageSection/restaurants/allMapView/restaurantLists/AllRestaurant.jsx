@@ -5,13 +5,15 @@ import React, { useState } from "react";
 import { H1 } from "@/index";
 import SwtichTabs from "@/components/SwtichTabs";
 import RestaurantItems from "./RestaurantItems";
+import { useGlobalContext } from "@/contextStore/GlobalContext";
 
 const AllRestaurant = ({
   allRestaurants,
   selectedRestaurant,
   setSelectedRestaurant,
 }) => {
-  const [switcher, setSwitcher] = useState("delivery");
+  const { switcher, setSwitcher } = useGlobalContext();
+
   return (
     <div className="w-[450px] border p-4">
       <H1

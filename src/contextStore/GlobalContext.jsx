@@ -5,6 +5,7 @@ const GlobalContext = React.createContext();
 const ContextProvider = ({ children }) => {
   const [openNav, setOpenNav] = useState(false);
   const [dashBoardSideBar, setBoardSideBar] = useState(true);
+  const [switcher, setSwitcher] = useState("delivery");
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,6 +24,8 @@ const ContextProvider = ({ children }) => {
     setOpenNav,
     dashBoardSideBar,
     setBoardSideBar,
+    switcher,
+    setSwitcher,
   };
 
   return (

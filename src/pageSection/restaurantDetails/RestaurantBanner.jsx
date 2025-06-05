@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 // import { detailsBanner } from "@/utils/constant";
@@ -15,6 +15,7 @@ import SwtichTabs from "@/components/SwtichTabs";
 import { CiClock2, CiFaceSmile } from "react-icons/ci";
 import { BiTask } from "react-icons/bi";
 import { FaPersonCirclePlus } from "react-icons/fa6";
+import { useGlobalContext } from "@/contextStore/GlobalContext";
 // import SwtichTabs from "./SwtichTabs";
 // import { useTranslations } from "next-intl";
 // import { useSelector } from "react-redux";
@@ -99,7 +100,7 @@ const Notify = ({
   btnText,
   restaurantInfo,
 }) => {
-  const [switcher, setSwitcher] = useState("delivery");
+  const { switcher, setSwitcher } = useGlobalContext();
 
   return (
     <Container className="flex lg:flex-row md:justify-between flex-col lg:gap-0 gap-4 lg:items-end  sm:py-6 py-4   overflow-hidden   ">

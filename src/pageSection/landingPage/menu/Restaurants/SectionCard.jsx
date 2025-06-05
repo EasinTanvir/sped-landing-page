@@ -2,13 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { CiFaceSmile } from "react-icons/ci";
 import { H4, Text } from "@/index";
-import Link from "next/link";
 
 const SectionCard = ({ priceCategory, rating, item, locale }) => {
   return (
-    <Link
-      href={`${process.env.NEXT_PUBLIC_SPED_FRONTEND_BASE_URL}/${locale}/fin/joensuu/restaurant/${item?.restaurant_slug}`}
-      target="_blank"
+    <div
       className={`lg:min-h-[290px] w-full shadow-lg relative rounded-xl cursor-pointer sm:hover:scale-[1.02] transition-transform duration-300 flex flex-col overflow-hidden`}
     >
       <div className="relative aspect-[6/3] z-10">
@@ -59,7 +56,7 @@ const SectionCard = ({ priceCategory, rating, item, locale }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
