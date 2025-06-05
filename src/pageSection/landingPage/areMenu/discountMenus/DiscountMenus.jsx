@@ -22,20 +22,6 @@ const DiscountMenus = ({ allDiscountedFoods, locale, t }) => {
         </H2>
 
         <div className=" bg-white  ">
-          {/* {allDiscountedFoods.map((item, index) => (
-            <DiscountMenuCard
-              key={index}
-              locale={locale}
-              item={item}
-              price={item.original_price ? item.original_price : 0}
-              discountPrice={
-                item.food_price && Number(item?.discount_price || 0) !== 0
-                  ? item.food_price
-                  : null
-              }
-            />
-          ))} */}
-
           <DiscountMenuSlider
             allDiscountedFoods={allDiscountedFoods}
             locale={locale}

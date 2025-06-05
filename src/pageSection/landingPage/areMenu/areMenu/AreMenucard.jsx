@@ -2,10 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { Text } from "@/index";
 import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
+import { Link } from "@/i18n/routing";
 
 const AreMenucard = ({ item, locale, discountPrice, price }) => {
   return (
-    <div
+    <Link
+      href="/restaurants"
       className={`flex lg:flex-row sm:flex-col flex-row ${
         discountPrice ? "bg-yellow-100" : "hover:bg-gray-100"
       }  cursor-pointer p-1.5 rounded-lg   lg:items-center sm:items-start items-center lg:space-x-4 space-x-0   sm:gap-4 gap-2 relative sm:w-full w-[90%] xl:max-w-[460px] `}
@@ -50,7 +52,7 @@ const AreMenucard = ({ item, locale, discountPrice, price }) => {
           {item.food_description || "No description"}
         </Text>
       </div>
-    </div>
+    </Link>
   );
 };
 

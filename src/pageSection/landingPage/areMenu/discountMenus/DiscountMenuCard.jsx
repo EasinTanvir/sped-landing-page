@@ -4,6 +4,7 @@ import { FaTags } from "react-icons/fa";
 
 import { Text } from "@/index";
 import calculateDiscountPercentage from "@/utils/calculateDiscountPercentage";
+import { Link } from "@/i18n/routing";
 
 const DiscountMenuCard = ({
   item,
@@ -13,7 +14,8 @@ const DiscountMenuCard = ({
   subcategory_name = false,
 }) => {
   return (
-    <div
+    <Link
+      href="/restaurants"
       className={`flex flex-row relative cursor-pointer gap-2 items-center border-2  ${
         discountPrice ? "border-colors-button bg-colors-button/20" : " bg-white"
       }   rounded-lg py-6 px-3 w-full sm:max-w-[500px] max-w-full`}
@@ -67,7 +69,7 @@ const DiscountMenuCard = ({
           />
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 
