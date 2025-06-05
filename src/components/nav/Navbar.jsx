@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { HiOutlineUserGroup } from "react-icons/hi2";
 import { IoFastFood } from "react-icons/io5";
 import { Icon, H1, Container } from "../..";
@@ -21,6 +21,7 @@ export const lobster = Lobster({
 });
 const Navbar = ({ brandSetting }) => {
   const t = useTranslations("navbar");
+  const router = useRouter();
 
   const locale = useLocale();
 
@@ -35,8 +36,13 @@ const Navbar = ({ brandSetting }) => {
     { name: t("Contact"), path: "/contact", icon: RiPhoneFill },
   ];
 
+  const isResDetailsPage = path.includes("restaurant");
+  console.log("isResDetailsPage", isResDetailsPage);
+  const onNavigateHandler = () => {
+    if (!isResDetailsPage) return;
+    router.back();
+  };
   if (path === "/login" || path === "/register") return;
-
   return (
     <div
       className={` ${
@@ -51,7 +57,10 @@ const Navbar = ({ brandSetting }) => {
         }`}
       >
         {!adminPage && (
-          <div className="flex items-center gap-2 ">
+          <div
+            onClick={onNavigateHandler}
+            className="flex items-center gap-2 cursor-pointer "
+          >
             <Icon
               className=" mb-1 text-colors-button"
               icon={IoFastFood}

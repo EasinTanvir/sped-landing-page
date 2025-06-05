@@ -1,6 +1,7 @@
 import React from "react";
 import { H2, Text } from "@/index";
 import { RiArrowRightWideFill } from "react-icons/ri";
+import { Link } from "@/i18n/routing";
 
 const RestaurantItems = ({
   restaurant_id,
@@ -13,8 +14,9 @@ const RestaurantItems = ({
   selectedRestaurant,
 }) => {
   return (
-    <div
-      onClick={() =>
+    <Link
+      href={`/fin/joensuu/restaurant/${restaurant_slug}`}
+      onMouseEnter={() =>
         setSelectedRestaurant({
           restaurant_id,
           restaurant_name,
@@ -23,6 +25,7 @@ const RestaurantItems = ({
           restaurant_longitude,
         })
       }
+      onMouseLeave={() => setSelectedRestaurant(null)}
       className={`flex justify-between items-center hover:bg-gray-100 py-2.5 px-2 rounded-lg cursor-pointer ${
         selectedRestaurant?.restaurant_id === restaurant_id ? "bg-gray-100" : ""
       }`}
@@ -36,7 +39,7 @@ const RestaurantItems = ({
         </div>
       </div>
       <RiArrowRightWideFill size={20} />
-    </div>
+    </Link>
   );
 };
 
